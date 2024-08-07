@@ -50,7 +50,7 @@ const Sidebar: React.FC = () => {
       >
         <div className="flex flex-col h-full">
           {/* Sidebar Header */}
-          <div className="p-4 text-xl font-semibold border-b border-gray-500 flex items-center justify-between lg:hidden">
+          <div className="p-2 text-xl font-semibold border-b border-gray-500 flex items-center justify-between lg:hidden">
             <span>Admin Panel</span>
             <button
               className="p-2 text-black lg:hidden"
