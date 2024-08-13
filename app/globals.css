@@ -67,3 +67,22 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+/* Sidebar.css or a global stylesheet */
+.dropdown {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out; /* Adjust the duration for slower or faster animation */
+}
+
+.dropdown-open {
+  max-height: 200px; /* Adjust this value as needed */
+}
+
+
+/* Search-Engine-Css */
+
+.rotate-360 {
+  transform: rotate(360deg);
+}

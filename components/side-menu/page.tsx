@@ -2,22 +2,18 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { HiMenu, HiX, HiDocumentText, HiUser, HiCreditCard, HiBriefcase } from 'react-icons/hi';
-import { FaPlane, FaHotel, FaCcVisa, FaCalendarAlt, FaFileAlt } from 'react-icons/fa';
-import { MdPeople } from 'react-icons/md';
+import { HiMenu, HiX, HiUser, HiCreditCard, HiBriefcase } from 'react-icons/hi';
+import { FaPlane, FaHotel, FaCcVisa, FaCaretDown, FaCreativeCommonsZero } from 'react-icons/fa';
+import { MdOutlineArrowDropDownCircle, MdPeople } from "react-icons/md";
 import { FcSearch } from "react-icons/fc";
-import { FcReadingEbook } from "react-icons/fc";
-import { MdOutlineCancel } from 'react-icons/md';
+import { FcReadingEbook, FcMoneyTransfer, FcHeatMap, FcCurrencyExchange } from "react-icons/fc";
 import { RiEmotionHappyLine } from 'react-icons/ri';
-import { FcMoneyTransfer } from "react-icons/fc";
-import { FcHeatMap } from "react-icons/fc";
 import { RiRefund2Fill } from "react-icons/ri";
 import { AiOutlineIssuesClose } from "react-icons/ai";
 import { GiReceiveMoney } from "react-icons/gi";
-import { FcCurrencyExchange } from "react-icons/fc";
-import { FaCreativeCommonsZero } from "react-icons/fa";
-import { BsClockHistory } from "react-icons/bs";
-import { BsChatLeftQuote } from "react-icons/bs";
+import { BsClockHistory, BsChatLeftQuote } from "react-icons/bs";
+
+
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true); // Default to open
@@ -77,6 +73,7 @@ const Sidebar: React.FC = () => {
                 >
                   <FcReadingEbook className="mr-2 text-green-500" />
                   Booking History
+                  <MdOutlineArrowDropDownCircle className="ml-2 text-gray-500" />
                 </button>
                 <ul className={`pl-4 space-y-2 ${isBookingHistoryOpen ? 'block' : 'hidden'}`}>
                   <li>
@@ -92,6 +89,7 @@ const Sidebar: React.FC = () => {
                     >
                       <FaCreativeCommonsZero className="mr-2 text-red-500" />
                       Void
+                      <FaCaretDown className="ml-2 text-gray-500" />
                     </button>
                     <ul className={`pl-4 space-y-2 ${isVoidOpen ? 'block' : 'hidden'}`}>
                       <li>
@@ -115,6 +113,7 @@ const Sidebar: React.FC = () => {
                     >
                       <RiRefund2Fill className="mr-2 text-blue-500" />
                       Refund
+                      <FaCaretDown className="ml-2 text-gray-500" />
                     </button>
                     <ul className={`pl-4 space-y-2 ${isRefundOpen ? 'block' : 'hidden'}`}>
                       <li>
@@ -138,6 +137,7 @@ const Sidebar: React.FC = () => {
                     >
                       <AiOutlineIssuesClose className="mr-2 text-teal-500" />
                       Reissue
+                      <FaCaretDown className="ml-2 text-gray-500" />
                     </button>
                     <ul className={`pl-4 space-y-2 ${isReissueOpen ? 'block' : 'hidden'}`}>
                       <li>
@@ -161,6 +161,7 @@ const Sidebar: React.FC = () => {
                     >
                       <RiEmotionHappyLine className="mr-2 text-pink-500" />
                       LifeStyle
+                      <FaCaretDown className="ml-2 text-gray-500" />
                     </button>
                     <ul className={`pl-4 space-y-2 ${isLifeStyleOpen ? 'block' : 'hidden'}`}>
                       <li>
