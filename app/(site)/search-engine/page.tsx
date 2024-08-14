@@ -48,28 +48,28 @@ const SearchEngine: React.FC<Props> = () => {
             <TabsList className="grid w-full grid-cols-4 space-x-2">
               <TabsTrigger
                 value="oneway"
-                className="bg-blue-600 text-white hover:bg-white hover:text-blue-600 p-3 transition-transform transform hover:scale-105"
+                className="bg-blue-600 text-white hover:bg-white hover:text-blue-600 p-2 lg:p-3 transition-transform transform hover:scale-105 text-sm lg:text-lg"
               >
                 <FaPlaneDeparture size={20} />
                 <span className="ml-2 hidden lg:inline">One Way</span>
               </TabsTrigger>
               <TabsTrigger
                 value="roundtrip"
-                className="bg-green-600 text-white hover:bg-white hover:text-green-600 p-3 transition-transform transform hover:scale-105"
+                className="bg-green-600 text-white hover:bg-white hover:text-green-600 p-2 lg:p-3 transition-transform transform hover:scale-105 text-sm lg:text-lg"
               >
                 <FaPlaneArrival size={20} />
                 <span className="ml-2 hidden lg:inline">Round Trip</span>
               </TabsTrigger>
               <TabsTrigger
                 value="multicity"
-                className="bg-red-600 text-white hover:bg-white hover:text-red-600 p-3 transition-transform transform hover:scale-105"
+                className="bg-red-600 text-white hover:bg-white hover:text-red-600 p-2 lg:p-3 transition-transform transform hover:scale-105 text-sm lg:text-lg"
               >
                 <FaGlobe size={20} />
                 <span className="ml-2 hidden lg:inline">Multi City</span>
               </TabsTrigger>
               <TabsTrigger
                 value="umrah"
-                className="bg-yellow-500 text-white hover:bg-white hover:text-yellow-500 p-3 transition-transform transform hover:scale-105"
+                className="bg-yellow-500 text-white hover:bg-white hover:text-yellow-500 p-2 lg:p-3 transition-transform transform hover:scale-105 text-sm lg:text-lg"
               >
                 <FaPray size={20} />
                 <span className="ml-2 hidden lg:inline">Umrah</span>
@@ -91,21 +91,21 @@ const SearchEngine: React.FC<Props> = () => {
         </div>
         <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 h-fit rounded-lg">
           <Select>
-            <SelectTrigger className="w-[120px]">
+            <SelectTrigger className="w-[120px] text-sm lg:text-base">
               <SelectValue placeholder="Economy" />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
-                <SelectLabel>Fruits</SelectLabel>
+                {/* <SelectLabel>Fruits</SelectLabel>
                 <SelectItem value="apple">Apple</SelectItem>
                 <SelectItem value="banana">Banana</SelectItem>
                 <SelectItem value="blueberry">Blueberry</SelectItem>
                 <SelectItem value="grapes">Grapes</SelectItem>
-                <SelectItem value="pineapple">Pineapple</SelectItem>
+                <SelectItem value="pineapple">Pineapple</SelectItem> */}
               </SelectGroup>
             </SelectContent>
           </Select>
-          <select className="p-2 border border-gray-300 rounded-md flex-1" aria-label="Travellers">
+          <select className="p-2 border border-gray-300 rounded-md flex-1 text-sm lg:text-base" aria-label="Travellers">
             <option>1 Traveller</option>
             <option>2 Travellers</option>
             <option>3 Travellers</option>
@@ -119,11 +119,11 @@ const SearchEngine: React.FC<Props> = () => {
           <div className="flex flex-col lg:flex-row lg:items-center lg:gap-8 w-full">
             <div className="h-full flex flex-col lg:flex-row gap-4 lg:gap-0 w-full">
               <div className="flex items-center h-full rounded-lg bg-gray-200 flex-1">
-                <Input type="text" className="w-full h-full p-5 lg:border-r-0 rounded-lg" placeholder="Depart From" />
+                <Input type="text" className="w-full h-full p-5 lg:border-r-0 rounded-lg text-sm lg:text-base" placeholder="Depart From" />
               </div>
 
               <button
-                className="w-fit bg-white text-gray-700 p-5 border border-gray-500 rounded-full flex items-center justify-center transition-transform transform hover:scale-105"
+                className="w-fit bg-white text-gray-700 p-2 lg:p-5 border border-gray-500 rounded-full flex items-center justify-center transition-transform transform hover:scale-105"
                 onClick={handleSwapClick}
               >
                 <Image
@@ -136,15 +136,15 @@ const SearchEngine: React.FC<Props> = () => {
               </button>
 
               <div className="flex items-center h-full rounded-lg bg-gray-200 flex-1">
-                <Input type="text" className="w-full h-full p-5 lg:border-l-0 rounded-lg" placeholder="Going To" />
+                <Input type="text" className="w-full h-full p-5 lg:border-l-0 rounded-lg text-sm lg:text-base" placeholder="Going To" />
               </div>
             </div>
           </div>
           <div className="flex flex-col lg:flex-row gap-4 lg:gap-3 w-full">
-            <CustomDatePicker placeholder="14 | August - Wed - 2024" />
-            <CustomDatePicker placeholder="15 | August - Wed - 2024" />
+            <CustomDatePicker placeholder="14 | August - Wed - 2024"/>
+            <CustomDatePicker placeholder="15 | August - Wed - 2024"/>
             <div className="flex lg:ml-2 items-center h-full rounded-lg bg-gray-200 flex-none">
-              <button className="bg-blue-500 text-white p-5 rounded-lg w-full flex items-center justify-center transition-transform transform hover:scale-105">
+              <button className="bg-blue-500 text-white p-2 lg:p-5 rounded-lg w-full flex items-center justify-center transition-transform transform hover:scale-105 text-sm lg:text-base">
                 <Image
                   src="/se/search.png"
                   width={50}
@@ -170,7 +170,7 @@ const SearchEngine: React.FC<Props> = () => {
             onChange={handleFareChange}
             className="mr-2"
           />
-          <label htmlFor="regular" className="text-gray-700 drop-shadow-xl">Regular Fare</label>
+          <label htmlFor="regular" className="text-gray-700 drop-shadow-xl text-sm lg:text-base">Regular Fare</label>
         </div>
         <div className="flex items-center ">
           <input
@@ -182,7 +182,7 @@ const SearchEngine: React.FC<Props> = () => {
             onChange={handleFareChange}
             className="mr-2"
           />
-          <label htmlFor="student" className="text-gray-700 drop-shadow-xl">Student Fare</label>
+          <label htmlFor="student" className="text-gray-700 drop-shadow-xl text-sm lg:text-base">Student Fare</label>
         </div>
       </div>
     </div>

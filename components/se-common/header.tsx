@@ -17,7 +17,7 @@ export default function SEheader({ }: Props) {
     };
 
     return (
-        <header className="bg-white rounded-lg p-2 mb-5">
+        <header className="bg-white rounded-xl p-2 mb-5">
             <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8">
                 <div className="flex flex-1 items-center justify-end md:justify-between">
                     <nav aria-label="Global" className="hidden md:block">
@@ -58,7 +58,7 @@ export default function SEheader({ }: Props) {
                         <div className="sm:flex sm:gap-4">
                             <li className="flex items-center gap-2 p-2.5 bg-green-500 border border-gray-300 rounded-lg shadow-sm transition-transform transform hover:scale-105">
                                 <FaUserGroup className="text-white" size={20} />
-                                <a className="text-white transition hover:text-white font-medium text-lg" href="#">Hotel</a>
+                                <a className="text-white transition hover:text-white font-medium text-lg" href="#">Group Request</a>
                             </li>
                         </div>
 
