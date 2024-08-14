@@ -84,5 +84,7 @@
 /* Search-Engine-Css */
 
 .rotate-360 {
-  transform: rotate(360deg);
+  transform: rotate(180deg);
 }
+
+
