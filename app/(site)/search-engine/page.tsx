@@ -130,7 +130,7 @@ const SearchEngine: React.FC<Props> = () => {
                   width={50}
                   height={50}
                   alt="Swap Icon"
-                  className={`w-6 h-6 ${isRotating ? 'rotate-360' : ''}transition-transform duration-1000`}
+                  className={`w-6 h-6 ${isRotating ? 'rotate-360' : ''} transition-transform duration-1000`}
                 />
               </button>
 

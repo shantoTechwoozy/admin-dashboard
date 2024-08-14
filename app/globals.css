@@ -82,6 +82,9 @@
 
 
 /* Search-Engine-Css */
+.transition-transform {
+  transition: transform 1s ease-in-out;
+}
 
 .rotate-360 {
   transform: rotate(180deg);
