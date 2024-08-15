@@ -31,7 +31,7 @@ const Sidebar: React.FC = () => {
   const toggleLifeStyle = () => setIsLifeStyleOpen(!isLifeStyleOpen);
 
   return (
-    <div className=" h-screen relative z-10">
+    <div className=" h-screen relative z-10 ">
       {/* Drawer Button for Mobile */}
       <button
         className={`p-4 text-black fixed top-0 left-0 z-50 lg:hidden ${isOpen ? 'hidden' : 'block'}`}

@@ -43,33 +43,33 @@ const SearchEngine: React.FC<Props> = () => {
       <SEheader />
       {/* Flight Type Tabs */}
       <div className="h-fit flex flex-col lg:flex-row lg:gap-32 justify-between">
-        <div className="flex flex-wrap gap-4 lg:flex-nowrap lg:gap-8 h-fit rounded-lg bg-gray-200 mb-5">
+        <div className="flex flex-wrap gap-4 lg:flex-nowrap lg:gap-8 h-fit rounded-lg bg-white mb-5">
           <Tabs defaultValue="oneway" className="w-full">
             <TabsList className="grid w-full grid-cols-4 space-x-2">
               <TabsTrigger
                 value="oneway"
-                className="bg-blue-600 text-white hover:bg-white hover:text-blue-600 p-2 lg:p-3 transition-transform transform hover:scale-105 text-sm lg:text-lg"
+                className="bg-blue-600 text-white p-2 lg:p-3 transition-transform transform hover:scale-105 text-sm lg:text-lg"
               >
                 <FaPlaneDeparture size={20} />
                 <span className="ml-2 hidden lg:inline">One Way</span>
               </TabsTrigger>
               <TabsTrigger
                 value="roundtrip"
-                className="bg-green-600 text-white hover:bg-white hover:text-green-600 p-2 lg:p-3 transition-transform transform hover:scale-105 text-sm lg:text-lg"
+                className="bg-green-600 text-white p-2 lg:p-3 transition-transform transform hover:scale-105 text-sm lg:text-lg"
               >
                 <FaPlaneArrival size={20} />
                 <span className="ml-2 hidden lg:inline">Round Trip</span>
               </TabsTrigger>
               <TabsTrigger
                 value="multicity"
-                className="bg-red-600 text-white hover:bg-white hover:text-red-600 p-2 lg:p-3 transition-transform transform hover:scale-105 text-sm lg:text-lg"
+                className="bg-red-600 text-white p-2 lg:p-3 transition-transform transform hover:scale-105 text-sm lg:text-lg"
               >
                 <FaGlobe size={20} />
                 <span className="ml-2 hidden lg:inline">Multi City</span>
               </TabsTrigger>
               <TabsTrigger
                 value="umrah"
-                className="bg-yellow-500 text-white hover:bg-white hover:text-yellow-500 p-2 lg:p-3 transition-transform transform hover:scale-105 text-sm lg:text-lg"
+                className="bg-yellow-500 text-white p-2 lg:p-3 transition-transform transform hover:scale-105 text-sm lg:text-lg"
               >
                 <FaPray size={20} />
                 <span className="ml-2 hidden lg:inline">Umrah</span>

@@ -17,7 +17,7 @@ export default function SEheader({ }: Props) {
     };
 
     return (
-        <header className="bg-white rounded-xl p-2 mb-5">
+        <header className="bg-gray-100 rounded-xl p-2 mb-5">
             <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8">
                 <div className="flex flex-1 items-center justify-end md:justify-between">
                     <nav aria-label="Global" className="hidden md:block">
