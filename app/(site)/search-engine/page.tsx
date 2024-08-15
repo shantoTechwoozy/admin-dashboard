@@ -114,16 +114,29 @@ const SearchEngine: React.FC<Props> = () => {
       </div>
 
       {/* Inputs and Swap Button */}
-      <div className="w-full">
+      <div className="w-full mt-5">
         <div className="flex flex-col gap-4 lg:flex-row lg:gap-3">
           <div className="flex flex-col lg:flex-row lg:items-center lg:gap-8 w-full">
             <div className="h-full flex flex-col lg:flex-row gap-4 lg:gap-0 w-full">
-              <div className="flex items-center h-full rounded-lg bg-gray-200 flex-1">
-                <Input type="text" className="w-full h-full p-5 lg:border-r-0 rounded-lg text-sm lg:text-base" placeholder="Depart From" />
-              </div>
+              <label
+                htmlFor="Depart From"
+                className="relative block rounded-md border border-gray-200"
+              >
+                <Input
+                  type="text"
+                  id="Depart From"
+                  className="w-full h-full p-5 rounded-lg text-sm lg:text-base border bg-white placeholder-transparent focus:border-black focus:outline-none focus:ring-0 lg:border-r-0 peer"
+                  placeholder=""
+                />
 
+                <span
+                  className="pointer-events-none absolute left-3 top-0 transform -translate-y-1/2 bg-blue-200 rounded-full px-1 text-xs font-bold text-gray-700"
+                >
+                  Depart From
+                </span>
+              </label>
               <button
-                className="w-fit bg-white text-gray-700 p-2 lg:p-5 border border-gray-500 rounded-full flex items-center justify-center transition-transform transform hover:scale-105"
+                className="w-[70px] bg-white text-gray-700 p-2 lg:p-5 border border-gray-500 rounded-full flex items-center justify-center transition-transform transform hover:scale-105"
                 onClick={handleSwapClick}
               >
                 <Image
@@ -131,19 +144,34 @@ const SearchEngine: React.FC<Props> = () => {
                   width={50}
                   height={50}
                   alt="Swap Icon"
-                  className={`w-6 h-6 ${isRotating ? 'rotate-360' : ''} transition-transform duration-1000 `}
+                  className={`w-6 h-6 ${isRotating ? 'rotate-360' : ''}items-center transition-transform duration-1000 `}
                 />
               </button>
 
-              <div className="flex items-center h-full rounded-lg bg-gray-200 flex-1">
-                <Input type="text" className="w-full h-full p-5 lg:border-l-0 rounded-lg text-sm lg:text-base" placeholder="Going To" />
-              </div>
+              <label
+                htmlFor=" Going To"
+                className="relative block rounded-md border border-gray-200"
+              >
+                <Input
+                  type="text"
+                  id=" Going To"
+                  className="w-full h-full p-5 rounded-lg text-sm lg:text-base border bg-white placeholder-transparent focus:border-black focus:outline-none focus:ring-0 lg:border-l-0 peer"
+                  placeholder=""
+                />
+
+                <span
+                  className="pointer-events-none absolute left-3 top-0 transform -translate-y-1/2 bg-blue-200 rounded-full  px-1 text-xs font-bold text-gray-700"
+                >
+                  Going To
+                </span>
+              </label>
             </div>
           </div>
           <div className="flex flex-col lg:flex-row gap-4 lg:gap-3 w-full">
-            <CustomDatePicker placeholder="14 | August - Wed - 2024"/>
-            <CustomDatePicker placeholder="15 | August - Wed - 2024"/>
-            <div className="items-center h-full rounded-lg hover:bg-blue-400 border border-gray-500">
+            <CustomDatePicker placeholder="07 | Aug - Wed, 2024" />
+            <CustomDatePicker placeholder="08 | Aug - Wed, 2024" />
+            <div className="items-center h-full rounded-lg hover:bg-blue-400">
+
               <button className="text-white p-2 lg:p-5 rounded-lg w-full flex items-center justify-center transition-transform transform hover:scale-105 text-sm lg:text-base">
                 <Image
                   src="/se/search.png"
