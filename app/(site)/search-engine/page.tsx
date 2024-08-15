@@ -150,7 +150,7 @@ const SearchEngine: React.FC<Props> = () => {
 
               <label
                 htmlFor=" Going To"
-                className="relative block rounded-md border border-gray-200"
+                className="relative block rounded-md border border-gray-200 mt-2 lg:mt-0"
               >
                 <Input
                   type="text"
