@@ -58,7 +58,7 @@ export default function SEheader({ }: Props) {
                         <div className="sm:flex sm:gap-4">
                             <li className="flex items-center gap-2 p-2.5 bg-green-500 border border-gray-300 rounded-lg shadow-sm transition-transform transform hover:scale-105">
                                 <FaUserGroup className="text-white" size={20} />
-                                <a className="text-white transition hover:text-white font-medium text-lg" href="#">Group Request</a>
+                                <a className="text-white transition hover:text-white font-medium text-xs lg:text-lg" href="#">Group Request</a>
                             </li>
                         </div>
 

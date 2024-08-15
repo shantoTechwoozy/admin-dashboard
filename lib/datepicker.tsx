@@ -25,7 +25,7 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({ placeholder }) => {
         <DatePicker
             selected={startDate}
             onChange={(date: Date | null) => setStartDate(date)}
-            dateFormat="dd | MMMM - EEE - yyyy"
+            dateFormat="dd | MMMM - EEE,yyyy"
             placeholderText={placeholder}
             customInput={<Input type="text" className="w-full text-md h-full p-6 rounded-lg text-sm lg:text-base" />
 
