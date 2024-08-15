@@ -170,18 +170,19 @@ const SearchEngine: React.FC<Props> = () => {
           <div className="flex flex-col lg:flex-row gap-4 lg:gap-3 w-full">
             <CustomDatePicker placeholder="07 | Aug - Wed, 2024" />
             <CustomDatePicker placeholder="08 | Aug - Wed, 2024" />
-            <div className="items-center h-full rounded-full bg-blue-500">
+            <div className="flex items-center justify-center rounded-full bg-blue-500">
+  <button className="flex items-center justify-center text-white p-3 lg:p-5 rounded-lg w-full max-w-xs lg:max-w-md transition-transform transform hover:scale-105 text-sm lg:text-base">
+    <span className="mr-1">Search</span>
+    <Image
+      src="/se/search.png"
+      width={20}   
+      height={20} 
+      alt="Search Icon"
+      className="transition-transform transform hover:scale-105"
+    />
+  </button>
+</div>
 
-              <button className="text-white p-2 lg:p-5 rounded-lg w-full flex items-center justify-center transition-transform transform hover:scale-105 text-sm lg:text-base">
-                <Image
-                  src="/se/search.png"
-                  width={50}
-                  height={50}
-                  alt="Search Icon"
-                  className="w-12 h-7 transition-transform transform hover:scale-105"
-                />
-              </button>
-            </div>
           </div>
         </div>
       </div>
