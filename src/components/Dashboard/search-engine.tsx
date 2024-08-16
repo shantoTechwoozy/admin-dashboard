@@ -1,4 +1,3 @@
-
 'use client';
 import React, { useState } from "react";
 import "@/css/style.css";
@@ -21,22 +20,20 @@ const SearchEngine: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center px-4">
       <div className="w-full max-w-5xl">
         {/* Navigation */}
         <div className="flex justify-center space-x-2 mb-2">
           <SETabs />
         </div>
         {/* Top Right Travellers and Cabin Class Options */}
-        <div className="flex justify-end mb-4 space-x-4">
-          <div className="flex flex-col space-y-2 w-48">
-            <label className="text-sm font-medium text-black">
-              Travellers
-            </label>
+        <div className="flex flex-col sm:flex-row justify-end mb-4 space-y-4 sm:space-y-0 sm:space-x-4">
+          <div className="flex flex-col space-y-2 w-full sm:w-48">
+            <label className="text-sm font-medium text-black">Travellers</label>
             <select
               value={travellers1}
               onChange={(e) => setTravellers1(e.target.value)}
-              className="border border-gray-300 rounded-md p-2 shadow-md hover:shadow-lg transition-shadow"
+              className="border border-gray-300 rounded-md p-2 shadow-md hover:shadow-lg transition-shadow w-full"
             >
               <option value="1">1 adult</option>
               <option value="2">2 adults</option>
@@ -44,14 +41,12 @@ const SearchEngine: React.FC = () => {
               <option value="4">4 adults</option>
             </select>
           </div>
-          <div className="flex flex-col space-y-2 w-48">
-            <label className="text-sm font-medium text-black">
-              Cabin Class
-            </label>
+          <div className="flex flex-col space-y-2 w-full sm:w-48">
+            <label className="text-sm font-medium text-black">Cabin Class</label>
             <select
               value={cabinClass1}
               onChange={(e) => setCabinClass1(e.target.value)}
-              className="border border-gray-300 rounded-md p-2 shadow-md hover:shadow-lg transition-shadow"
+              className="border border-gray-300 rounded-md p-2 shadow-md hover:shadow-lg transition-shadow w-full"
             >
               <option value="Economy">Economy</option>
               <option value="Premium Economy">Premium Economy</option>
@@ -62,8 +57,8 @@ const SearchEngine: React.FC = () => {
         </div>
 
         {/* Flight Search Form */}
-        <div className="bg-white p-6 rounded-3xl shadow-lg grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-          <div className="flex flex-col lg:flex-row lg:col-span-3 gap-4">
+        <div className="bg-white p-4 sm:p-6 rounded-3xl shadow-lg grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="flex flex-col sm:flex-row lg:col-span-3 gap-4">
             {/* From */}
             <div className="flex-1">
               <label className="block text-sm font-medium text-black mb-2">From</label>
@@ -71,13 +66,13 @@ const SearchEngine: React.FC = () => {
                 type="text"
                 value={from}
                 onChange={(e) => setFrom(e.target.value)}
-                className="border border-gray-300 rounded-md p-3 w-full shadow-md hover:shadow-lg transition-shadow"
+                className="border border-gray-300 rounded-md p-2 sm:p-3 w-full shadow-md hover:shadow-lg transition-shadow"
               />
             </div>
 
             {/* Swap */}
             <button
-              className="w-[65px] bg-white text-gray-700 p-2 lg:p-5 border border-gray-400 rounded-full flex items-center justify-center transition-transform transform hover:scale-105 shadow-md hover:shadow-lg"
+              className="w-12 sm:w-[65px] bg-white text-gray-700 p-2 lg:p-5 border border-gray-400 rounded-full flex items-center justify-center transition-transform transform hover:scale-105 shadow-md hover:shadow-lg"
               onClick={handleSwapClick}
               style={{ marginTop: '20px', marginBottom: 'auto' }}
             >
@@ -97,7 +92,7 @@ const SearchEngine: React.FC = () => {
                 type="text"
                 value={to}
                 onChange={(e) => setTo(e.target.value)}
-                className="border border-gray-300 rounded-md p-3 w-full shadow-md hover:shadow-lg transition-shadow"
+                className="border border-gray-300 rounded-md p-2 sm:p-3 w-full shadow-md hover:shadow-lg transition-shadow"
               />
             </div>
           </div>
@@ -111,7 +106,7 @@ const SearchEngine: React.FC = () => {
                 type="date"
                 value={departDate}
                 onChange={(e) => setDepartDate(e.target.value)}
-                className="border border-gray-300 rounded-md p-3 w-full shadow-md hover:shadow-lg transition-shadow"
+                className="border border-gray-300 rounded-md p-2 sm:p-3 w-full shadow-md hover:shadow-lg transition-shadow"
               />
             </div>
 
@@ -122,7 +117,7 @@ const SearchEngine: React.FC = () => {
                 type="date"
                 value={returnDate}
                 onChange={(e) => setReturnDate(e.target.value)}
-                className="border border-gray-300 rounded-md p-3 w-full shadow-md hover:shadow-lg transition-shadow"
+                className="border border-gray-300 rounded-md p-2 sm:p-3 w-full shadow-md hover:shadow-lg transition-shadow"
               />
             </div>
           </div>
@@ -136,7 +131,7 @@ const SearchEngine: React.FC = () => {
         </div>
 
         {/* Checkboxes */}
-        <div className="flex justify-start space-x-6 mt-4 text-sm text-black">
+        <div className="flex flex-col sm:flex-row justify-start space-y-4 sm:space-y-0 sm:space-x-6 mt-4 text-sm text-black">
           <label className="flex items-center space-x-2">
             <input type="checkbox" className="form-checkbox shadow-md hover:shadow-lg transition-shadow" />
             <span>Add nearby airports</span>
@@ -152,6 +147,3 @@ const SearchEngine: React.FC = () => {
 };
 
 export default SearchEngine;
-
-
-

@@ -12,10 +12,10 @@ export default function SETabs({ }: Props) {
     };
 
     return (
-        <header className="rounded-lg p-1 mt-5 mb-5 lg:border-t lg:border-r lg:border-l border-black ">
+        <header className="rounded-lg p-1 mt-5 mb-5 border border-slate-400 ">
             <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8">
                 <nav aria-label="Global" className="flex flex-1 items-center justify-center md:justify-between">
-                    <ul className="flex items-center gap-6 text-sm p-2 lg:mt-8">
+                    <ul className="flex items-center gap-6 text-sm p-2">
                         {['One Way', 'Round Trip', 'Multi City', 'Umrah'].map((tab) => (
                             <li key={tab} className="relative">
                                 <button
