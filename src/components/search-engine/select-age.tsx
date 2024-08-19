@@ -34,13 +34,13 @@ export function SelectAge() {
     <div className="relative">
         <button
       onClick={() => setIsOpen(!isOpen)}
-      className="flex items-center justify-center w-full lg:w-full border border-gray-300 rounded-md p-2 bg-slate-100 hover:bg-slate-200 md:bg-transparent md:border-0 lg:border-0"
+      className="flex items-center justify-center w-full border border-gray-300 rounded-md p-2 bg-slate-200 lg:bg-slate-200 hover:bg-slate-300 md:bg-transparent md:border-0 lg:border-0"
     >
-      <span className="flex items-center text-black font-semibold">
+      <span className="flex items-center text-black font-normal">
         Travellers
         <FaAnglesRight size={12} className="ml-1" />
       </span>
-      <span className="ml-2 text-black font-semibold">{totalCount}</span>
+      <span className="ml-2 text-black font-normal">{totalCount}</span>
     </button>
       {isOpen && (
         <div className="absolute z-10 w-full lg:w-auto bg-white border border-gray-200 rounded-md shadow-md mt-2">

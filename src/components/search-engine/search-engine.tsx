@@ -26,15 +26,15 @@ const SearchEngine: React.FC = () => {
     <div className="flex items-center justify-center">
       <div className="w-full max-w-5xl">
         {/* Navigation */}
-        <div className="flex justify-center space-x-2 mb-2">
+        <div className="flex justify-start space-x-2 mb-2">
           <SETabs />
         </div>
         {/* Top Right Travellers and Cabin Class Options */}
         <div className="flex flex-col sm:flex-row justify-end mb-4 space-y-4 sm:space-y-0 sm:space-x-4">
-          <div className="flex flex-col rounded-lg bg-slate-300 space-y-2 w-full sm:w-48">
+          <div className="flex flex-col rounded-lg space-y-2 w-full sm:w-48">
           <SelectAge/>
           </div>
-          <div className="flex flex-col rounded-lg bg-slate-300  space-y-2 w-full sm:w-48">
+          <div className="flex flex-col rounded-lg space-y-2 w-full sm:w-48">
           <SelectEconomy/>
           </div>
         </div>
@@ -50,14 +50,14 @@ const SearchEngine: React.FC = () => {
                 type="text"
                 value={from}
                 onChange={(e) => setFrom(e.target.value)}
-                className="border border-gray-300 rounded-md p-3 w-full shadow-md hover:shadow-lg transition-shadow"
+                className="border border-slate-300 rounded-md p-3 w-full shadow-md hover:shadow-lg transition-shadow"
               />
             </div>
 
             {/* Swap */}
             <div className="flex justify-center items-center">
               <button
-                className="w-[65px] bg-white text-gray-700 p-5 lg:p-5 border border-gray-400 rounded-full flex items-center justify-center transition-transform transform hover:scale-105 shadow-md hover:shadow-lg"
+                className="w-[65px] bg-white text-gray-700 p-5 lg:p-5 rounded-full flex items-center justify-center transition-transform transform hover:scale-105 shadow-lg hover:shadow-xl"
                 onClick={handleSwapClick}
                 style={{ marginTop: '20px', marginBottom: 'auto' }}
               >
@@ -79,7 +79,7 @@ const SearchEngine: React.FC = () => {
                 type="text"
                 value={to}
                 onChange={(e) => setTo(e.target.value)}
-                className="border border-gray-300 rounded-md p-3 w-full shadow-md hover:shadow-lg transition-shadow"
+                className="border border-slate-300  rounded-md p-3 w-full shadow-md hover:shadow-lg transition-shadow"
               />
             </div>
           </div>
@@ -93,7 +93,7 @@ const SearchEngine: React.FC = () => {
                 type="date"
                 value={departDate}
                 onChange={(e) => setDepartDate(e.target.value)}
-                className="border border-gray-300 rounded-md p-3 w-full shadow-md hover:shadow-lg transition-shadow"
+                className="border border-slate-300  rounded-md p-3 w-full shadow-md hover:shadow-lg transition-shadow"
               />
             </div>
 
@@ -104,7 +104,7 @@ const SearchEngine: React.FC = () => {
                 type="date"
                 value={returnDate}
                 onChange={(e) => setReturnDate(e.target.value)}
-                className="border border-gray-300 rounded-md p-3 w-full shadow-md hover:shadow-lg transition-shadow"
+                className="border border-slate-300   rounded-md p-3 w-full shadow-md hover:shadow-lg transition-shadow"
               />
             </div>
           </div>
