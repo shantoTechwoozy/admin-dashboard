@@ -5,8 +5,8 @@ import TableTwo from "@/components/Tables/TableTwo";
 
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import SearchEngine from "@/components/Dashboard/search-engine";
-import SubMenu from "@/components/Dashboard/sub-menu";
+import SearchEngine from "@/components/search-engine/search-engine";
+import SubMenu from "@/components/search-engine/sub-menu";
 
 export const metadata: Metadata = {
   title: "Next.js Tables | TailAdmin - Next.js Dashboard Template",

@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import "@/css/style.css";
 import Image from "next/image";
 import SETabs from "./tabs";
+import { SelectEconomy } from "./select-economy";
+import { SelectAge } from "./select-age";
 
 const SearchEngine: React.FC = () => {
   const [from, setFrom] = useState("");
@@ -28,38 +30,15 @@ const SearchEngine: React.FC = () => {
           <SETabs />
         </div>
         {/* Top Right Travellers and Cabin Class Options */}
-        <div className="flex justify-end mb-4 space-x-4">
-          <div className="flex flex-col space-y-2 w-48">
-            <label className="text-sm font-medium text-black">
-              Travellers
-            </label>
-            <select
-              value={travellers1}
-              onChange={(e) => setTravellers1(e.target.value)}
-              className="border border-gray-300 rounded-md p-2 shadow-md hover:shadow-lg transition-shadow"
-            >
-              <option value="1">1 adult</option>
-              <option value="2">2 adults</option>
-              <option value="3">3 adults</option>
-              <option value="4">4 adults</option>
-            </select>
+        <div className="flex flex-col sm:flex-row justify-end mb-4 space-y-4 sm:space-y-0 sm:space-x-4">
+          <div className="flex flex-col rounded-lg bg-slate-300 space-y-2 w-full sm:w-48">
+          <SelectAge/>
           </div>
-          <div className="flex flex-col space-y-2 w-48">
-            <label className="text-sm font-medium text-black">
-              Cabin Class
-            </label>
-            <select
-              value={cabinClass1}
-              onChange={(e) => setCabinClass1(e.target.value)}
-              className="border border-gray-300 rounded-md p-2 shadow-md hover:shadow-lg transition-shadow"
-            >
-              <option value="Economy">Economy</option>
-              <option value="Premium Economy">Premium Economy</option>
-              <option value="Business">Business</option>
-              <option value="First Class">First Class</option>
-            </select>
+          <div className="flex flex-col rounded-lg bg-slate-300  space-y-2 w-full sm:w-48">
+          <SelectEconomy/>
           </div>
         </div>
+
 
         {/* Flight Search Form */}
         <div className="bg-white p-6 rounded-3xl shadow-lg grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -76,19 +55,22 @@ const SearchEngine: React.FC = () => {
             </div>
 
             {/* Swap */}
-            <button
-              className="w-[65px] bg-white text-gray-700 p-2 lg:p-5 border border-gray-400 rounded-full flex items-center justify-center transition-transform transform hover:scale-105 shadow-md hover:shadow-lg"
-              onClick={handleSwapClick}
-              style={{ marginTop: '20px', marginBottom: 'auto' }}
-            >
-              <Image
-                src="/se/swap.png"
-                width={50}
-                height={50}
-                alt="Swap Icon"
-                className={`w-6 h-6 ${isRotating ? 'rotate-360' : ''} transition-transform duration-1000`}
-              />
-            </button>
+            <div className="flex justify-center items-center">
+              <button
+                className="w-[65px] bg-white text-gray-700 p-5 lg:p-5 border border-gray-400 rounded-full flex items-center justify-center transition-transform transform hover:scale-105 shadow-md hover:shadow-lg"
+                onClick={handleSwapClick}
+                style={{ marginTop: '20px', marginBottom: 'auto' }}
+              >
+                <Image
+                  src="/se/swap.png"
+                  width={50}
+                  height={50}
+                  alt="Swap Icon"
+                  className={`w-6 h-6 ${isRotating ? 'rotate-360' : ''} transition-transform duration-1000`}
+                />
+              </button>
+            </div>
+
 
             {/* To */}
             <div className="flex-1">
