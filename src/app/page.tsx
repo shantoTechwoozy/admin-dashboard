@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import Report from "@/components/Dashboard/report";
+import Report from "@/app/report/page";
 
 export const metadata: Metadata = {
   title:
