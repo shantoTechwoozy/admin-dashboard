@@ -20,7 +20,7 @@ interface Fields {
 const mockData: Fields[] = [
     {
         booking_date: "21-08-2024 08:18",
-        booking_id: "TCL638598033713836999",
+        booking_id: "TB638598033713836999",
         passenger_name: "John Doe",
         flight_date: "27-08-2024 10:15",
         route: "DAC-DOH",
@@ -32,7 +32,7 @@ const mockData: Fields[] = [
     },
     {
         booking_date: "20-08-2024 11:50",
-        booking_id: "TCL638597297731693819",
+        booking_id: "TB638597297731693819",
         passenger_name: "Jane Smith",
         flight_date: "2024-09-10",
         route: "SPD-DAC",
@@ -42,7 +42,7 @@ const mockData: Fields[] = [
         status: "On Hold",
         action: "VB RS",
     },
-    // Add more mock data as needed
+
 ];
 
 const TableCustom = () => {
