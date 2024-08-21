@@ -111,7 +111,7 @@ const TableCustom = () => {
                                 onClick={() => console.log('Search triggered')}
                             >
                                 <FaSearch />
-                                Search By
+                                Search
                             </button>
                         </div>
 
@@ -146,7 +146,7 @@ const TableCustom = () => {
                                             <td className="py-2 px-4 border-2 border-gray-300 text-sm text-center">{item.route}</td>
                                             <td className="py-2 px-4 border-2 border-gray-300 text-sm text-center">{item.pnr}</td>
                                             <td className="py-2 px-4 border-2 border-gray-300 text-sm text-center">
-                                                <p className="lg:rounded-full lg:p-2 bg-green-700 text-white font-bold"> {item.issue_before}</p>
+                                                <button className="lg:rounded-full lg:p-2 bg-blue-700 text-white font-bold"> {item.issue_before}</button>
                                             </td>
                                             <td className="py-2 px-4 border-2 border-gray-300 text-sm text-center">
                                                 <p className="font-bold text-black"> {item.total_price}</p>
