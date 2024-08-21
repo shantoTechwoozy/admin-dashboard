@@ -5,13 +5,13 @@ import { FaSort, FaSearch } from "react-icons/fa";
 // Fields interface for the data structure
 interface Fields {
     booking_date: string;
-    booking_id: number;
+    booking_id: string;
     passenger_name: string;
     flight_date: string;
     route: string;
     pnr: string;
     issue_before: string;
-    total_price: number;
+    total_price: string;
     status: string;
     action: string;
 }
@@ -19,28 +19,28 @@ interface Fields {
 // Mock data array
 const mockData: Fields[] = [
     {
-        booking_date: "2024-08-01",
-        booking_id: 1001,
+        booking_date: "21-08-2024 08:18",
+        booking_id: "TCL638598033713836999",
         passenger_name: "John Doe",
-        flight_date: "2024-08-05",
-        route: "NYC to LAX",
-        pnr: "AB1234",
-        issue_before: "24 hours before departure",
-        total_price: 300,
-        status: "Confirmed",
-        action: "Edit",
+        flight_date: "27-08-2024 10:15",
+        route: "DAC-DOH",
+        pnr: "MZWE3B",
+        issue_before: "Time Limit",
+        total_price: "58,648.7",
+        status: "On Hold",
+        action: "VB RS",
     },
     {
-        booking_date: "2024-08-02",
-        booking_id: 1002,
+        booking_date: "20-08-2024 11:50",
+        booking_id: "TCL638597297731693819",
         passenger_name: "Jane Smith",
         flight_date: "2024-09-10",
-        route: "LAX to SFO",
-        pnr: "CD5678",
-        issue_before: "48 hours before departure",
-        total_price: 450,
-        status: "Pending",
-        action: "Edit",
+        route: "SPD-DAC",
+        pnr: "008MLQ",
+        issue_before: "Time Limit",
+        total_price: "4,653.01",
+        status: "On Hold",
+        action: "VB RS",
     },
     // Add more mock data as needed
 ];
@@ -85,8 +85,8 @@ const TableCustom = () => {
         <div className="flex w-full items-center justify-center">
             <div className="w-full max-w-8xl">
 
-                <div className="bg-white p-6 rounded-sm shadow-lg grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4">
-                    <div className="p-4">
+                <div className="bg-white p-2 rounded-sm shadow-lg grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4">
+                    <div className="p-2">
                         <div className="mb-4 flex flex-wrap items-center gap-2">
                             <input
                                 type="text"
@@ -98,7 +98,7 @@ const TableCustom = () => {
                             <select
                                 value={searchField}
                                 onChange={(e) => setSearchField(e.target.value as keyof Fields)}
-                                className="p-2 border border-gray-300 rounded-md shadow-md text-sm flex-grow"
+                                className="p-2 border border-gray-300 rounded-md shadow-md text-sm w-auto"
                             >
                                 {fields.map((field) => (
                                     <option key={field.key} value={field.key}>
@@ -125,7 +125,7 @@ const TableCustom = () => {
                                                 className="py-5 px-3 bg-slate-300 bg-gray-200 border-2 border-gray-300 cursor-pointer text-sm text-center hover:bg-gray-300 transition"
                                                 onClick={() => handleSort(field.key)}
                                             >
-                                                <div className="flex items-center bg-white rounded-sm justify-center gap-2">
+                                                <div className="flex items-center lg:bg-white rounded-sm justify-center gap-2">
                                                     {field.label}
                                                     {/* <FaSort className="text-xs" /> */}
                                                 </div>
@@ -138,13 +138,19 @@ const TableCustom = () => {
                                     {filteredData.map((item) => (
                                         <tr key={item.booking_id} className="hover:bg-gray-100 transition">
                                             <td className="py-2 px-4 border-2 border-gray-300 text-sm text-center">{item.booking_date}</td>
-                                            <td className="py-2 px-4 border-2 border-gray-300 text-sm text-center">{item.booking_id}</td>
+                                            <td className="py-2 px-4 border-2 border-gray-300 text-sm text-center">
+                                                <p className="text-red font-bold">{item.booking_id}</p>
+                                            </td>
                                             <td className="py-2 px-4 border-2 border-gray-300 text-sm text-center">{item.passenger_name}</td>
                                             <td className="py-2 px-4 border-2 border-gray-300 text-sm text-center">{item.flight_date}</td>
                                             <td className="py-2 px-4 border-2 border-gray-300 text-sm text-center">{item.route}</td>
                                             <td className="py-2 px-4 border-2 border-gray-300 text-sm text-center">{item.pnr}</td>
-                                            <td className="py-2 px-4 border-2 border-gray-300 text-sm text-center">{item.issue_before}</td>
-                                            <td className="py-2 px-4 border-2 border-gray-300 text-sm text-center">{item.total_price}</td>
+                                            <td className="py-2 px-4 border-2 border-gray-300 text-sm text-center">
+                                                <p className="lg:rounded-full lg:p-2 bg-green-700 text-white font-bold"> {item.issue_before}</p>
+                                            </td>
+                                            <td className="py-2 px-4 border-2 border-gray-300 text-sm text-center">
+                                                <p className="font-bold text-black"> {item.total_price}</p>
+                                            </td>
                                             <td className="py-2 px-4 border-2 border-gray-300 text-sm text-center">{item.status}</td>
                                             <td className="py-2 px-4 border-2 border-gray-300 text-sm text-center">{item.action}</td>
                                         </tr>
