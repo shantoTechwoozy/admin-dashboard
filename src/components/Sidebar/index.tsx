@@ -41,7 +41,7 @@ const menuGroups = [
           <MdOutlineDashboardCustomize className="mr-2 text-blue-500" size={25} />
         ),
         label: "Dashboard",
-        route: "#",
+        route: "/",
 
       },
       {
@@ -57,7 +57,7 @@ const menuGroups = [
           <GrContactInfo className="mr-2 text-violet-400" size={25} />
         ),
         label: "Share PNR",
-        route: "/search-engine",
+        route: "/share-pnr",
 
       },
       {
@@ -67,11 +67,11 @@ const menuGroups = [
         label: "Booking History",
         route: "#",
         children: [
-          { label: "On Hold", route: "/tables" },
-          { label: "Booking Cancelled", route: "/tables" },
-          { label: " Ticketed", route: "/tables" },
-          { label: "Ticket Cancelled", route: "/tables" },
-          { label: "All", route: "/tables" },
+          { label: "On Hold", route: "/on-hold" },
+          { label: "Booking Cancelled", route: "/booking-cancelled" },
+          { label: " Ticketed", route: "/ticketed" },
+          { label: "Ticket Cancelled", route: "/ticket-cancelled" },
+          { label: "All", route: "/all-booking" },
         ],
       },
       {
@@ -81,9 +81,8 @@ const menuGroups = [
         label: "Partial Payment",
         route: "#",
         children: [
-          { label: "Due List", route: "/tables" },
-          { label: "Paid List", route: "/tables" },
-          { label: "Refund Status", route: "/tables" },
+          { label: "Due List", route: "/due-list" },
+          { label: "Paid List", route: "/paid-list" },
         ],
       },
       {
@@ -93,11 +92,9 @@ const menuGroups = [
         label: "Report",
         route: "#",
         children: [
-          { label: "Sales Report", route: "/tables" },
-          { label: "Account Ledger", route: "/tables" },
-          { label: "Refund Status", route: "/tables" },
-          { label: "Ticket Cancelled", route: "/tables" },
-          { label: "All", route: "/tables" },
+          { label: "Sales Report", route: "/sales-report" },
+          { label: "Account Ledger", route: "/account-ledger" },
+          { label: "Refund Status", route: "/refund-status" },
         ],
       },
       {
@@ -105,11 +102,11 @@ const menuGroups = [
           <MdPeople className="mr-2 text-sky-300" size={25} />
         ),
         label: "Add Passenger",
-        route: "#",
-        children: [
-          { label: "Quick Passenger", route: "/tables" },
+        route: "/add-passenger",
+        // children: [
+        //   { label: "Quick Passenger", route: "/tables" },
 
-        ],
+        // ],
       },
 
 
@@ -126,7 +123,7 @@ const menuGroups = [
 
         ),
         label: "Topup Request",
-        route: "/",
+        route: "/topup-req",
       },
       {
         icon: (
