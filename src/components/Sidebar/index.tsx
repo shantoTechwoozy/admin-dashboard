@@ -131,7 +131,7 @@ const menuGroups = [
 
         ),
         label: "Support",
-        route: "/profile",
+        route: "/support",
       },
       {
         icon: (
