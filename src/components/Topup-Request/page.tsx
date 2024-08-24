@@ -4,7 +4,7 @@ import Tab from "./tab";
 import SubmitForm from "./submitForm";
 import TransactionForm from "./TransactionForm";
 import MyBankAcc from "./MyBankAcc";
-import TechwoozyBankAccounts from "./TechwoozyBankAccounts";
+import BankAccounts from "./BankAccounts";
 import OnlineDeposit from "./OnlineDeposit";
 
 const TopupRequest = () => {
@@ -17,11 +17,11 @@ const TopupRequest = () => {
           <Tab setTabName={setTabName} />
 
           <div className="max-h-[400px] overflow-x-auto overflow-y-auto lg:max-h-[600px]">
-            {tabName === "SubmitRequest" && <SubmitForm />}
+            {tabName === "Submit Request" && <SubmitForm />}
             {tabName === "Transaction" && <TransactionForm />}
-            {tabName === "MyBankAccounts" && <MyBankAcc />}
-            {tabName === "TechwoozyBankAccounts" && <TechwoozyBankAccounts />}
-            {tabName === "OnlineDeposit" && <OnlineDeposit />}
+            {tabName === "My Bank Accounts" && <MyBankAcc />}
+            {tabName === "Bank Accounts" && <BankAccounts />}
+            {tabName === "Online Deposit" && <OnlineDeposit />}
           </div>
         </div>
       </div>

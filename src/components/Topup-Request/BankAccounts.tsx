@@ -90,7 +90,7 @@ const TechwoozyBankAccounts = () => {
 
     return (
         <>
-            <PageTitle content="Techwoozy Bank Accounts" />
+            <PageTitle content="Bank Accounts" />
             <div className="flex w-full items-center justify-center rounded-md">
                 <div className="w-full max-w-8xl">
                     <div className="bg-white p-2 rounded-sm shadow-lg grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4">
