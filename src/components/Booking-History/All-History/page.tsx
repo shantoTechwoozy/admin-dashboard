@@ -1,8 +1,8 @@
 'use client'
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import { AiFillAppstore } from "react-icons/ai";
-import { RiTicket2Fill, RiCheckFill, RiCloseCircleFill } from "react-icons/ri";
+import BookingMenu from "./booking-menu";
+
 
 // Fields interface for the data structure
 interface Fields {
@@ -92,33 +92,7 @@ const AllHistory = () => {
                 <div className="bg-white p-2 rounded-sm shadow-lg grid grid-cols-1 gap-4">
                     <div className="p-2">
                         <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
-                            <div className="mb-12 flex flex-wrap items-start justify-start gap-2">
-                                <button className="p-2 bg-blue-600 text-white rounded-md shadow-md flex items-center gap-2 text-sm hover:bg-blue-700 transition-colors">
-                                    <AiFillAppstore />
-                                    All
-                                </button>
-                                <button className="p-2 bg-green-600 text-white rounded-md shadow-md flex items-center gap-2 text-sm hover:bg-green-700 transition-colors">
-                                    <RiTicket2Fill />
-                                    Ticketed
-                                </button>
-                                <button className="p-2 bg-yellow-600 text-white rounded-md shadow-md flex items-center gap-2 text-sm hover:bg-yellow-700 transition-colors">
-                                    <RiCheckFill />
-                                    Booked
-                                </button>
-                                <button className="p-2 bg-slate-400 text-white rounded-md shadow-md flex items-center gap-2 text-sm hover:bg-red-700 transition-colors">
-                                    <RiCloseCircleFill />
-                                    Booking Cancelled
-                                </button>
-                                <button className="p-2 bg-orange-600 text-white rounded-md shadow-md flex items-center gap-2 text-sm hover:bg-gray-700 transition-colors">
-                                    <RiCloseCircleFill />
-                                    <span className="ml-1">Ticket Cancelled</span>
-                                </button>
-                                <button className="p-2 bg-purple-600 text-white rounded-md shadow-md flex items-center gap-2 text-sm hover:bg-purple-700 transition-colors">
-                                    <RiTicket2Fill />
-                                    Ticket Processing
-                                </button>
-                            </div>
-
+                            <BookingMenu/>
                             <div className="flex flex-wrap items-center gap-2 mb-4 ml-auto">
                                 <input
                                     type="text"

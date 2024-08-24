@@ -1,9 +1,14 @@
-import React from 'react';
+'use client'
+import React, { useState } from 'react';
 import { FaPhoneAlt, FaEnvelope, FaRegClock, FaMapMarkedAlt } from 'react-icons/fa';
 import { IoChatbubbleEllipsesOutline } from 'react-icons/io5';
 import Link from 'next/link';
+import Tab from './tab';
+import Table from './table';
 
 const SupportPage = () => {
+    const [activeTab, setActiveTab] = useState('opened');
+
     return (
         <div className="bg-gray-100 min-h-screen p-6">
             <div className="container mx-auto max-w-7xl bg-white p-8 rounded-lg shadow-lg">
@@ -49,48 +54,12 @@ const SupportPage = () => {
                     </div>
                 </div>
 
-                {/* Featured Sections */}
+                {/* Tabs and Tables */}
                 <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-                    <h2 className="text-2xl font-semibold mb-4">Save on Travel with Trip Beyond</h2>
-                    <p className="text-lg mb-4">
-                        Tripbeyond.com is here to help you plan the perfect trip with cheap flights, discount hotels, and train tickets. Explore our destinations and enjoy the biggest savings on your next trip!
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div>
-                            <h3 className="text-xl font-semibold mb-2">Featured Hotel Destinations</h3>
-                            <ul className="list-disc pl-5">
-                                <li>Shanghai</li>
-                                <li>Beijing</li>
-                                <li>Guangzhou</li>
-                                <li>Shenzhen</li>
-                                <li>Tokyo</li>
-                                <li>Singapore</li>
-                                {/* Add more destinations as needed */}
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className="text-xl font-semibold mb-2">Featured Flight Destinations</h3>
-                            <ul className="list-disc pl-5">
-                                <li>Cebu</li>
-                                <li>Jakarta</li>
-                                <li>Hanoi</li>
-                                <li>Phuket</li>
-                                <li>Hong Kong</li>
-                                <li>Seoul</li>
-                                {/* Add more destinations as needed */}
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className="text-xl font-semibold mb-2">Featured Tours & Tickets</h3>
-                            <ul className="list-disc pl-5">
-                                <li>Shanghai Disneyland Ticket</li>
-                                <li>Forbidden City Ticket</li>
-                                <li>Sichuan Opera Show Ticket</li>
-                                <li>Empire State Building Observation Deck Ticket</li>
-                                {/* Add more tours and tickets as needed */}
-                            </ul>
-                        </div>
-                    </div>
+                    <Tab activeTab={activeTab} setActiveTab={setActiveTab} />
+                    {activeTab === 'opened' && <Table type="opened" />}
+                    {activeTab === 'ongoing' && <Table type="ongoing" />}
+                    {activeTab === 'closed' && <Table type="closed" />}
                 </div>
             </div>
         </div>

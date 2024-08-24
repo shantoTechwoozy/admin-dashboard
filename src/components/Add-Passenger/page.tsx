@@ -90,10 +90,10 @@ const AddPassenger = () => {
           <div className="p-2">
             <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
               <div className="mb-12 flex flex-wrap items-start justify-start gap-2">
-              <button className="p-2 bg-green-600 text-white rounded-md shadow-md flex items-center gap-2 text-sm hover:bg-yellow-700 transition-colors">
-                                    <RiCheckboxFill />
-                                    Add Passenger
-                                </button>
+                <button className="p-2 bg-green-600 text-white rounded-md shadow-md flex items-center gap-2 text-sm hover:bg-yellow-700 transition-colors">
+                  <RiCheckboxFill />
+                  Add Passenger
+                </button>
               </div>
 
               <div className="flex flex-wrap items-center gap-2 mb-4 ml-auto">
@@ -116,7 +116,7 @@ const AddPassenger = () => {
                   ))}
                 </select>
                 <button
-                  className="p-2 bg-blue-600 text-white rounded-md shadow-md flex items-center gap-2 text-sm hover:bg-blue-700 transition-colors"
+                  className="p-2 bg-green-600 text-white rounded-md shadow-md flex items-center gap-2 text-sm hover:bg-blue-700 transition-colors"
                   onClick={() => console.log('Search triggered')}
                 >
                   <FaSearch />
@@ -132,7 +132,7 @@ const AddPassenger = () => {
                     {fields.map((field) => (
                       <th
                         key={field.key}
-                        className="py-5 px-3 bg-green-600 border-2 border-gray-300 cursor-pointer text-sm text-center text-white hover:bg-gray-700 transition-colors whitespace-nowrap"
+                        className="py-5 px-3 bg-green-600 border-2 border-slate-600 cursor-pointer text-sm text-center text-white hover:bg-gray-700 transition-colors whitespace-nowrap"
                         onClick={() => handleSort(field.key)}
                       >
                         <div className="flex items-center justify-center gap-2 whitespace-nowrap">
