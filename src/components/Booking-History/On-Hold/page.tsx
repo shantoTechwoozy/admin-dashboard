@@ -147,7 +147,7 @@ const OnHold = () => {
                                 onClick={() => console.log('Search triggered')}
                             >
                                 <FaSearch />
-                                Searchd
+                                Search
                             </button>
                         </div>
 
