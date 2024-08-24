@@ -20,16 +20,16 @@ const Table: React.FC<TableProps> = ({ type }) => {
     // Mock data for different types
     const data: { [key: string]: Fields[] } = {
         opened: [
-            { "sl": "1", "date": "21-08-2024 08:18", "booking_id": "TB638598033713836999", "message": "Issue with booking", "support_type": "Ticket" },
-            { "sl": "2", "date": "22-08-2024 09:30", "booking_id": "TB638598033713837000", "message": "Need assistance", "support_type": "Request" }
+            { "sl": "1", "date": "21-08-2024 08:18", "booking_id": "TB638598033713836999", "message": "Issue with booking", "support_type": "Ticket", "pnr": "PNR12345", "ticket_number": "TCKT98765", "action": "View" },
+            { "sl": "2", "date": "22-08-2024 09:30", "booking_id": "TB638598033713837000", "message": "Need assistance", "support_type": "Request", "pnr": "PNR12346", "ticket_number": "TCKT98766", "action": "View" }
         ],
         ongoing: [
-            { "sl": "1", "date": "27-03-2024 15:36", "booking_id": "TCL638471159694473183", "message": "Dear Concern... Greetings from Trip Beyond!!! Ple...", "support_type": "Issue", "action": "Update" },
-            { "sl": "2", "date": "28-03-2024 12:10", "booking_id": "TCL638471159694473184", "message": "Waiting for confirmation", "support_type": "Follow-up", "action": "Update" }
+            { "sl": "1", "date": "27-03-2024 15:36", "booking_id": "TCL638471159694473183", "message": "Dear Concern... Greetings from Trip Beyond!!! Ple...", "support_type": "Issue", "pnr": "PNR54321", "ticket_number": "TCKT56789", "action": "Update" },
+            { "sl": "2", "date": "28-03-2024 12:10", "booking_id": "TCL638471159694473184", "message": "Waiting for confirmation", "support_type": "Follow-up", "pnr": "PNR54322", "ticket_number": "TCKT56790", "action": "Update" }
         ],
         closed: [
-            { "sl": "1", "date": "08-07-2024 10:21", "booking_id": "TCL638558679553839420", "message": "Please mail at reservation@travelchamp.com", "support_type": "Resolved", "action": "View" },
-            { "sl": "2", "date": "09-07-2024 11:00", "booking_id": "TCL638558679553839421", "message": "Issue resolved successfully", "support_type": "Closed", "action": "View" }
+            { "sl": "1", "date": "08-07-2024 10:21", "booking_id": "TCL638558679553839420", "message": "Please mail at reservation@travelchamp.com", "support_type": "Resolved", "pnr": "PNR67890", "ticket_number": "TCKT12345", "action": "View" },
+            { "sl": "2", "date": "09-07-2024 11:00", "booking_id": "TCL638558679553839421", "message": "Issue resolved successfully", "support_type": "Closed", "pnr": "PNR67891", "ticket_number": "TCKT12346", "action": "View" }
         ],
     };
 
@@ -53,7 +53,8 @@ const Table: React.FC<TableProps> = ({ type }) => {
                     { label: 'Message', key: 'message' },
                     { label: 'Date', key: 'date' },
                     { label: 'Booking ID', key: 'booking_id' },
-                    { label: 'Action', key: 'action' }
+                    { label: 'PNR', key: 'pnr' },
+                    { label: 'Ticket Number', key: 'ticket_number' }
                 ];
             case 'closed':
                 return [
@@ -62,6 +63,8 @@ const Table: React.FC<TableProps> = ({ type }) => {
                     { label: 'Message', key: 'message' },
                     { label: 'Date', key: 'date' },
                     { label: 'Booking ID', key: 'booking_id' },
+                    { label: 'PNR', key: 'pnr' },
+                    { label: 'Ticket Number', key: 'ticket_number' },
                     { label: 'Action', key: 'action' }
                 ];
             default:
