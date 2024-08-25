@@ -7,6 +7,7 @@ import TableHeader from "../common/table/TableHeader";
 import TableContainer from "../common/table/TableContainer";
 import TableBody from "../common/table/TableBody";
 import TableWrap from "../common/table/TableWrap";
+import searchFilter from "@/utils/searchFilter";
 
 interface Fields {
   booking_name: string;
@@ -71,11 +72,11 @@ const mockData: Fields[] = [
   },
 ];
 
-const TechwoozyBankAccounts = () => {
+const BankAccounts = () => {
   const [search, setSearch] = useState<string>("");
   const [field, setField] = useState<string>("booking_name");
 
-  //   const result = searchFilter(mockData, field, search);
+  const result = searchFilter(mockData, field, search);
 
   return (
     <>
@@ -91,11 +92,11 @@ const TechwoozyBankAccounts = () => {
 
         <TableContainer>
           <TableHeader items={bookingFields} />
-          <TableBody items={mockData} />
+          <TableBody items={result} />
         </TableContainer>
       </TableWrap>
     </>
   );
 };
 
-export default TechwoozyBankAccounts;
+export default BankAccounts;

@@ -4,8 +4,8 @@ import Tab from "./tab";
 import SubmitForm from "./submitForm";
 import TransactionForm from "./TransactionForm";
 import MyBankAcc from "./MyBankAcc";
-// import BankAccounts from "./BankAccounts";
 import OnlineDeposit from "./OnlineDeposit";
+import BankAccounts from "./BankAccounts";
 
 const TopupRequest = () => {
   const [tabName, setTabName] = useState("SubmitRequest");
@@ -20,7 +20,7 @@ const TopupRequest = () => {
             {tabName === "Submit Request" && <SubmitForm />}
             {tabName === "Transaction" && <TransactionForm />}
             {tabName === "My Bank Accounts" && <MyBankAcc />}
-            {/* {tabName === "Bank Accounts" && <BankAccounts />} */}
+            {tabName === "Bank Accounts" && <BankAccounts />}
             {tabName === "Online Deposit" && <OnlineDeposit />}
           </div>
         </div>
