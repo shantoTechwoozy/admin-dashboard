@@ -80,7 +80,7 @@ const BankAccounts = () => {
 
   return (
     <>
-      <PageTitle content="Techwoozy Bank Accounts" />
+      <PageTitle content="Trip Beyond Bank Accounts" />
       <TableWrap>
         <TableSearchbar
           search={search}
