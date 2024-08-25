@@ -11,7 +11,7 @@ const Tab: React.FC<TabProps> = ({ setTabName }) => {
     <div className="mb-4 flex flex-wrap gap-2">
       <button
         className="flex items-center gap-2 rounded-md bg-blue-600 p-2 text-sm text-white shadow-md transition-colors hover:bg-blue-700"
-        onClick={() => setTabName("SubmitRequest")}
+        onClick={() => setTabName("Submit Request")}
       >
         <AiFillAppstore />
         Submit Request
@@ -25,21 +25,21 @@ const Tab: React.FC<TabProps> = ({ setTabName }) => {
       </button>
       <button
         className="flex items-center gap-2 rounded-md bg-yellow-600 p-2 text-sm text-white shadow-md transition-colors hover:bg-yellow-700"
-        onClick={() => setTabName("MyBankAccounts")}
+        onClick={() => setTabName("My Bank Accounts")}
       >
         <BsBank />
         My Bank Accounts
       </button>
       <button
         className="flex items-center gap-2 rounded-md bg-slate-400 p-2 text-sm text-white shadow-md transition-colors hover:bg-gray-700"
-        onClick={() => setTabName("TechwoozyBankAccounts")}
+        onClick={() => setTabName("Bank Accounts")}
       >
         <AiOutlineBank />
-        Techwoozy Bank Accounts
+        Bank Accounts
       </button>
       <button
         className="flex items-center gap-2 rounded-md bg-orange-600 p-2 text-sm text-white shadow-md transition-colors hover:bg-orange-700"
-        onClick={() => setTabName("OnlineDeposit")}
+        onClick={() => setTabName("Online Deposit")}
       >
         <BsFillCreditCardFill />
         Online Deposit

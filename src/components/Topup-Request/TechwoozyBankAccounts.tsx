@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import { useState } from "react";
 import TableSearchbar from "../common/TableSearchbar";
 import PageTitle from "./PageTitle";
@@ -6,7 +7,6 @@ import TableHeader from "../common/table/TableHeader";
 import TableContainer from "../common/table/TableContainer";
 import TableBody from "../common/table/TableBody";
 import TableWrap from "../common/table/TableWrap";
-import searchFilter from "@/utils/searchFilter";
 
 interface Fields {
   booking_name: string;
@@ -75,7 +75,7 @@ const TechwoozyBankAccounts = () => {
   const [search, setSearch] = useState<string>("");
   const [field, setField] = useState<string>("booking_name");
 
-  const result = searchFilter(mockData, field, search);
+  //   const result = searchFilter(mockData, field, search);
 
   return (
     <>
@@ -91,7 +91,7 @@ const TechwoozyBankAccounts = () => {
 
         <TableContainer>
           <TableHeader items={bookingFields} />
-          <TableBody items={result} />
+          <TableBody items={mockData} />
         </TableContainer>
       </TableWrap>
     </>

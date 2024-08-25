@@ -19,7 +19,7 @@ const SupportPage = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     {/* Contact Info Section */}
-                    <div className="bg-white p-6 rounded-lg shadow-md">
+                    <div className="bg-white p-2 rounded-lg shadow-md">
                         <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
                         <div className="flex items-center mb-4">
                             <FaPhoneAlt className="text-blue-500 mr-3" size={24} />
@@ -55,7 +55,7 @@ const SupportPage = () => {
                 </div>
 
                 {/* Tabs and Tables */}
-                <div className="bg-white p-6 rounded-lg shadow-md mb-6">
+                <div className="bg-white rounded-lg mb-6 mt-5">
                     <Tab activeTab={activeTab} setActiveTab={setActiveTab} />
                     {activeTab === 'opened' && <Table type="opened" />}
                     {activeTab === 'ongoing' && <Table type="ongoing" />}

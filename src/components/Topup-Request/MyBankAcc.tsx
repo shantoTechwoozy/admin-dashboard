@@ -2,7 +2,7 @@ import React from 'react'
 
 const MyBankAcc = () => {
   return (
-    <div>MyBankAcc</div>
+    <div>MyBank Acc</div>
   )
 }
 
