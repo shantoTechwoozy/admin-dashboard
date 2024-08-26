@@ -13,7 +13,7 @@ interface PropeTypes {
 
 const Inputer = ({ label, input }: PropeTypes) => {
   return (
-    <div className="flex-1">
+    <div className="flex-1 w-full">
       <h1 className="mb-2 hidden text-sm font-medium text-black sm:block">
         {label}
       </h1>

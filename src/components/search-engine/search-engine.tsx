@@ -1,19 +1,14 @@
 "use client";
-import React, { useState } from "react";
 import "@/css/style.css";
-import Image from "next/image";
-import SETabs from "./tabs";
-import { SelectEconomy } from "./select-economy";
-import { SelectAge } from "./select-age";
+import React, { useState } from "react";
+import SearchButton from "../common/buttons/SearchButton";
 import Inputer from "./Inputer";
-import cn from "@/utils/cn";
+import { SelectAge } from "./select-age";
+import { SelectEconomy } from "./select-economy";
 import SwapImg from "./SwapImg";
+import SETabs from "./tabs";
 
 const SearchEngine: React.FC = () => {
-  const [departDate, setDepartDate] = useState("");
-  const [returnDate, setReturnDate] = useState("");
-  const [travellers1, setTravellers1] = useState("");
-  const [cabinClass1, setCabinClass1] = useState("");
   const [isRotating, setIsRotating] = useState<boolean>(false);
 
   let from = {
@@ -25,6 +20,16 @@ const SearchEngine: React.FC = () => {
     shortName: "bdt",
     name: "jessaore",
     fullName: "jessore Hazrat Shajalal",
+  };
+  let departDate = {
+    shortName: "13",
+    name: "July",
+    fullName: "saturday, 2024",
+  };
+  let returnDate = {
+    shortName: "15",
+    name: "July",
+    fullName: "monday, 2024",
   };
 
   return (
@@ -45,9 +50,8 @@ const SearchEngine: React.FC = () => {
         </div>
 
         {/* Flight Search Form */}
-        <div className="grid grid-cols-1 gap-4 rounded-3xl bg-white p-6 shadow-lg sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
-          <div className="flex flex-col gap-4  lg:col-span-3 lg:flex-row">
-            {/* From */}
+        <div className="bg-white-700 flex flex-col gap-5 rounded-3xl px-0.5 pb-5 pt-3 sm:flex-row">
+          <div className="flex w-full flex-col gap-4 lg:flex-row">
             <div className="relative flex w-full flex-col justify-center gap-5 sm:flex-row sm:items-end sm:gap-0">
               <Inputer label="From" input={from} />
               <SwapImg
@@ -59,43 +63,13 @@ const SearchEngine: React.FC = () => {
               />
               <Inputer label="To" input={to} />
             </div>
-
-            {/* Swap */}
           </div>
-
           {/* Date Inputs */}
-          <div className="flex  w-full gap-4">
-            <div className="flex-1">
-              <label className="mb-2 block text-sm font-medium text-black">
-                Depart
-              </label>
-              <input
-                type="date"
-                value={departDate}
-                onChange={(e) => setDepartDate(e.target.value)}
-                className="w-full rounded-md  border border-slate-300 p-3 shadow-md transition-shadow hover:shadow-lg"
-              />
-            </div>
-
-            <div className="flex-1">
-              <label className="mb-2 block text-sm font-medium text-black">
-                Return
-              </label>
-              <input
-                type="date"
-                value={returnDate}
-                onChange={(e) => setReturnDate(e.target.value)}
-                className="w-full rounded-md   border border-slate-300 p-3 shadow-md transition-shadow hover:shadow-lg"
-              />
-            </div>
+          <div className="flex w-full flex-col items-end gap-3 sm:flex-row">
+            <Inputer label="Depart" input={departDate} />
+            <Inputer label="Return" input={returnDate} />
+            <SearchButton onClick={() => {}} />
           </div>
-
-          {/* Search Button */}
-          {/* <div className="col-span-1 lg:col-span-5 flex justify-end mt-4">
-            <button className="bg-blue-600 text-white px-6 py-3 rounded-md shadow-lg hover:bg-blue-700 active:bg-blue-800 transition-shadow">
-              Search
-            </button>
-          </div> */}
         </div>
       </div>
     </div>
