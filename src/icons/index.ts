@@ -15,10 +15,13 @@ import {
 import { VscGitPullRequestNewChanges } from "react-icons/vsc";
 import { IoArrowBack } from "react-icons/io5";
 import { FaAngleDown } from "react-icons/fa6";
+import { GrMenu } from "react-icons/gr";
+import { HiOutlineSearch } from "react-icons/hi";
 
 // Define icon sets
 export const IconTopBar = {
-  authentication: TbLogin2,
+  menu: GrMenu,
+  search: HiOutlineSearch,
 };
 
 export const IconSidebar = {
