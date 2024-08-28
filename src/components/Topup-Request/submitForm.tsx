@@ -18,7 +18,7 @@ const SubmitForm = () => {
   };
   return (
     <>
-      <PageTitle content="Submit Request"/>
+      <PageTitle content="Submit Request" />
       <form
         onSubmit={handleFormSubmit}
         className="grid grid-cols-1 gap-4 lg:grid-cols-2"

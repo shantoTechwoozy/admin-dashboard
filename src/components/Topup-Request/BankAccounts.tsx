@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-import TableSearchbar from "../common/TableSearchbar";
+import TableSearchbar from "../common/table/TableSearchbar";
 import PageTitle from "./PageTitle";
 import TableHeader from "../common/table/TableHeader";
 import TableContainer from "../common/table/TableContainer";

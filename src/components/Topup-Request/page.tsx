@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
-import Tab from "./tab";
-import SubmitForm from "./submitForm";
-import TransactionForm from "./TransactionForm";
+import BankAccounts from "./BankAccounts";
 import MyBankAcc from "./MyBankAcc";
 import OnlineDeposit from "./OnlineDeposit";
-import BankAccounts from "./BankAccounts";
+import SubmitForm from "./submitForm";
+import Tab from "./tab";
+import TransactionForm from "./Transactions";
 
 const TopupRequest = () => {
   const [tabName, setTabName] = useState("SubmitRequest");
@@ -17,7 +17,7 @@ const TopupRequest = () => {
           <Tab setTabName={setTabName} />
 
           <div className="max-h-[400px] overflow-x-auto overflow-y-auto lg:max-h-[600px]">
-            {tabName === "Submit Request" && <SubmitForm />}
+            {tabName === "SubmitRequest" && <SubmitForm />}
             {tabName === "Transaction" && <TransactionForm />}
             {tabName === "My Bank Accounts" && <MyBankAcc />}
             {tabName === "Bank Accounts" && <BankAccounts />}
