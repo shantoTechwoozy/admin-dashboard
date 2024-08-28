@@ -1,4 +1,3 @@
-import React from "react";
 import { FaSearch } from "react-icons/fa";
 
 interface TableSearchbarProps {
@@ -41,7 +40,7 @@ const TableSearchbar: React.FC<TableSearchbarProps> = ({
       </select>
       <button
         className="flex items-center gap-2 rounded-md bg-blue-600 p-2 text-sm text-white shadow-md"
-        onClick={() => {}}
+        onClick={() => { }}
       >
         <FaSearch />
         Search
