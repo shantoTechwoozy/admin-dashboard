@@ -1,31 +1,12 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
-import Image from "next/image";
-import SidebarItem from "@/components/Sidebar/SidebarItem";
 import ClickOutside from "@/components/ClickOutside";
+import SidebarItem from "@/components/Sidebar/SidebarItem";
 import useLocalStorage from "@/hooks/useLocalStorage";
-import { HiMenu, HiX, HiUser, HiCreditCard, HiBriefcase } from 'react-icons/hi';
-import { FaPlane, FaHotel, FaCcVisa, FaCaretDown, FaCreativeCommonsZero } from 'react-icons/fa';
-import { MdOutlineArrowDropDownCircle, MdPeople } from "react-icons/md";
-import { FcSearch, FcReadingEbook, FcMoneyTransfer, FcHeatMap, FcCurrencyExchange } from "react-icons/fc";
-import { RiEmotionHappyLine, RiRefund2Fill } from 'react-icons/ri';
-import { AiOutlineIssuesClose } from "react-icons/ai";
-import { BsClockHistory, BsChatLeftQuote } from "react-icons/bs";
-import { GiReceiveMoney } from "react-icons/gi";
-import { MdOutlineDashboardCustomize } from "react-icons/md";
-import { FaHistory } from "react-icons/fa";
-import { SlCalender } from "react-icons/sl";
-import { MdCurrencyExchange } from "react-icons/md";
-import { IoCashOutline, IoSettingsOutline } from "react-icons/io5";
-import { TbCashRegister, TbLogin2, TbTransactionDollar } from "react-icons/tb";
-import { TbLocationSearch } from "react-icons/tb";
-import { GrContactInfo } from "react-icons/gr";
-import { TbReport } from "react-icons/tb";
-import { VscGitPullRequestNewChanges } from "react-icons/vsc";
-import { BiSupport } from "react-icons/bi";
+import { IconSidebar } from "@/icons";
+
+import cn from "@/utils/cn";
+import Logo from "../common/Logo";
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -38,31 +19,28 @@ const menuGroups = [
     menuItems: [
       {
         icon: (
-          <MdOutlineDashboardCustomize className="mr-2 text-blue-500" size={25} />
+          <IconSidebar.dashboard className="mr-2 text-blue-500" size={25} />
         ),
         label: "Dashboard",
         route: "/",
-
       },
       {
         icon: (
-          <TbLocationSearch className="mr-2 text-white" size={25} />
+          <IconSidebar.searchEngine className="mr-2 text-white" size={25} />
         ),
         label: "Search Engine",
         route: "/search-engine",
-
       },
       {
         icon: (
-          <GrContactInfo className="mr-2 text-violet-400" size={25} />
+          <IconSidebar.sharePnr className="mr-2 text-violet-400" size={25} />
         ),
         label: "Share PNR",
         route: "/share-pnr",
-
       },
       {
         icon: (
-          <FaHistory className="mr-2 text-meta-5" size={25} />
+          <IconSidebar.bookingHistory className="mr-2 text-meta-5" size={25} />
         ),
         label: "Booking History",
         route: "#",
@@ -76,7 +54,10 @@ const menuGroups = [
       },
       {
         icon: (
-          <IoCashOutline className="mr-2 text-green-500" size={25} />
+          <IconSidebar.partialPayment
+            className="mr-2 text-green-500"
+            size={25}
+          />
         ),
         label: "Partial Payment",
         route: "#",
@@ -86,9 +67,7 @@ const menuGroups = [
         ],
       },
       {
-        icon: (
-          <TbReport className="mr-2 text-red" size={25} />
-        ),
+        icon: <IconSidebar.report className="mr-2 text-red" size={25} />,
         label: "Report",
         route: "#",
         children: [
@@ -99,77 +78,64 @@ const menuGroups = [
       },
       {
         icon: (
-          <MdPeople className="mr-2 text-sky-300" size={25} />
+          <IconSidebar.addPassenger className="mr-2 text-sky-300" size={25} />
         ),
         label: "Add Passenger",
         route: "/add-passenger",
-        // children: [
-        //   { label: "Quick Passenger", route: "/tables" },
-
-        // ],
       },
-
 
       {
         icon: (
-          <SlCalender className="mr-2 text-yellow-500" size={25} />
+          <IconSidebar.calender className="mr-2 text-yellow-500" size={25} />
         ),
         label: "Calendar",
         route: "/calendar",
       },
       {
         icon: (
-          <VscGitPullRequestNewChanges className="mr-2 text-orange-500" size={25} />
-
+          <IconSidebar.topUpRequest
+            className="mr-2 text-orange-500"
+            size={25}
+          />
         ),
         label: "Topup Request",
         route: "/topup-req",
       },
       {
         icon: (
-          <BiSupport className="mr-2 text-orange-500" size={25} />
-
+          <IconSidebar.support className="mr-2 text-orange-500" size={25} />
         ),
         label: "Support",
         route: "/support",
       },
       {
         icon: (
-          <TbTransactionDollar className="mr-2 text-green-500" size={25} />
-
+          <IconSidebar.transaction className="mr-2 text-green-500" size={25} />
         ),
         label: "Transaction",
         route: "/profile",
       },
       {
-        icon: (
-          <TbCashRegister className="mr-2 text-blue-500" size={25} />
-
-        ),
+        icon: <IconSidebar.payment className="mr-2 text-blue-500" size={25} />,
         label: "Payment",
         route: "/profile",
       },
       {
         icon: (
-          <HiBriefcase className="mr-2 text-purple-500" size={25} />
-
+          <IconSidebar.bankList className="mr-2 text-purple-500" size={25} />
         ),
         label: "Bank List",
         route: "/profile",
       },
       {
-        icon: (
-          <HiBriefcase className="mr-2 text-blue-700" size={25} />
-
-        ),
+        icon: <IconSidebar.company className="mr-2 text-blue-700" size={25} />,
         label: "Company",
         route: "/profile",
       },
 
       {
         icon: (
-          <IoSettingsOutline className="mr-2 text-orange-700" size={25} />
-
+          <IconSidebar.settings className="mr-2 text-orange-700" size={25} />
         ),
         label: "Settings",
         route: "/settings",
@@ -180,18 +146,14 @@ const menuGroups = [
   {
     name: "REGISTRATIONS",
     menuItems: [
-
       {
-        icon: (
-          <HiUser className="mr-2 text-gray-600" size={25} />
-        ),
+        icon: <IconSidebar.profile className="text-gray-600 mr-2" size={25} />,
         label: "Profile",
         route: "/profile",
       },
       {
         icon: (
-          <TbLogin2 className="mr-2 text-white" size={25} />
-
+          <IconSidebar.authentication className="mr-2 text-white" size={25} />
         ),
         label: "Authentication",
         route: "#",
@@ -205,51 +167,33 @@ const menuGroups = [
 ];
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
-  const pathname = usePathname();
   const [pageName, setPageName] = useLocalStorage("selectedMenu", "dashboard");
 
   return (
     <ClickOutside onClick={() => setSidebarOpen(false)}>
       <aside
-        className={`fixed left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
+        className={cn(
+          `fixed left-0 top-0 z-9999 flex h-screen w-72.5 -translate-x-full flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:translate-x-0`,
+          {
+            "translate-x-0": sidebarOpen,
+          },
+        )}
       >
         {/* <!-- SIDEBAR HEADER --> */}
-        <div className="flex items-center justify-center gap-2 px-6 py-5.5 lg:py-6.5">
-          <Link href="/">
-            <Image
-              width={176}
-              height={32}
-              src={"/side-nav/logo.png"}
-              alt="Logo"
-              priority
-            />
-          </Link>
+        <div className="flex items-center justify-center gap-3 px-6 py-5.5 lg:py-6.5">
+          <Logo />
 
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
             aria-controls="sidebar"
             className="block lg:hidden"
           >
-            <svg
-              className="fill-current"
-              width="20"
-              height="18"
-              viewBox="0 0 20 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M19 8.175H2.98748L9.36248 1.6875C9.69998 1.35 9.69998 0.825 9.36248 0.4875C9.02498 0.15 8.49998 0.15 8.16248 0.4875L0.399976 8.3625C0.0624756 8.7 0.0624756 9.225 0.399976 9.5625L8.16248 17.4375C8.31248 17.5875 8.53748 17.7 8.76248 17.7C8.98748 17.7 9.17498 17.625 9.36248 17.475C9.69998 17.1375 9.69998 16.6125 9.36248 16.275L3.02498 9.8625H19C19.45 9.8625 19.825 9.4875 19.825 9.0375C19.825 8.55 19.45 8.175 19 8.175Z"
-                fill=""
-              />
-            </svg>
+            <IconSidebar.backButton className="text-2xl" />
           </button>
         </div>
         {/* <!-- SIDEBAR HEADER --> */}
 
         <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
-          {/* <!-- Sidebar Menu --> */}
           <nav className="mt-2 px-4 py-4 lg:mt-2 lg:px-6">
             {menuGroups.map((group, groupIndex) => (
               <div key={groupIndex}>
@@ -270,7 +214,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </div>
             ))}
           </nav>
-          {/* <!-- Sidebar Menu --> */}
         </div>
       </aside>
     </ClickOutside>
