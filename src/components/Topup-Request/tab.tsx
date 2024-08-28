@@ -1,6 +1,6 @@
 import { AiFillAppstore, AiOutlineBank } from "react-icons/ai";
-import { RiMoneyDollarCircleFill } from "react-icons/ri";
 import { BsBank, BsFillCreditCardFill } from "react-icons/bs";
+import { RiMoneyDollarCircleFill } from "react-icons/ri";
 
 type TabProps = {
   setTabName: (tabName: string) => void;
@@ -11,7 +11,7 @@ const Tab: React.FC<TabProps> = ({ setTabName }) => {
     <div className="mb-4 flex flex-wrap gap-2">
       <button
         className="flex items-center gap-2 rounded-md bg-blue-600 p-2 text-sm text-white shadow-md transition-colors hover:bg-blue-700"
-        onClick={() => setTabName("Submit Request")}
+        onClick={() => setTabName("SubmitRequest")}
       >
         <AiFillAppstore />
         Submit Request
