@@ -9,8 +9,8 @@ const SharePNR = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Supplier:', supplier);
-    console.log('PNR:', pnr);
+    // console.log('Supplier:', supplier);
+    // console.log('PNR:', pnr);
     // Handle form submission logic here
   };
 
