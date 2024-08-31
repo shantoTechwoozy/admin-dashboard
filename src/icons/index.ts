@@ -1,6 +1,6 @@
 import { BiLogOut, BiSupport } from "react-icons/bi";
 import { CiUser } from "react-icons/ci";
-import { FaHistory } from "react-icons/fa";
+import { FaHistory,FaPlane } from "react-icons/fa";
 import { FaAngleDown, FaRegCommentDots } from "react-icons/fa6";
 import { GrContactInfo, GrMenu } from "react-icons/gr";
 import { HiBriefcase, HiOutlineSearch } from "react-icons/hi";
@@ -58,7 +58,7 @@ export const IconSidebar = {
 // Other icon sets can be similarly defined
 export const IconDashboard = { authentication: TbLogin2 };
 export const IconSearchEngine = { authentication: TbLogin2 };
-export const IconSharePnr = { authentication: TbLogin2 };
+export const IconSharePnr = { plane: FaPlane };
 export const IconBookingHistory = { authentication: TbLogin2 };
 export const IconPartialPayment = { authentication: TbLogin2 };
 export const IconReport = { authentication: TbLogin2 };
