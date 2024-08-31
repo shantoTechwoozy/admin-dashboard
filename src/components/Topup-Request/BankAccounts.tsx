@@ -7,7 +7,7 @@ import TableContainer from "../common/table/TableContainer";
 import TableBody from "../common/table/TableBody";
 import TableWrap from "../common/table/TableWrap";
 import searchFilter from "@/utils/searchFilter";
-// import TableSearch from "../common/table/TableSearch";
+import TableHeaderSearch from "../common/table/TableHeaderSearch";
 
 interface Fields {
   booking_name: string;
@@ -89,6 +89,8 @@ const BankAccounts = () => {
           onSearch={setSearch}
           fieldLists={bookingFields}
         /> */}
+
+        <TableHeaderSearch />
 
         <TableContainer>
           <TableHeader items={bookingFields} />
