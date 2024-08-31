@@ -107,8 +107,7 @@ const MyBankAcc = () => {
 
         {isPopupOpen && <PopupModal show={isPopupOpen} onclose={closePopup}>
           <div className="p-4">
-            <h2 className="text-lg font-semibold">Add New Bank Account</h2>
-            <BankForm />
+            <BankForm onClose={closePopup}/>
           </div>
         </PopupModal>}
 
