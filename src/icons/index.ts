@@ -1,8 +1,10 @@
-import { BiSupport } from "react-icons/bi";
+import { BiLogOut, BiSupport } from "react-icons/bi";
+import { CiUser } from "react-icons/ci";
 import { FaHistory } from "react-icons/fa";
-import { GrContactInfo } from "react-icons/gr";
-import { HiBriefcase } from "react-icons/hi";
-import { IoCashOutline, IoSettingsOutline } from "react-icons/io5";
+import { FaAngleDown } from "react-icons/fa6";
+import { GrContactInfo, GrMenu } from "react-icons/gr";
+import { HiBriefcase, HiOutlineSearch } from "react-icons/hi";
+import { IoArrowBack, IoCashOutline, IoSettingsOutline } from "react-icons/io5";
 import { MdOutlineDashboardCustomize, MdPeople } from "react-icons/md";
 import { SlCalender } from "react-icons/sl";
 import {
@@ -13,15 +15,19 @@ import {
   TbTransactionDollar,
 } from "react-icons/tb";
 import { VscGitPullRequestNewChanges } from "react-icons/vsc";
-import { IoArrowBack } from "react-icons/io5";
-import { FaAngleDown } from "react-icons/fa6";
-import { GrMenu } from "react-icons/gr";
-import { HiOutlineSearch } from "react-icons/hi";
+import { MdNotificationsNone } from "react-icons/md";
+import { FaRegCommentDots } from "react-icons/fa6";
 
 // Define icon sets
 export const IconTopBar = {
   menu: GrMenu,
   search: HiOutlineSearch,
+  downArrow: FaAngleDown,
+  myProfile: CiUser,
+  accountSettings: IoSettingsOutline,
+  logout: BiLogOut,
+  notification: MdNotificationsNone,
+  comments: FaRegCommentDots,
 };
 
 export const IconSidebar = {

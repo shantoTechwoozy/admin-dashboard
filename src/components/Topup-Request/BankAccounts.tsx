@@ -1,13 +1,14 @@
 "use client";
-import React from "react";
 import { useState } from "react";
-import TableSearchbar from "../common/table/TableSearchbar";
-import PageTitle from "./PageTitle";
-import TableHeader from "../common/table/TableHeader";
-import TableContainer from "../common/table/TableContainer";
-import TableBody from "../common/table/TableBody";
-import TableWrap from "../common/table/TableWrap";
+
 import searchFilter from "@/utils/searchFilter";
+import TableBody from "../common/table/TableBody";
+import TableContainer from "../common/table/TableContainer";
+import TableHeader from "../common/table/TableHeader";
+import TableWrap from "../common/table/TableWrap";
+import PageTitle from "./PageTitle";
+// import TableHeaderSearch from "../common/table/TableHeaderSearch";
+import SearchInTable from "../common/SearchInTable";
 
 interface Fields {
   booking_name: string;
@@ -82,7 +83,7 @@ const BankAccounts = () => {
     <>
       <PageTitle content="Trip Beyond Bank Accounts" />
       <TableWrap>
-        <TableSearchbar
+        <SearchInTable
           search={search}
           field={field}
           onFieldChange={setField}

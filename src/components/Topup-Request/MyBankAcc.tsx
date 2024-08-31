@@ -1,13 +1,13 @@
-"use client"
-import { useState } from 'react';
-import BankForm from '../common/form';
-import PopupModal from '../common/modal';
-import TableBody from '../common/table/TableBody';
-import TableContainer from '../common/table/TableContainer';
-import TableHeader from '../common/table/TableHeader';
-import TableSearchbar from '../common/table/TableSearchbar';
-import TableWrap from '../common/table/TableWrap';
-import PageTitle from './PageTitle';
+"use client";
+import { useState } from "react";
+import BankForm from "../common/form";
+import PopupModal from "../common/modal";
+import SearchInTable from "../common/SearchInTable";
+import TableBody from "../common/table/TableBody";
+import TableContainer from "../common/table/TableContainer";
+import TableHeader from "../common/table/TableHeader";
+import TableWrap from "../common/table/TableWrap";
+import PageTitle from "./PageTitle";
 interface Fields {
   sl: string;
   account_name: string;
@@ -42,14 +42,13 @@ const mockData: Fields[] = [
     bank_name: "CITY BANK",
     branch_name: "UTTARA",
   },
-]
+];
 
 const MyBankAcc = () => {
   const [sortField, setSortField] = useState<keyof Fields>("account_numner");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchField, setSearchField] = useState<keyof Fields>("sl");
-
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -62,8 +61,8 @@ const MyBankAcc = () => {
   };
 
   const handleFieldChange = (item: string) => {
-    setSearchField(item as keyof Fields)
-  }
+    setSearchField(item as keyof Fields);
+  };
   const filteredData = mockData
     .filter((item) =>
       item[searchField]
@@ -84,16 +83,14 @@ const MyBankAcc = () => {
     { label: "Account Numner", key: "account_numner" },
     { label: "Bank Name", key: "bank_name" },
     { label: "Branch Name", key: "branch_name" },
-  ]
-
-
+  ];
 
   return (
     <>
       <PageTitle content="My Bank Account" />
 
       <TableWrap>
-        <TableSearchbar
+        <SearchInTable
           search={searchQuery}
           field={searchField}
           onSearch={setSearchQuery}
@@ -101,13 +98,17 @@ const MyBankAcc = () => {
           fieldLists={fields.map((element) => element.label)}
         />
 
-        <button className="px-5 py-2 mb-2  bg-black text-white font-semibold p-2 rounded-lg"
+        <button
+          className="mb-2 rounded-lg bg-black  p-2 px-5 py-2 font-semibold text-white"
           onClick={openPopup}
-        >Add Account</button>
+        >
+          Add Account
+        </button>
 
         {isPopupOpen && <PopupModal show={isPopupOpen} onclose={closePopup}>
           <div className="p-4">
-            <BankForm onClose={closePopup}/>
+            <h2 className="text-lg font-semibold">Add New Bank Account</h2>
+            <BankForm />
           </div>
         </PopupModal>}
 
@@ -115,10 +116,9 @@ const MyBankAcc = () => {
           <TableHeader items={fields.map((field) => field.label)} />
           <TableBody items={filteredData} />
         </TableContainer>
-
       </TableWrap>
     </>
-  )
-}
+  );
+};
 
-export default MyBankAcc
+export default MyBankAcc;

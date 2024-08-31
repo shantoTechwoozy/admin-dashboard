@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
+import SearchInTable from "../common/SearchInTable";
 import TableBody from "../common/table/TableBody";
 import TableContainer from "../common/table/TableContainer";
 import TableHeader from "../common/table/TableHeader";
-import TableSearchbar from "../common/table/TableSearchbar";
 import TableWrap from "../common/table/TableWrap";
 import PageTitle from "./PageTitle";
 
@@ -74,7 +74,6 @@ const TransactionForm = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchField, setSearchField] = useState<keyof Fields>("tnxNumber");
 
-
   const handleSort = (field: keyof Fields) => {
     const order = sortField === field && sortOrder === "asc" ? "desc" : "asc";
     setSortField(field);
@@ -82,8 +81,8 @@ const TransactionForm = () => {
   };
 
   const handleFieldChange = (item: string) => {
-    setSearchField(item as keyof Fields)
-  }
+    setSearchField(item as keyof Fields);
+  };
   const filteredData = mockData
     .filter((item) =>
       item[searchField]
@@ -115,7 +114,7 @@ const TransactionForm = () => {
       <PageTitle content="Transaction" />
 
       <TableWrap>
-        <TableSearchbar
+        <SearchInTable
           search={searchQuery}
           field={searchField}
           onSearch={setSearchQuery}
