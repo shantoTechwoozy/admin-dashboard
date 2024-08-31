@@ -9,6 +9,7 @@ import TableWrap from "../common/table/TableWrap";
 import searchFilter from "@/utils/searchFilter";
 // import TableHeaderSearch from "../common/table/TableHeaderSearch";
 import { IconSidebar } from "@/icons";
+import SearchInTable from "../common/SearchInTable";
 
 interface Fields {
   booking_name: string;
@@ -92,6 +93,7 @@ const BankAccounts = () => {
         /> */}
 
         <IconSidebar.dashboard />
+        <SearchInTable />
 
         {/* <TableHeaderSearch /> */}
 
