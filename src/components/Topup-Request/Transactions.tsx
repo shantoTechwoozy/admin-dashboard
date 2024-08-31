@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
+import SearchInTable from "../common/SearchInTable";
 import TableBody from "../common/table/TableBody";
 import TableContainer from "../common/table/TableContainer";
 import TableHeader from "../common/table/TableHeader";
 import TableWrap from "../common/table/TableWrap";
 import PageTitle from "./PageTitle";
-import TableSearch from "../common/table/TableSearch";
 
 // Fields interface for the data structure
 interface Fields {
@@ -114,7 +114,7 @@ const TransactionForm = () => {
       <PageTitle content="Transaction" />
 
       <TableWrap>
-        <TableSearch
+        <SearchInTable
           search={searchQuery}
           field={searchField}
           onSearch={setSearchQuery}

@@ -2,12 +2,12 @@
 import { useState } from "react";
 import BankForm from "../common/form";
 import PopupModal from "../common/modal";
+import SearchInTable from "../common/SearchInTable";
 import TableBody from "../common/table/TableBody";
 import TableContainer from "../common/table/TableContainer";
 import TableHeader from "../common/table/TableHeader";
 import TableWrap from "../common/table/TableWrap";
 import PageTitle from "./PageTitle";
-import TableSearch from "../common/table/TableSearch";
 interface Fields {
   sl: string;
   account_name: string;
@@ -90,7 +90,7 @@ const MyBankAcc = () => {
       <PageTitle content="My Bank Account" />
 
       <TableWrap>
-        <TableSearch
+        <SearchInTable
           search={searchQuery}
           field={searchField}
           onSearch={setSearchQuery}
