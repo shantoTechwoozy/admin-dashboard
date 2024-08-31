@@ -24,7 +24,7 @@ const mockData: Fields[] = [
     sl: 1,
     name: "Mr MD SHAREA HOSIN SIMUL (ADT)",
     email: "trip.beyond.fly@gmail.com",
-    dob: "28-June-2003",
+    dob: "28-June-2024",
     gender: "Male",
     passport_number: "A07733910",
     passport_expire_date: "01-May-2033",
