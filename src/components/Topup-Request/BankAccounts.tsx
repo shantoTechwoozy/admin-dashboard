@@ -1,6 +1,5 @@
 "use client";
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 import PageTitle from "./PageTitle";
 import TableHeader from "../common/table/TableHeader";
@@ -8,7 +7,7 @@ import TableContainer from "../common/table/TableContainer";
 import TableBody from "../common/table/TableBody";
 import TableWrap from "../common/table/TableWrap";
 import searchFilter from "@/utils/searchFilter";
-import TableSearch from "../common/table/TableSearch";
+// import TableSearch from "../common/table/TableSearch";
 
 interface Fields {
   booking_name: string;
@@ -83,13 +82,13 @@ const BankAccounts = () => {
     <>
       <PageTitle content="Trip Beyond Bank Accounts" />
       <TableWrap>
-        <TableSearch
+        {/* <TableSearch
           search={search}
           field={field}
           onFieldChange={setField}
           onSearch={setSearch}
           fieldLists={bookingFields}
-        />
+        /> */}
 
         <TableContainer>
           <TableHeader items={bookingFields} />
