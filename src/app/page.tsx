@@ -1,6 +1,6 @@
-import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import Report from "@/app/report/page";
+import { Metadata } from "next";
+import Report from "@/components/Dashboard/report";
 
 export const metadata: Metadata = {
   title: "Trip Beyond",

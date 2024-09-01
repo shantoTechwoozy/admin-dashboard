@@ -8,7 +8,7 @@ import TableHeader from "../common/table/TableHeader";
 import TableWrap from "../common/table/TableWrap";
 import PageTitle from "./PageTitle";
 // import TableHeaderSearch from "../common/table/TableHeaderSearch";
-import SearchInTable from "../common/SearchInTable";
+import SearchInTable from "../common/table/SearchInTable";
 
 interface Fields {
   booking_name: string;

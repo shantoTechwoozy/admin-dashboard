@@ -1,7 +1,5 @@
 import React from "react";
 
-import { FaSearch } from "react-icons/fa";
-
 interface _PropsTypes {
   search: string;
   field: string;
@@ -40,13 +38,6 @@ const SearchInTable: React.FC<_PropsTypes> = ({
           );
         })}
       </select>
-      <button
-        className="flex items-center gap-2 rounded-md bg-blue-600 p-2 text-sm text-white shadow-md"
-        onClick={() => {}}
-      >
-        <FaSearch />
-        Search
-      </button>
     </div>
   );
 };

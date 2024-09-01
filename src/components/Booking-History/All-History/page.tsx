@@ -1,7 +1,10 @@
 'use client'
+import SearchInTable from "@/components/common/table/SearchInTable";
+import TableBody from "@/components/common/table/TableBody";
+import TableContainer from "@/components/common/table/TableContainer";
+import TableHeader from "@/components/common/table/TableHeader";
+import TableWrap from "@/components/common/table/TableWrap";
 import { useState } from "react";
-import { FaSearch } from "react-icons/fa";
-import BookingMenu from "./booking-menu";
 
 
 // Fields interface for the data structure
@@ -54,7 +57,11 @@ const AllHistory = () => {
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [searchField, setSearchField] = useState<keyof Fields>('route');
-
+    
+    
+    const handleFieldChange = (item: string) => {
+        setSearchField(item as keyof Fields);
+    };
     const handleSort = (field: keyof Fields) => {
         const order = sortField === field && sortOrder === 'asc' ? 'desc' : 'asc';
         setSortField(field);
@@ -87,89 +94,25 @@ const AllHistory = () => {
     ];
 
     return (
-        <div className="flex w-full items-center justify-center rounded-md">
-            <div className="w-full max-w-8xl">
-                <div className="bg-white p-2 rounded-sm shadow-lg grid grid-cols-1 gap-4">
-                    <div className="p-2">
-                        <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
-                            <BookingMenu/>
-                            <div className="flex flex-wrap items-center gap-2 mb-4 ml-auto">
-                                <input
-                                    type="text"
-                                    placeholder="Search..."
-                                    value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
-                                    className="p-2 border border-gray-300 rounded-md shadow-md text-sm w-full md:w-auto flex-wrap"
-                                />
-                                <select
-                                    value={searchField}
-                                    onChange={(e) => setSearchField(e.target.value as keyof Fields)}
-                                    className="p-2 border border-gray-300 rounded-md shadow-md text-sm w-auto"
-                                >
-                                    {fields.map((field) => (
-                                        <option key={field.key} value={field.key}>
-                                            {field.label}
-                                        </option>
-                                    ))}
-                                </select>
-                                <button
-                                    className="p-2 bg-blue-600 text-white rounded-md shadow-md flex items-center gap-2 text-sm hover:bg-blue-700 transition-colors"
-                                    onClick={() => console.log('Search triggered')}
-                                >
-                                    <FaSearch />
-                                    Search
-                                </button>
-                            </div>
-                        </div>
-
-                        <div className="overflow-x-auto max-h-[400px] lg:max-h-[600px] overflow-y-auto">
-                            <table className="min-w-full bg-white border border-gray-300 shadow-md rounded-md">
-                                <thead>
-                                    <tr>
-                                        {fields.map((field) => (
-                                            <th
-                                                key={field.key}
-                                                className="py-5 px-3 bg-black border-2 border-gray-300 cursor-pointer text-sm text-center text-white hover:bg-gray-700 transition-colors whitespace-nowrap"
-                                                onClick={() => handleSort(field.key)}
-                                            >
-                                                <div className="flex items-center justify-center gap-2 whitespace-nowrap">
-                                                    {field.label}
-                                                </div>
-                                            </th>
-                                        ))}
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {filteredData.map((item) => (
-                                        <tr key={item.booking_id} className="hover:bg-gray-100 transition-colors">
-                                            <td className="py-2 px-4 border border-gray-300 text-sm text-center text-black whitespace-nowrap">{item.issue_date}</td>
-                                            <td className="py-2 px-4 border border-gray-300 text-sm text-center text-black whitespace-nowrap">{item.booking_date}</td>
-                                            <td className="py-2 px-4 border border-gray-300 text-sm text-center text-black whitespace-nowrap">
-                                                <p className="text-red-500 font-bold">{item.booking_id}</p>
-                                            </td>
-                                            <td className="py-2 px-4 border border-gray-300 text-sm text-center text-black whitespace-nowrap">{item.passenger_name}</td>
-                                            <td className="py-2 px-4 border border-gray-300 text-sm text-center text-black whitespace-nowrap">{item.flight_date}</td>
-                                            <td className="py-2 px-4 border border-gray-300 text-sm text-center text-black whitespace-nowrap">{item.route}</td>
-                                            <td className="py-2 px-4 border border-gray-300 text-sm text-center text-black whitespace-nowrap">{item.pnr}</td>
-                                            <td className="py-2 px-4 border border-gray-300 text-sm text-center text-black whitespace-nowrap">{item.ticket_number}</td>
-                                            <td className="py-2 px-4 border border-gray-300 text-sm text-center text-black whitespace-nowrap">{item.total_price}</td>
-                                            <td className="py-2 px-4 border border-gray-300 text-sm text-center text-black whitespace-nowrap">
-                                                <span className={`px-2 py-1 rounded-full text-white ${item.status === 'On Hold' ? 'bg-yellow-500' : ''}`}>
-                                                    {item.status}
-                                                </span>
-                                            </td>
-                                            <td className="py-2 px-4 border border-gray-300 text-sm text-center text-black whitespace-nowrap">
-                                                {item.action}
-                                            </td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <>
+            <TableWrap>
+                <SearchInTable
+                    search={searchQuery}
+                    field={searchField}
+                    onSearch={setSearchQuery}
+                    onFieldChange={handleFieldChange}
+                    fieldLists={fields.map((element) => element.label)}
+                />
+                <TableContainer>
+                    <TableHeader
+                        items={fields.map((element) => element.label)}
+                    />
+                    <TableBody
+                        items={filteredData}
+                    />
+                </TableContainer>
+            </TableWrap>
+        </>
     );
 };
 

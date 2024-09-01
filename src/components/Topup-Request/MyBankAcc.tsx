@@ -2,7 +2,7 @@
 import { useState } from "react";
 import BankForm from "../common/form";
 import PopupModal from "../common/modal";
-import SearchInTable from "../common/SearchInTable";
+import SearchInTable from "../common/table/SearchInTable";
 import TableBody from "../common/table/TableBody";
 import TableContainer from "../common/table/TableContainer";
 import TableHeader from "../common/table/TableHeader";
