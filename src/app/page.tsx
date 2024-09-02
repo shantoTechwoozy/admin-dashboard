@@ -1,6 +1,4 @@
 import { Metadata } from "next";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import Report from "@/app/report/page";
 
 export const metadata: Metadata = {
   title: "Trip Beyond",
@@ -8,9 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return (
-    <DefaultLayout>
-      <Report />
-    </DefaultLayout>
-  );
+  return <div>main branding page</div>;
 }
