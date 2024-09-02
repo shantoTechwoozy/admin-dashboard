@@ -1,43 +1,55 @@
 'use client';
 
+import { IconSharePnr } from '@/icons';
 import { useState } from 'react';
-import { FaPlane } from 'react-icons/fa';
+import { Supplier, selectOptions } from './Options'; // Adjust the import path as needed
 
 const SharePNR = () => {
-  const [supplier, setSupplier] = useState('Galileo');
-  const [pnr, setPnr] = useState('');
+  const [supplier, setSupplier] = useState<Supplier>(selectOptions[0]);
+  const [pnr, setPnr] = useState<string>('');
+
+  const handleSupplierChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedSupplier = selectOptions.find(
+      (supplier: Supplier) => supplier.id === e.target.value
+    );
+    if (selectedSupplier) {
+      setSupplier(selectedSupplier);
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // console.log('Supplier:', supplier);
-    // console.log('PNR:', pnr);
     // Handle form submission logic here
+    console.log('Supplier:', supplier);
+    console.log('PNR:', pnr);
   };
 
   return (
-    <div className="flex flex-col items-center justify-center p-5 bg-white shadow-lg rounded-md w-full max-w-4xl mx-auto">
+    <div className="flex flex-col items-center justify-center p-6 bg-white shadow-lg rounded-md w-full max-w-3xl mx-auto">
       <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-        <FaPlane className="inline-block text-blue-600 mr-2" />
+        <IconSharePnr.plane className="inline-block text-blue-600 mr-2" />
         Please find the shared PNR code
         <span className="block text-blue-600 mt-2">ESDACVS33KV-B;RFS;ER;ER</span>
       </h1>
-      <form onSubmit={handleSubmit} className="flex flex-col justify-between sm:flex-row sm:items-center gap-4 w-full">
-        <div className="flex flex-col w-full sm:w-2/5">
+      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 w-full">
+        <div className="flex flex-col w-full">
           <label htmlFor="supplier" className="text-sm font-semibold text-gray-600 mb-2">
             Supplier
           </label>
           <select
             id="supplier"
-            value={supplier}
-            onChange={(e) => setSupplier(e.target.value)}
+            value={supplier.id}
+            onChange={handleSupplierChange}
             className="p-3 border border-gray-300 rounded-md shadow-sm text-gray-700 w-full"
           >
-            <option value="Galileo">Galileo</option>
-            <option value="Sabre">Sabre</option>
-            <option value="Amadeus">Amadeus</option>
+            {selectOptions.map((option) => (
+              <option key={option.id} value={option.id}>
+                {option.option}
+              </option>
+            ))}
           </select>
         </div>
-        <div className="flex flex-col w-full sm:w-2/5">
+        <div className="flex flex-col w-full">
           <label htmlFor="pnr" className="text-sm font-semibold text-gray-600 mb-2">
             PNR
           </label>
@@ -50,12 +62,14 @@ const SharePNR = () => {
             placeholder="Enter PNR code"
           />
         </div>
-        <button
-          type="submit"
-          className="p-3 bg-blue-600 text-white rounded-md shadow-md flex items-center gap-2 text-sm hover:bg-blue-700 transition-colors w-full sm:w-auto sm:mt-6"
-        >
-          Fetch
-        </button>
+        <div className="flex items-end w-full sm:w-auto">
+          <button
+            type="submit"
+            className="p-3 bg-blue-600 text-white rounded-md shadow-md flex items-center gap-2 text-sm hover:bg-blue-700 transition-colors w-full sm:w-auto"
+          >
+            Fetch
+          </button>
+        </div>
       </form>
     </div>
   );
