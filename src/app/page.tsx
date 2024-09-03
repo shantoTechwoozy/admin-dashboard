@@ -1,4 +1,5 @@
 import Logo from "@/components/common/Logo";
+import Footer from "@/components/footer/Footer";
 import MobileMenu from "@/components/main/MobileMenu";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -14,7 +15,7 @@ export default function Home() {
       <header className="bg-blue-900 absolute inset-x-0 top-0 z-50">
         <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
           <div className="flex lg:flex-1 justify-between">
-            <Logo />
+            <Logo isDark={false} />
           </div>
           <div className="flex lg:hidden">
           </div>
@@ -88,6 +89,7 @@ export default function Home() {
           />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

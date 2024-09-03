@@ -48,9 +48,8 @@ const SidebarItem = ({ item, pageName, setPageName }: any) => {
 
         {item.children && (
           <div
-            className={`translate transform overflow-hidden ${
-              pageName !== item.label.toLowerCase() && "hidden"
-            }`}
+            className={`translate transform overflow-hidden ${pageName !== item.label.toLowerCase() && "hidden"
+              }`}
           >
             <SidebarDropdown items={item.children} />
           </div>

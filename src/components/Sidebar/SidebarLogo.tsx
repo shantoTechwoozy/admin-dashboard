@@ -9,7 +9,7 @@ interface _PropsTypes {
 const SidebarLogo: React.FC<_PropsTypes> = ({ setSidebarOpen }) => {
   return (
     <div className="flex items-center justify-center gap-3 px-6 py-5.5 lg:py-6.5">
-      <Logo />
+      <Logo isDark={false} />
 
       <button
         onClick={() => setSidebarOpen((prev) => !prev)}

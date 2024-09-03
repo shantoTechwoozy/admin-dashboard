@@ -1,25 +1,74 @@
-import { BiLogOut, BiSupport } from "react-icons/bi";
-import { CiUser } from "react-icons/ci";
-import { FaHistory,FaPlane,FaUser, FaUserShield } from "react-icons/fa";
-import { FaAngleDown, FaRegCommentDots } from "react-icons/fa6";
-import { GrContactInfo, GrMenu } from "react-icons/gr";
-import { HiBriefcase, HiOutlineSearch } from "react-icons/hi";
-import { IoArrowBack, IoCashOutline, IoSettingsOutline } from "react-icons/io5";
+import {
+  BiLogOut,
+  BiSupport
+} from "react-icons/bi";
+
+import {
+  CiUser,
+  CiYoutube
+} from "react-icons/ci";
+
+import {
+  FaPlane,
+  FaUser,
+  FaUserShield,
+  FaAngleDown,
+  FaRegCommentDots,
+  FaFacebookF,
+  FaGoogle
+} from "react-icons/fa6";
+
+import {
+  FiFacebook
+} from "react-icons/fi";
+
+import {
+  SlSocialLinkedin,
+  SlCalender
+} from "react-icons/sl";
+
+import {
+  TfiInstagram,
+  TfiTwitter
+} from "react-icons/tfi";
+
+import {
+  GrContactInfo,
+  GrMenu
+} from "react-icons/gr";
+
+import {
+  HiBriefcase,
+  HiOutlineSearch
+} from "react-icons/hi";
+
+import {
+  IoArrowBack,
+  IoCashOutline,
+  IoSettingsOutline
+} from "react-icons/io5";
+
 import {
   MdOutlineDashboardCustomize,
   MdPeople,
-  MdNotificationsNone,
+  MdNotificationsNone
 } from "react-icons/md";
 
-import { SlCalender } from "react-icons/sl";
 import {
   TbCashRegister,
   TbLocationSearch,
   TbLogin2,
   TbReport,
-  TbTransactionDollar,
+  TbTransactionDollar
 } from "react-icons/tb";
-import { VscGitPullRequestNewChanges } from "react-icons/vsc";
+
+import {
+  VscGitPullRequestNewChanges
+} from "react-icons/vsc";
+
+import Image from "next/image";
+import { images } from "@/images/images";
+import { FaHistory } from "react-icons/fa";
 
 // Define icon sets
 export const IconTopBar = {
@@ -72,4 +121,5 @@ export const IconBankList = { authentication: TbLogin2 };
 export const IconCompany = { authentication: TbLogin2 };
 export const IconSettings = { authentication: TbLogin2 };
 export const IconProfile = { authentication: TbLogin2 };
-export const IconAuthentication = { user:FaUser,agent:FaUserShield};
+export const IconAuthentication = { user: FaUser, agent: FaUserShield, facebook: FaFacebookF, google: FaGoogle };
+export const IconFooter = { youtube: CiYoutube, facebook: FaFacebookF, linkedin: SlSocialLinkedin, instagram: TfiInstagram, twitter: TfiTwitter }

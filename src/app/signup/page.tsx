@@ -11,12 +11,13 @@ const LoginOptions: LoginOption[] = [
     { label: "Agent", icon: IconAuthentication.agent, bgColor: "bg-green-500" },
 ];
 
-const Login: React.FC = () => {
+const Signup: React.FC = () => {
     return (
         <div className="p-6 lg:p-12 bg-gray-100 min-h-screen flex items-center justify-center">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">
                 {LoginOptions.map((option) => {
-                    const loginHref = "/signin/" + option.label.toLowerCase();
+                    const loginHref = "/signup/" + option.label.toLowerCase();
+
                     return (
                         <Link href={loginHref} key={option.label} passHref>
                             <div
@@ -26,11 +27,11 @@ const Login: React.FC = () => {
                                     <option.icon className="w-12 h-12" />
                                 </div>
                                 <div className="p-6 text-center">
-                                    <h3 className="text-xl font-semibold mb-2">Login as {option.label}</h3>
+                                    <h3 className="text-xl font-semibold mb-2">Register as {option.label}</h3>
                                     <p className="text-gray-600">
                                         {option.label === "User"
-                                            ? "Login user features and manage your profile."
-                                            : "Login agent features and manage your listings."}
+                                            ? "Signup user features and manage your profile."
+                                            : "Signup agent features and manage your listings."}
                                     </p>
                                 </div>
                             </div>
@@ -42,4 +43,4 @@ const Login: React.FC = () => {
     );
 };
 
-export default Login;
+export default Signup;

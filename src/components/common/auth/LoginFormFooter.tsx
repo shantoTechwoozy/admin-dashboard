@@ -1,10 +1,12 @@
 import Link from 'next/link'
 import React from 'react'
-
-const AgenLoginFormFooter = () => {
+interface _PropsTypes {
+    name: string;
+}
+const LoginFormFooter: React.FC<_PropsTypes> = ({ name }) => {
     return (
         <div className="mt-4 flex justify-between text-sm font-bold text-gray-600 dark:text-gray-400 space-x-30">
-            New Agent?
+            {name}?
             <Link href="/register" className="hover:underline font-normal ml-2">
                 Register
             </Link>
@@ -15,4 +17,4 @@ const AgenLoginFormFooter = () => {
     )
 }
 
-export default AgenLoginFormFooter
+export default LoginFormFooter
