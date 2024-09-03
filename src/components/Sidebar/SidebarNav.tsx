@@ -21,7 +21,6 @@ const SidebarNav: React.FC<_PropsTypes> = ({ pageName, setPageName }) => {
 
             <div className="mb-6 flex flex-col gap-1.5">
               {group.menuItems.map((item) => {
-                console.log(item.children);
                 return (
                   <SidebarItem1
                     key={nanoid()}
