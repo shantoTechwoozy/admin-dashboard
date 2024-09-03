@@ -2,9 +2,11 @@ import cn from "@/utils/cn";
 import React from "react";
 
 interface PropeTypes {
-  label: string;
+  label?: string;
   type: string;
+  placeHolder?: string;
   className?: string;
+  parentClassName?: string;
   value: string;
   onChange: (e: any) => void;
 }
@@ -15,18 +17,23 @@ const Input = ({
   value,
   onChange,
   className,
+  placeHolder,
+  parentClassName
 }: PropeTypes) => {
   return (
-    <div className="flex-1">
-      <label className="mb-2 block text-sm font-medium text-black">
-        {label}
-      </label>
+    <div className={cn("flex-1", parentClassName)}>
+      {
+        label && <label className="mb-2 block text-sm font-medium text-black">
+          {label}
+        </label>
+      }
       <input
         type={type}
         value={value}
+        placeholder={placeHolder}
         onChange={(e) => onChange(e.target.value)}
         className={cn(
-          "w-full rounded-full border border-slate-300 px-3 py-2 shadow-md transition-shadow hover:shadow-lg",
+          "w-full rounded-full border outline-1 border-slate-300 px-3 py-2 shadow-md transition-shadow hover:shadow-lg",
           className,
         )}
       />

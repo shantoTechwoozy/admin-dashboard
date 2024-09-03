@@ -1,6 +1,6 @@
 import { BiLogOut, BiSupport } from "react-icons/bi";
 import { CiUser } from "react-icons/ci";
-import { FaHistory,FaPlane } from "react-icons/fa";
+import { FaHistory,FaPlane,FaUser, FaUserShield } from "react-icons/fa";
 import { FaAngleDown, FaRegCommentDots } from "react-icons/fa6";
 import { GrContactInfo, GrMenu } from "react-icons/gr";
 import { HiBriefcase, HiOutlineSearch } from "react-icons/hi";
@@ -72,4 +72,4 @@ export const IconBankList = { authentication: TbLogin2 };
 export const IconCompany = { authentication: TbLogin2 };
 export const IconSettings = { authentication: TbLogin2 };
 export const IconProfile = { authentication: TbLogin2 };
-export const IconAuthentication = { authentication: TbLogin2 };
+export const IconAuthentication = { user:FaUser,agent:FaUserShield};
