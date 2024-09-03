@@ -1,6 +1,6 @@
 import { BiLogOut, BiSupport } from "react-icons/bi";
 import { CiUser } from "react-icons/ci";
-import { FaHistory,FaPlane } from "react-icons/fa";
+import { FaHistory, FaPlane } from "react-icons/fa";
 import { FaAngleDown, FaRegCommentDots } from "react-icons/fa6";
 import { GrContactInfo, GrMenu } from "react-icons/gr";
 import { HiBriefcase, HiOutlineSearch } from "react-icons/hi";
@@ -21,6 +21,16 @@ import {
 } from "react-icons/tb";
 import { VscGitPullRequestNewChanges } from "react-icons/vsc";
 
+import { MdOutlineFlight } from "react-icons/md";
+import { GiAvoidance } from "react-icons/gi";
+import { RiRefund2Line } from "react-icons/ri";
+import { VscIssueReopened } from "react-icons/vsc";
+import { RiHotelLine } from "react-icons/ri";
+import { RiVisaFill } from "react-icons/ri";
+import { MdOutlineTour } from "react-icons/md";
+
+import { FaLayerGroup } from "react-icons/fa";
+
 // Define icon sets
 export const IconTopBar = {
   menu: GrMenu,
@@ -40,6 +50,14 @@ export const IconSidebar = {
   searchEngine: TbLocationSearch,
   sharePnr: GrContactInfo,
   bookingHistory: FaHistory,
+  flight: MdOutlineFlight,
+  void: GiAvoidance,
+  refund: RiRefund2Line,
+  reissue: VscIssueReopened,
+  hotel: RiHotelLine,
+  visa: RiVisaFill,
+  tourPackage: MdOutlineTour,
+  groupTour: FaLayerGroup,
   partialPayment: IoCashOutline,
   report: TbReport,
   addPassenger: MdPeople,
