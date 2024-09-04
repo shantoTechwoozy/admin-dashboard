@@ -1,7 +1,7 @@
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import OnHold from "@/components/Booking-History/On-Hold";
+import OnHold from "@/components/Booking-History/flight/OnHold";
 
 export const metadata: Metadata = {
   title: "Admin Dashboard",
@@ -14,7 +14,7 @@ const page = () => {
     <DefaultLayout>
       <Breadcrumb pageName="On-Hold" />
       <div className="flex flex-col gap-10">
-        <OnHold/>
+        <OnHold />
       </div>
     </DefaultLayout>
   );

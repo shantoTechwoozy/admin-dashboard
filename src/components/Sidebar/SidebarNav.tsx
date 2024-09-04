@@ -1,33 +1,35 @@
-import React from "react";
 import { nanoid } from "nanoid";
-import SidebarItem from "@/components/Sidebar/SidebarItem";
-import { MenuLists } from "./MenuList";
-
+import { usePathname } from "next/navigation";
+import React from "react";
+import { MenuLists } from "./sidebarArrays/MenuList";
+import SidebarItem1 from "./SidebarItem";
 interface _PropsTypes {
   pageName: string;
   setPageName: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const SidebarNav: React.FC<_PropsTypes> = ({ pageName, setPageName }) => {
+  const pathname = usePathname();
   return (
     <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
-      <nav className="mt-2 px-4 py-4 lg:mt-2 lg:px-6">
-        {MenuLists.map((group, groupIndex) => (
+      <nav className="mt-2 py-4 lg:mt-2 ">
+        {MenuLists.map((group) => (
           <div key={nanoid()}>
-            <h3 className="mb-4 ml-4 text-sm font-semibold text-bodydark2">
+            <h3 className="bg-graydark px-4 py-3 text-sm font-semibold text-bodydark2">
               {group.name}
             </h3>
 
-            <ul className="mb-6 flex flex-col gap-1.5">
-              {group.menuItems.map((menuItem, menuIndex) => (
-                <SidebarItem
-                  key={nanoid()}
-                  item={menuItem}
-                  pageName={pageName}
-                  setPageName={setPageName}
-                />
-              ))}
-            </ul>
+            <div className="mb-6 flex flex-col gap-1.5">
+              {group.menuItems.map((item) => {
+                return (
+                  <SidebarItem1
+                    key={nanoid()}
+                    // isActive={item.route === pathname}
+                    item={item}
+                  />
+                );
+              })}
+            </div>
           </div>
         ))}
       </nav>

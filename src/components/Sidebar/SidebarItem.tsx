@@ -1,60 +1,89 @@
-import SidebarDropdown from "@/components/Sidebar/SidebarDropdown";
+"use client";
+
 import { IconSidebar } from "@/icons";
 import cn from "@/utils/cn";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
+import React, { useState, useEffect } from "react";
 
-const SidebarItem = ({ item, pageName, setPageName }: any) => {
-  const handleClick = () => {
-    const updatedPageName =
-      pageName !== item.label.toLowerCase() ? item.label.toLowerCase() : "";
-    return setPageName(updatedPageName);
-  };
+interface _PropsTypes {
+  item: any;
+  className?: string;
+}
 
+const SidebarItem: React.FC<_PropsTypes> = ({ item, className }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
   const pathname = usePathname();
 
-  const isActive = (item: any) => {
+  // Function to determine if the current item or any of its children are active
+  const isItemActive = (item: any): boolean => {
     if (item.route === pathname) return true;
-    if (item.children) {
-      return item.children.some((child: any) => isActive(child));
-    }
+    if (item.children)
+      return item.children.some((child: any) => isItemActive(child));
     return false;
   };
 
-  const isItemActive = isActive(item);
+  // Automatically open the item if it or any of its children are active
+  useEffect(() => {
+    if (isItemActive(item)) setIsOpen(true);
+  }, [pathname]);
+
+  // Handle item click: either navigate or toggle open state
+  const handleItemClick = () => {
+    if (!item.children) {
+      router.push(item.route);
+    } else {
+      setIsOpen((prev) => !prev);
+    }
+  };
+
+  // Check if the current item is the most child active item (has no active children)
+  const isMostChildActive =
+    isItemActive(item) && !item.children?.some(isItemActive);
+
+  // Check if the current item is a most child element (has no children)
+  const isMostChild = !item.children || item.children.length === 0;
 
   return (
     <>
-      <li>
-        <Link
-          href={item.route}
-          onClick={handleClick}
-          className={`${isItemActive ? "bg-graydark dark:bg-meta-4" : ""} group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4`}
+      {/* Render button for parent and child items */}
+      <button
+        onClick={handleItemClick}
+        className={cn(
+          "group relative flex w-full items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4",
+          { "bg-graydark dark:bg-meta-4": isMostChildActive },
+          className,
+        )}
+      >
+        {/* Conditionally render icon for non-child items */}
+        <span
+          className={cn("mr-2 text-2xl text-white", {
+            invisible: isMostChild && item.level > 1,
+          })}
         >
           {item.icon}
-          {item.label}
+        </span>
 
-          {item.children && (
-            <IconSidebar.downArrow
-              className={cn(
-                `absolute right-4 top-1/2 -translate-y-1/2 fill-current`,
-                {
-                  "rotate-180": pageName === item.label.toLowerCase(),
-                },
-              )}
-            />
-          )}
-        </Link>
+        <span className="capitalize">{item.label}</span>
 
+        {/* Render down arrow for items with children */}
         {item.children && (
-          <div
-            className={`translate transform overflow-hidden ${pageName !== item.label.toLowerCase() && "hidden"
-              }`}
-          >
-            <SidebarDropdown items={item.children} />
-          </div>
+          <IconSidebar.downArrow
+            className={cn("ml-auto rotate-[-90deg] duration-300", {
+              "rotate-[0deg]": isOpen,
+            })}
+          />
         )}
-      </li>
+      </button>
+
+      {/* Render children items if the parent is open */}
+      {item.children && isOpen && (
+        <div className="pl-[10px]">
+          {item.children.map((child: any) => (
+            <SidebarItem key={child.route} className="!pl-3" item={child} />
+          ))}
+        </div>
+      )}
     </>
   );
 };

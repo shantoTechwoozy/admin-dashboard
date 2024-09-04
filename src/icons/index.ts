@@ -1,53 +1,10 @@
-import {
-  BiLogOut,
-  BiSupport
-} from "react-icons/bi";
-
-import {
-  CiUser,
-  CiYoutube
-} from "react-icons/ci";
-
-import {
-  FaPlane,
-  FaUser,
-  FaUserShield,
-  FaAngleDown,
-  FaRegCommentDots,
-  FaFacebookF,
-  FaGoogle
-} from "react-icons/fa6";
-
-import {
-  FiFacebook
-} from "react-icons/fi";
-
-import {
-  SlSocialLinkedin,
-  SlCalender
-} from "react-icons/sl";
-
-import {
-  TfiInstagram,
-  TfiTwitter
-} from "react-icons/tfi";
-
-import {
-  GrContactInfo,
-  GrMenu
-} from "react-icons/gr";
-
-import {
-  HiBriefcase,
-  HiOutlineSearch
-} from "react-icons/hi";
-
-import {
-  IoArrowBack,
-  IoCashOutline,
-  IoSettingsOutline
-} from "react-icons/io5";
-
+import { BiLogOut, BiSupport } from "react-icons/bi";
+import { CiUser, CiYoutube } from "react-icons/ci";
+import { FaFacebookF, FaGoogle, FaHistory, FaPlane, FaUser, FaUserShield } from "react-icons/fa";
+import { FaAngleDown, FaRegCommentDots } from "react-icons/fa6";
+import { GrContactInfo, GrMenu } from "react-icons/gr";
+import { HiBriefcase, HiOutlineSearch } from "react-icons/hi";
+import { IoArrowBack, IoCashOutline, IoSettingsOutline } from "react-icons/io5";
 import {
   MdOutlineDashboardCustomize,
   MdPeople,
@@ -61,14 +18,19 @@ import {
   TbReport,
   TbTransactionDollar
 } from "react-icons/tb";
+import { VscGitPullRequestNewChanges } from "react-icons/vsc";
 
-import {
-  VscGitPullRequestNewChanges
-} from "react-icons/vsc";
+import { MdOutlineFlight } from "react-icons/md";
+import { GiAvoidance } from "react-icons/gi";
+import { RiRefund2Line } from "react-icons/ri";
+import { VscIssueReopened } from "react-icons/vsc";
+import { RiHotelLine } from "react-icons/ri";
+import { RiVisaFill } from "react-icons/ri";
+import { MdOutlineTour } from "react-icons/md";
 
-import Image from "next/image";
-import { images } from "@/images/images";
-import { FaHistory } from "react-icons/fa";
+import { FaLayerGroup } from "react-icons/fa";
+import { SlCalender, SlSocialLinkedin } from "react-icons/sl";
+import { TfiInstagram, TfiTwitter } from "react-icons/tfi";
 
 // Define icon sets
 export const IconTopBar = {
@@ -89,6 +51,14 @@ export const IconSidebar = {
   searchEngine: TbLocationSearch,
   sharePnr: GrContactInfo,
   bookingHistory: FaHistory,
+  flight: MdOutlineFlight,
+  void: GiAvoidance,
+  refund: RiRefund2Line,
+  reissue: VscIssueReopened,
+  hotel: RiHotelLine,
+  visa: RiVisaFill,
+  tourPackage: MdOutlineTour,
+  groupTour: FaLayerGroup,
   partialPayment: IoCashOutline,
   report: TbReport,
   addPassenger: MdPeople,
