@@ -18,7 +18,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     <ClickOutside onClick={() => setSidebarOpen(false)}>
       <aside
         className={cn(
-          `fixed left-0 top-0 z-9999 flex h-screen w-72.5 -translate-x-full flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:translate-x-0`,
+          `fixed left-0 top-0 z-9999 flex h-screen w-72.5 -translate-x-full flex-col overflow-y-hidden bg-secondary duration-300 ease-linear dark:bg-boxdark lg:translate-x-0`,
           {
             "translate-x-0": sidebarOpen,
           },

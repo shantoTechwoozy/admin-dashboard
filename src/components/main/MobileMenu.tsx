@@ -17,7 +17,7 @@ function MobileMenu() {
             {mobileMenuOpen && (
                 <div className="lg:hidden fixed inset-0 z-50 bg-white p-6">
                     <div className="flex items-center justify-between">
-                        <Logo />
+                        <Logo isDark={false} />
                         <button
                             type="button"
                             onClick={() => setMobileMenuOpen(false)}

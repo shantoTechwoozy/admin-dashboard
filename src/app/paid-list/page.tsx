@@ -1,8 +1,7 @@
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import PaidList from "@/components/Partial-Payment/Paid-List/page";
-
+import PaidList from "@/components/Partial-Payment/PaidList";
 export const metadata: Metadata = {
   title: "Admin Dashboard",
   description:
@@ -14,7 +13,7 @@ const page = () => {
     <DefaultLayout>
       <Breadcrumb pageName="Paid List" />
       <div className="flex flex-col gap-10">
-        <PaidList/>
+        <PaidList />
       </div>
     </DefaultLayout>
   );

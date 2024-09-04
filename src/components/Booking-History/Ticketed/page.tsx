@@ -5,20 +5,21 @@ import TableContainer from "@/components/common/table/TableContainer";
 import TableHeader from "@/components/common/table/TableHeader";
 import TableWrap from "@/components/common/table/TableWrap";
 import { useState } from "react";
-import { TicketedFields } from "../interfaces";
-import { TicketedData } from "../mockData";
+import { TicketedInterface } from "../../../types/common/interfaces";
+import { TicketedData } from "@/types/common/mockData";
+import { ticketedFields } from "@/types/common/fields";
 
 
 const Ticketed = () => {
-    const [sortField, setSortField] = useState<keyof TicketedFields>('booking_date');
+    const [sortField, setSortField] = useState<keyof TicketedInterface>('booking_date');
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
     const [searchQuery, setSearchQuery] = useState<string>('');
-    const [searchField, setSearchField] = useState<keyof TicketedFields>('route');
+    const [searchField, setSearchField] = useState<keyof TicketedInterface>('route');
 
     const handleFieldChange = (item: string) => {
-        setSearchField(item as keyof TicketedFields);
+        setSearchField(item as keyof TicketedInterface);
     };
-    const handleSort = (field: keyof TicketedFields) => {
+    const handleSort = (field: keyof TicketedInterface) => {
         const order = sortField === field && sortOrder === 'asc' ? 'desc' : 'asc';
         setSortField(field);
         setSortOrder(order);
@@ -35,19 +36,7 @@ const Ticketed = () => {
         });
 
     // Field labels and their corresponding keys
-    const fields: { label: string; key: keyof TicketedFields }[] = [
-        { label: 'Issue Date', key: 'issue_date' },
-        { label: 'Booking Date', key: 'booking_date' },
-        { label: 'Booking ID', key: 'booking_id' },
-        { label: 'Passenger Name', key: 'passenger_name' },
-        { label: 'Flight Date', key: 'flight_date' },
-        { label: 'Route', key: 'route' },
-        { label: 'PNR', key: 'pnr' },
-        { label: 'Ticket Number', key: 'ticket_number' },
-        { label: 'Total Price', key: 'total_price' },
-        { label: 'Status', key: 'status' },
-        { label: 'Action', key: 'action' },
-    ];
+
 
     return (
         <>
@@ -57,11 +46,11 @@ const Ticketed = () => {
                     field={searchField}
                     onSearch={setSearchQuery}
                     onFieldChange={handleFieldChange}
-                    fieldLists={fields.map((element) => element.label)}
+                    fieldLists={ticketedFields.map((element) => element.label)}
                 />
                 <TableContainer>
                     <TableHeader
-                        items={fields.map((element) => element.label)}
+                        items={ticketedFields.map((element) => element.label)}
                     />
                     <TableBody
                         items={filteredData}

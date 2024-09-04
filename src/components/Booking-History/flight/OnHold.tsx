@@ -4,37 +4,27 @@ import TableBody from "@/components/common/table/TableBody";
 import TableContainer from "@/components/common/table/TableContainer";
 import TableHeader from "@/components/common/table/TableHeader";
 import TableWrap from "@/components/common/table/TableWrap";
+import { onHoldFields } from "@/types/common/fields";
+import { OnHoldData } from "@/types/common/mockData";
 import { useState } from "react";
-import { OnHoldData } from "../mockData";
-import { OnHoldFields } from "../interfaces";
+import { OnHoldInterface } from '../../../types/common/interfaces';
 
 
-const fields: { label: string; key: keyof OnHoldFields }[] = [
-    { label: 'Booking Date', key: 'booking_date' },
-    { label: 'Booking ID', key: 'booking_id' },
-    { label: 'Passenger Name', key: 'passenger_name' },
-    { label: 'Flight Date', key: 'flight_date' },
-    { label: 'Route', key: 'route' },
-    { label: 'PNR', key: 'pnr' },
-    { label: 'Issue Before', key: 'issue_before' },
-    { label: 'Total Price', key: 'total_price' },
-    { label: 'Status', key: 'status' },
-    { label: 'Action', key: 'action' },
-];
+
 const OnHold = () => {
-    const [sortField, setSortField] = useState<keyof OnHoldFields>('booking_date');
+    const [sortField, setSortField] = useState<keyof OnHoldInterface>('booking_date');
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
     const [searchQuery, setSearchQuery] = useState<string>('');
-    const [searchField, setSearchField] = useState<keyof OnHoldFields>('route');
+    const [searchField, setSearchField] = useState<keyof OnHoldInterface>('route');
 
     //Table Data Sorting function
-    const handleSort = (field: keyof OnHoldFields) => {
+    const handleSort = (field: keyof OnHoldInterface) => {
         const order = sortField === field && sortOrder === 'asc' ? 'desc' : 'asc';
         setSortField(field);
         setSortOrder(order);
     };
     const handleFieldChange = (item: string) => {
-        setSearchField(item as keyof OnHoldFields);
+        setSearchField(item as keyof OnHoldInterface);
     };
     const filteredData = OnHoldData
         .filter((item) =>
@@ -54,11 +44,11 @@ const OnHold = () => {
                     field={searchField}
                     onSearch={setSearchQuery}
                     onFieldChange={handleFieldChange}
-                    fieldLists={fields.map((element) => element.label)}
+                    fieldLists={onHoldFields.map((element) => element.label)}
                 />
                 <TableContainer>
                     <TableHeader
-                        items={fields.map((field) => field.label)}
+                        items={onHoldFields.map((field) => field.label)}
                     />
                     <TableBody items={filteredData} />
                 </TableContainer>

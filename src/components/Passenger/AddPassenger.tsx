@@ -1,8 +1,7 @@
 'use client';
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import { AiFillAppstore } from "react-icons/ai";
-import { RiTicket2Fill, RiCheckFill, RiCloseCircleFill, RiCheckboxFill } from "react-icons/ri";
+import { RiCheckboxFill } from "react-icons/ri";
 
 // Fields interface for the data structure
 interface Fields {

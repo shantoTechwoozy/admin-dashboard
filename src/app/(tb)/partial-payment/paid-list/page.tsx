@@ -1,7 +1,7 @@
-import React from "react";
+import PaidList from "@/components/Partial-Payment/PaidList";
 
 const PartialPaymentPaidListPage = () => {
-  return <div>PartialPaymentPaidListPage</div>;
+  return <div><PaidList /></div>;
 };
 
 export default PartialPaymentPaidListPage;
