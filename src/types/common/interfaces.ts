@@ -63,3 +63,29 @@ export interface AllHistoryInterface {
     status: string;
     action: string;
 }
+
+export interface AddPassengerInterface {
+    sl: number;
+    name: string;
+    email: string;
+    dob: string;
+    gender: string;
+    passport_number: string;
+    passport_expire_date: string;
+    passport_copy: string;
+    visa_copy: string;
+    action: string;
+}
+
+export interface QuickPassengerInterface {
+    sl: number;
+    name: string;
+    email: string;
+    dob: string;
+    gender: string;
+    passport_number: string;
+    passport_expire_date: string;
+    passport_copy: string;
+    visa_copy: string;
+    action: string;
+}

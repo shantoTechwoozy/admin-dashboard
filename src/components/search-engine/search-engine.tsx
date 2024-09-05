@@ -1,76 +1,70 @@
 "use client";
 import "@/css/style.css";
-import React, { useState } from "react";
-import SearchButton from "../common/buttons/SearchButton";
-import Inputer from "./Inputer";
+import React from "react";
 import { SelectAge } from "./select-age";
 import { SelectEconomy } from "./select-economy";
-import SwapImg from "./SwapImg";
-import SETabs from "./tabs";
+import SearchEngineTab from "./tabs";
+import SubMenu from "./sub-menu";
+import { IconSearchEngine } from "@/icons";
+import FlightPlaceInput from "./FlightPlaceInput";
 
 const SearchEngine: React.FC = () => {
-  const [isRotating, setIsRotating] = useState<boolean>(false);
-
-  let from = {
-    shortName: "dac",
-    name: "dhaka",
-    fullName: "Bangladesh Hazrat Shajalal",
-  };
-  let to = {
-    shortName: "bdt",
-    name: "jessaore",
-    fullName: "jessore Hazrat Shajalal",
-  };
-  let departDate = {
-    shortName: "13",
-    name: "July",
-    fullName: "saturday, 2024",
-  };
-  let returnDate = {
-    shortName: "15",
-    name: "July",
-    fullName: "monday, 2024",
-  };
 
   return (
     <div className="flex items-center justify-center">
       <div className="w-full max-w-5xl">
         {/* Navigation */}
-        <div className="mb-2 flex justify-start space-x-2">
-          <SETabs />
-        </div>
+        <SubMenu />
+
         {/* Top Right Travellers and Cabin Class Options */}
         <div className="mb-4 flex flex-col justify-end space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-          <div className="flex w-full flex-col space-y-2 rounded-lg sm:w-48">
-            <SelectAge />
-          </div>
-          <div className="flex w-full flex-col space-y-2 rounded-lg sm:w-48">
-            <SelectEconomy />
-          </div>
+          {/* Optionally add your other components here */}
         </div>
 
         {/* Flight Search Form */}
-        <div className="bg-white-700 flex flex-col gap-5 rounded-3xl px-0.5 pb-5 pt-3 sm:flex-row">
-          <div className="flex w-full flex-col gap-4 lg:flex-row">
-            <div className="relative flex w-full flex-col justify-center gap-5 sm:flex-row sm:items-end sm:gap-0">
-              <Inputer label="From" input={from} />
-              <SwapImg
-                isRotating={isRotating}
-                onClick={() => {
-                  setIsRotating(!isRotating);
-                  //have to add swapping tech
-                }}
-              />
-              <Inputer label="To" input={to} />
+        <div className="bg-white flex flex-col gap-1 rounded-3xl px-0.5 py-4">
+          <div className="flex flex-col lg:flex-row h-auto w-full items-center gap-1">
+            <SearchEngineTab />
+            <div className="flex items-start gap-2 ml-5 text-sm rounded-md">
+              <SelectAge />
+            </div>
+            <div className="flex items-start gap-2 ml-5 text-sm rounded-md">
+              <SelectEconomy />
+            </div>
+            {/* Switch button and text */}
+            <div className="ml-auto flex items-center gap-2 mr-5">
+              <label className="relative inline-flex cursor-pointer items-center">
+                <input id="switch-2" type="checkbox" className="peer sr-only" />
+
+                <switch className="peer h-4 w-11 rounded-full border bg-slate-200 after:absolute after:-top-1 after:left-0 after:h-6 after:w-6 after:rounded-full after:border after:border-gray-300 after:bg-orange-500 after:transition-all after:content-[''] peer-checked:bg-white peer-checked:after:translate-x-full peer-focus:ring-green-300"></switch>
+              </label>
+              <span className="text-sm text-gray-700 font-medium">Direct Flights Only</span>
             </div>
           </div>
-          {/* Date Inputs */}
-          <div className="flex w-full flex-col items-end gap-3 sm:flex-row">
-            <Inputer label="Depart" input={departDate} />
-            <Inputer label="Return" input={returnDate} />
-            <SearchButton onClick={() => {}} />
+
+          <div className="flex gap-5 w-full p-5">
+            <div className="flex flex-1 items-center gap-5">
+              <FlightPlaceInput label='from' placeholder="Type city name" value="" onChange={() => { }} required />
+
+              <button className="rounded-full bg-slate-300 p-1 ">
+                <IconSearchEngine.Swap className="text-xl" />
+              </button>
+
+
+              <FlightPlaceInput label='to' placeholder="Type city name" value="" onChange={() => { }} required />
+            </div>
+            <div className="w-[2px] h-[50px] bg-black" />
+            <div className="flex flex-1 gap-2">
+              <FlightPlaceInput label='Depart' placeholder="Select Date" value="" onChange={() => { }} required />
+              <FlightPlaceInput label='Return' placeholder="Select Date" value="" onChange={() => { }} />
+              <div className="w-25 flex h-12 items-center justify-center">
+                <button className="w-full rounded-full bg-primary py-2 text-black">Search</button>
+              </div>
+            </div>
           </div>
         </div>
+
+
       </div>
     </div>
   );

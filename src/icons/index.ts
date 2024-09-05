@@ -1,14 +1,17 @@
 import { BiLogOut, BiSupport } from "react-icons/bi";
 import { CiUser, CiYoutube } from "react-icons/ci";
-import { FaFacebookF, FaGoogle, FaHistory, FaPlane, FaUser, FaUserShield } from "react-icons/fa";
+import { FaFacebookF, FaGoogle, FaHistory, FaPlane, FaUser, FaUserShield, FaLayerGroup } from "react-icons/fa";
 import { FaAngleDown, FaRegCommentDots } from "react-icons/fa6";
 import { GrContactInfo, GrMenu } from "react-icons/gr";
 import { HiBriefcase, HiOutlineSearch } from "react-icons/hi";
 import { IoArrowBack, IoCashOutline, IoSettingsOutline } from "react-icons/io5";
+import { CgArrowsExchange } from "react-icons/cg";
+
 import {
   MdOutlineDashboardCustomize,
   MdPeople,
   MdNotificationsNone
+  , MdOutlineFlight, MdOutlineTour
 } from "react-icons/md";
 
 import {
@@ -18,17 +21,17 @@ import {
   TbReport,
   TbTransactionDollar
 } from "react-icons/tb";
-import { VscGitPullRequestNewChanges } from "react-icons/vsc";
+import { VscGitPullRequestNewChanges, VscIssueReopened } from "react-icons/vsc";
 
-import { MdOutlineFlight } from "react-icons/md";
+
 import { GiAvoidance } from "react-icons/gi";
-import { RiRefund2Line } from "react-icons/ri";
-import { VscIssueReopened } from "react-icons/vsc";
-import { RiHotelLine } from "react-icons/ri";
-import { RiVisaFill } from "react-icons/ri";
-import { MdOutlineTour } from "react-icons/md";
+import { RiRefund2Line, RiHotelLine, RiVisaFill } from "react-icons/ri";
 
-import { FaLayerGroup } from "react-icons/fa";
+
+
+
+
+
 import { SlCalender, SlSocialLinkedin } from "react-icons/sl";
 import { TfiInstagram, TfiTwitter } from "react-icons/tfi";
 
@@ -76,7 +79,7 @@ export const IconSidebar = {
 
 // Other icon sets can be similarly defined
 export const IconDashboard = { authentication: TbLogin2 };
-export const IconSearchEngine = { authentication: TbLogin2 };
+export const IconSearchEngine = { Swap: CgArrowsExchange };
 export const IconSharePnr = { plane: FaPlane };
 export const IconBookingHistory = { authentication: TbLogin2 };
 export const IconPartialPayment = { authentication: TbLogin2 };

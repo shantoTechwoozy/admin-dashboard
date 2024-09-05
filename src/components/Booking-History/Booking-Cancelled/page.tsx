@@ -36,25 +36,23 @@ const BookingCancelled = () => {
 
 
     return (
-        <>
-            <TableWrap>
-                <SearchInTable
-                    search={searchQuery}
-                    field={searchField}
-                    onSearch={setSearchQuery}
-                    onFieldChange={handleFieldChange}
-                    fieldLists={BookingCancelFields.map((element) => element.label)}
+        <TableWrap>
+            <SearchInTable
+                search={searchQuery}
+                field={searchField}
+                onSearch={setSearchQuery}
+                onFieldChange={handleFieldChange}
+                fieldLists={BookingCancelFields.map((element) => element.label)}
+            />
+            <TableContainer>
+                <TableHeader
+                    items={BookingCancelFields.map((element) => element.label)}
                 />
-                <TableContainer>
-                    <TableHeader
-                        items={BookingCancelFields.map((element) => element.label)}
-                    />
-                    <TableBody
-                        items={filteredData}
-                    />
-                </TableContainer>
-            </TableWrap>
-        </>
+                <TableBody
+                    items={filteredData}
+                />
+            </TableContainer>
+        </TableWrap>
     );
 };
 
