@@ -1,5 +1,5 @@
 'use client'
-import SearchInTable from "@/components/common/table/SearchInTable";
+// import SearchInTable from "@/components/common/table/SearchInTable";
 import TableBody from "@/components/common/table/TableBody";
 import TableContainer from "@/components/common/table/TableContainer";
 import TableHeader from "@/components/common/table/TableHeader";
@@ -8,12 +8,6 @@ import { AllHistoryFields } from "@/types/common/fields";
 import { AllHistoryInterface } from "@/types/common/interfaces";
 import { AllHistoryData } from "@/types/common/mockData";
 import { useState } from "react";
-
-
-// Fields interface for the data structure
-
-
-// Mock data array
 
 
 const AllHistory = () => {
@@ -26,11 +20,7 @@ const AllHistory = () => {
     const handleFieldChange = (item: string) => {
         setSearchField(item as keyof AllHistoryInterface);
     };
-    const handleSort = (field: keyof AllHistoryInterface) => {
-        const order = sortField === field && sortOrder === 'asc' ? 'desc' : 'asc';
-        setSortField(field);
-        setSortOrder(order);
-    };
+
 
     const filteredData = AllHistoryData
         .filter((item) =>
@@ -45,25 +35,23 @@ const AllHistory = () => {
 
 
     return (
-        <>
-            <TableWrap>
-                <SearchInTable
-                    search={searchQuery}
-                    field={searchField}
-                    onSearch={setSearchQuery}
-                    onFieldChange={handleFieldChange}
-                    fieldLists={AllHistoryFields.map((element) => element.label)}
+        <TableWrap>
+            {/* <SearchInTable
+                search={searchQuery}
+                field={searchField}
+                onSearch={setSearchQuery}
+                onFieldChange={handleFieldChange}
+                fieldLists={AllHistoryFields.map((element) => element.label)}
+            /> */}
+            <TableContainer>
+                <TableHeader
+                    items={AllHistoryFields.map((element) => element.label)}
                 />
-                <TableContainer>
-                    <TableHeader
-                        items={AllHistoryFields.map((element) => element.label)}
-                    />
-                    <TableBody
-                        items={filteredData}
-                    />
-                </TableContainer>
-            </TableWrap>
-        </>
+                <TableBody
+                    items={filteredData}
+                />
+            </TableContainer>
+        </TableWrap>
     );
 };
 

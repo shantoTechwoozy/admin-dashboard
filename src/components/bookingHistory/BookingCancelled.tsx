@@ -1,32 +1,30 @@
-'use client';
-import { QuickPassengerFields } from "@/types/common/fields";
-import { QuickPassengerInterface } from "@/types/common/interfaces";
-import { QuickPassengerData } from "@/types/common/mockData";
+'use client'
+// import SearchInTable from "@/components/common/table/SearchInTable";
+import TableBody from "@/components/common/table/TableBody";
+import TableContainer from "@/components/common/table/TableContainer";
+import TableHeader from "@/components/common/table/TableHeader";
+import TableWrap from "@/components/common/table/TableWrap";
+import { BookingCancelFields } from "@/types/common/fields";
+import { BookingCancelInterface } from "@/types/common/interfaces";
+import { BookingCancelData } from "@/types/common/mockData";
 import { useState } from "react";
-// import SearchInTable from "../common/table/SearchInTable";
-import TableBody from "../common/table/TableBody";
-import TableContainer from "../common/table/TableContainer";
-import TableHeader from "../common/table/TableHeader";
-import TableWrap from "../common/table/TableWrap";
 
 
-const QuickPassenger = () => {
-    const [sortField, setSortField] = useState<keyof QuickPassengerInterface>('name');
+const BookingCancelled = () => {
+    const [sortField, setSortField] = useState<keyof BookingCancelInterface>('booking_date');
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
     const [searchQuery, setSearchQuery] = useState<string>('');
-    const [searchField, setSearchField] = useState<keyof QuickPassengerInterface>('name');
+    const [searchField, setSearchField] = useState<keyof BookingCancelInterface>('route');
 
-    const handleSort = (field: keyof QuickPassengerInterface) => {
+    const handleSort = (field: keyof BookingCancelInterface) => {
         const order = sortField === field && sortOrder === 'asc' ? 'desc' : 'asc';
         setSortField(field);
         setSortOrder(order);
     };
     const handleFieldChange = (item: string) => {
-        setSearchField(item as keyof QuickPassengerInterface);
+        setSearchField(item as keyof BookingCancelInterface);
     };
-
-
-    const filteredData = QuickPassengerData
+    const filteredData = BookingCancelData
         .filter((item) =>
             item[searchField].toString().toLowerCase().includes(searchQuery.toLowerCase())
         )
@@ -36,8 +34,6 @@ const QuickPassenger = () => {
             return 0;
         });
 
-    // Field labels and their corresponding keys
-
 
     return (
         <TableWrap>
@@ -46,11 +42,11 @@ const QuickPassenger = () => {
                 field={searchField}
                 onSearch={setSearchQuery}
                 onFieldChange={handleFieldChange}
-                fieldLists={QuickPassengerFields.map((element) => element.label)}
+                fieldLists={BookingCancelFields.map((element) => element.label)}
             /> */}
             <TableContainer>
                 <TableHeader
-                    items={QuickPassengerFields.map((element) => element.label)}
+                    items={BookingCancelFields.map((element) => element.label)}
                 />
                 <TableBody
                     items={filteredData}
@@ -60,4 +56,4 @@ const QuickPassenger = () => {
     );
 };
 
-export default QuickPassenger;
+export default BookingCancelled;

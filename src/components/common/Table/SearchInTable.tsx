@@ -1,6 +1,7 @@
+import { nanoid } from "nanoid";
 import React from "react";
 
-interface _PropsTypes {
+interface PropsTypes {
   search: string;
   field: string;
   onSearch: (item: string) => void;
@@ -8,7 +9,7 @@ interface _PropsTypes {
   fieldLists: string[];
 }
 
-const SearchInTable: React.FC<_PropsTypes> = ({
+const SearchInTable: React.FC<PropsTypes> = ({
   search,
   field,
   onFieldChange,
@@ -32,7 +33,7 @@ const SearchInTable: React.FC<_PropsTypes> = ({
         {fieldLists.map((field, index) => {
           let fieldValue = field.toLocaleLowerCase().split(" ").join("_");
           return (
-            <option key={index} value={fieldValue}>
+            <option key={nanoid()} value={fieldValue}>
               {field}
             </option>
           );

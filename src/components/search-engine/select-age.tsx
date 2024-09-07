@@ -1,12 +1,12 @@
 "use client";
 import * as React from "react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { FaAnglesRight } from "react-icons/fa6";
 
 type Setter = React.Dispatch<React.SetStateAction<number>>;
 
 export function SelectAge() {
-  const [isOpen, setIsOpen] = useState<boolean>(false); // State to control options visibility
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const [adultCount, setAdultCount] = useState<number>(0);
   const [childrenCount, setChildrenCount] = useState<number>(0);
   const [kidsCount, setKidsCount] = useState<number>(0);
@@ -27,24 +27,39 @@ export function SelectAge() {
   };
 
   const handleDoneClick = () => {
-    setIsOpen(false); // Close options content when Done is clicked
+    setIsOpen(false);
   };
 
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="relative">
-        <button
-      onClick={() => setIsOpen(!isOpen)}
-      className="flex items-center justify-center w-full border border-gray-300 rounded-md p-2 bg-slate-200 lg:bg-slate-200 hover:bg-slate-300 md:bg-transparent md:border-0 lg:border-0"
-    >
-      <span className="flex items-center text-black font-normal">
-        Travellers
-        <FaAnglesRight size={12} className="ml-1" />
-      </span>
-      <span className="ml-2 text-black font-normal">{totalCount}</span>
-    </button>
+    <div className="relative" ref={dropdownRef}>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center justify-center w-full border border-gray-300 rounded-md p-2  hover:bg-slate-300 md:bg-transparent md:border-0 lg:border-0"
+      >
+        <span className="flex items-center text-black font-normal">
+          Travellers
+          <FaAnglesRight size={12} className="ml-1" />
+        </span>
+        <span className="ml-2 text-black font-normal">{totalCount}</span>
+      </button>
       {isOpen && (
-        <div className="absolute z-10 w-full lg:w-auto bg-white border border-gray-200 rounded-md shadow-md mt-2">
-          <div className="flex flex-col gap-4 p-5">
+        <div className="absolute z-10 w-auto lg:w-auto mr-52 bg-white border border-gray-200 rounded-md shadow-md mt-2">
+          <div className="flex flex-col p-5">
             {/* Adults */}
             <div className="flex justify-between items-center gap-2">
               <div>

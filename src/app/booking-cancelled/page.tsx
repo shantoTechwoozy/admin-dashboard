@@ -1,7 +1,7 @@
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import BookingCancelled from "@/components/Booking-History/Booking-Cancelled/page";
+import BookingCancelled from "@/components/bookingHistory/BookingCancelled";
 
 export const metadata: Metadata = {
   title: "Admin Dashboard",
@@ -15,7 +15,7 @@ const page = () => {
       <Breadcrumb pageName="Booking-Cancelled" />
 
       <div className="flex flex-col gap-10">
-        <BookingCancelled/>
+        <BookingCancelled />
       </div>
     </DefaultLayout>
   );

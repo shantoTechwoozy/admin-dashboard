@@ -5,7 +5,7 @@ import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 
 type Props = {}
 
-function BookingMenu({ }: Props) {
+function BookingMenu() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {

@@ -6,7 +6,7 @@ import { FaUserGroup } from 'react-icons/fa6';
 
 type Props = {};
 
-export default function SubMenu({ }: Props) {
+export default function SubMenu() {
     return (
         <div>
             {/* Mobile View */}

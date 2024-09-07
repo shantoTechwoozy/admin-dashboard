@@ -1,13 +1,13 @@
 'use client'
-import SearchInTable from "@/components/common/table/SearchInTable";
+// import SearchInTable from "@/components/common/table/SearchInTable";
 import TableBody from "@/components/common/table/TableBody";
 import TableContainer from "@/components/common/table/TableContainer";
 import TableHeader from "@/components/common/table/TableHeader";
 import TableWrap from "@/components/common/table/TableWrap";
-import { useState } from "react";
-import { TicketedInterface } from "../../../types/common/interfaces";
-import { TicketedData } from "@/types/common/mockData";
 import { ticketedFields } from "@/types/common/fields";
+import { TicketedData } from "@/types/common/mockData";
+import { useState } from "react";
+import { TicketedInterface } from "../../types/common/interfaces";
 
 
 const Ticketed = () => {
@@ -39,25 +39,24 @@ const Ticketed = () => {
 
 
     return (
-        <>
-            <TableWrap>
-                <SearchInTable
-                    search={searchQuery}
-                    field={searchField}
-                    onSearch={setSearchQuery}
-                    onFieldChange={handleFieldChange}
-                    fieldLists={ticketedFields.map((element) => element.label)}
+
+        <TableWrap>
+            {/* <SearchInTable
+                search={searchQuery}
+                field={searchField}
+                onSearch={setSearchQuery}
+                onFieldChange={handleFieldChange}
+                fieldLists={ticketedFields.map((element) => element.label)}
+            /> */}
+            <TableContainer>
+                <TableHeader
+                    items={ticketedFields.map((element) => element.label)}
                 />
-                <TableContainer>
-                    <TableHeader
-                        items={ticketedFields.map((element) => element.label)}
-                    />
-                    <TableBody
-                        items={filteredData}
-                    />
-                </TableContainer>
-            </TableWrap>
-        </>
+                <TableBody
+                    items={filteredData}
+                />
+            </TableContainer>
+        </TableWrap>
     );
 };
 

@@ -1,30 +1,32 @@
 'use client'
-import SearchInTable from "@/components/common/table/SearchInTable";
+// import SearchInTable from "@/components/common/table/SearchInTable";
 import TableBody from "@/components/common/table/TableBody";
 import TableContainer from "@/components/common/table/TableContainer";
 import TableHeader from "@/components/common/table/TableHeader";
 import TableWrap from "@/components/common/table/TableWrap";
-import { BookingCancelFields } from "@/types/common/fields";
-import { BookingCancelInterface } from "@/types/common/interfaces";
-import { BookingCancelData } from "@/types/common/mockData";
+import { onHoldFields } from "@/types/common/fields";
+import { OnHoldData } from "@/types/common/mockData";
 import { useState } from "react";
+import { OnHoldInterface } from '../../../types/common/interfaces';
 
 
-const BookingCancelled = () => {
-    const [sortField, setSortField] = useState<keyof BookingCancelInterface>('booking_date');
+
+const OnHold = () => {
+    const [sortField, setSortField] = useState<keyof OnHoldInterface>('booking_date');
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
     const [searchQuery, setSearchQuery] = useState<string>('');
-    const [searchField, setSearchField] = useState<keyof BookingCancelInterface>('route');
+    const [searchField, setSearchField] = useState<keyof OnHoldInterface>('route');
 
-    const handleSort = (field: keyof BookingCancelInterface) => {
+    //Table Data Sorting function
+    const handleSort = (field: keyof OnHoldInterface) => {
         const order = sortField === field && sortOrder === 'asc' ? 'desc' : 'asc';
         setSortField(field);
         setSortOrder(order);
     };
     const handleFieldChange = (item: string) => {
-        setSearchField(item as keyof BookingCancelInterface);
+        setSearchField(item as keyof OnHoldInterface);
     };
-    const filteredData = BookingCancelData
+    const filteredData = OnHoldData
         .filter((item) =>
             item[searchField].toString().toLowerCase().includes(searchQuery.toLowerCase())
         )
@@ -34,28 +36,24 @@ const BookingCancelled = () => {
             return 0;
         });
 
-
     return (
-        <>
-            <TableWrap>
-                <SearchInTable
+        <TableWrap>
+            {/* <SearchInTable
                     search={searchQuery}
                     field={searchField}
                     onSearch={setSearchQuery}
                     onFieldChange={handleFieldChange}
-                    fieldLists={BookingCancelFields.map((element) => element.label)}
+                    fieldLists={onHoldFields.map((element) => element.label)}
+                /> */}
+            <TableContainer>
+                <TableHeader
+                    items={onHoldFields.map((field) => field.label)}
                 />
-                <TableContainer>
-                    <TableHeader
-                        items={BookingCancelFields.map((element) => element.label)}
-                    />
-                    <TableBody
-                        items={filteredData}
-                    />
-                </TableContainer>
-            </TableWrap>
-        </>
+                <TableBody items={filteredData} />
+            </TableContainer>
+        </TableWrap>
+
     );
 };
 
-export default BookingCancelled;
+export default OnHold;

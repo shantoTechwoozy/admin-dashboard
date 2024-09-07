@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import SearchInTable from "../common/table/SearchInTable";
+// import SearchInTable from "../common/table/SearchInTable";
 import TableBody from "../common/table/TableBody";
 import TableContainer from "../common/table/TableContainer";
 import TableHeader from "../common/table/TableHeader";
@@ -114,13 +114,13 @@ const TransactionForm = () => {
       <PageTitle content="Transaction" />
 
       <TableWrap>
-        <SearchInTable
+        {/* <SearchInTable
           search={searchQuery}
           field={searchField}
           onSearch={setSearchQuery}
           onFieldChange={handleFieldChange}
           fieldLists={fields.map((element) => element.label)}
-        />
+        /> */}
 
         <TableContainer>
           <TableHeader items={fields.map((field) => field.label)} />
