@@ -6,7 +6,6 @@ interface Props {
   onClick: () => void;
   className?: string;
 }
-
 const ClickOutside: React.FC<Props> = ({
   children,
   exceptionRef,
