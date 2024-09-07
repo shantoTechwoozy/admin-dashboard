@@ -6,7 +6,7 @@ interface PropsTypes {
     required?: boolean;
     placeholder: string;
     value: string;
-    onChange: (arg: any) => void;
+    onChange?: (arg: any) => void;
     parentClass?: string
     labelClass?: string
     inputClass?: string
@@ -19,7 +19,7 @@ const FlightPlaceInput: React.FC<PropsTypes> = ({ label, required, placeholder, 
                 <span>{label}</span>
                 {required && <span className='text-red'>*</span>}
             </label>
-            <input type="text" placeholder={placeholder} value={value} onChange={(e: any) => onChange(e.target.value)} className={cn("font-medium text-black px-1", inputClass)} />
+            <input type="text" placeholder={placeholder} value={value} className={cn("font-medium text-black px-1", inputClass)} />
         </div>
     )
 }
