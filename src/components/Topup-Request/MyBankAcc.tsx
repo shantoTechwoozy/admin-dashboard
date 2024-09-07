@@ -2,7 +2,7 @@
 import { useState } from "react";
 import BankForm from "../common/form";
 import PopupModal from "../common/modal";
-import SearchInTable from "../common/table/SearchInTable";
+// import SearchInTable from "../common/table/SearchInTable";
 import TableBody from "../common/table/TableBody";
 import TableContainer from "../common/table/TableContainer";
 import TableHeader from "../common/table/TableHeader";
@@ -90,13 +90,13 @@ const MyBankAcc = () => {
       <PageTitle content="My Bank Account" />
 
       <TableWrap>
-        <SearchInTable
+        {/* <SearchInTable
           search={searchQuery}
           field={searchField}
           onSearch={setSearchQuery}
           onFieldChange={handleFieldChange}
           fieldLists={fields.map((element) => element.label)}
-        />
+        /> */}
 
         <button
           className="mb-2 rounded-lg bg-black  p-2 px-5 py-2 font-semibold text-white"
@@ -108,7 +108,7 @@ const MyBankAcc = () => {
         {isPopupOpen && <PopupModal show={isPopupOpen} onclose={closePopup}>
           <div className="p-4">
             <h2 className="text-lg font-semibold">Add New Bank Account</h2>
-            <BankForm onClose={()=>{}}/>
+            <BankForm onClose={() => { }} />
           </div>
         </PopupModal>}
 

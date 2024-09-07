@@ -7,8 +7,7 @@ import TableContainer from "../common/table/TableContainer";
 import TableHeader from "../common/table/TableHeader";
 import TableWrap from "../common/table/TableWrap";
 import PageTitle from "./PageTitle";
-// import TableHeaderSearch from "../common/table/TableHeaderSearch";
-import SearchInTable from "../common/table/SearchInTable";
+// import SearchInTable from "../common/table/SearchInTable";
 
 interface Fields {
   booking_name: string;
@@ -83,13 +82,13 @@ const BankAccounts = () => {
     <>
       <PageTitle content="Trip Beyond Bank Accounts" />
       <TableWrap>
-        <SearchInTable
+        {/* <SearchInTable
           search={search}
           field={field}
           onFieldChange={setField}
           onSearch={setSearch}
           fieldLists={bookingFields}
-        />
+        /> */}
 
         <TableContainer>
           <TableHeader items={bookingFields} />

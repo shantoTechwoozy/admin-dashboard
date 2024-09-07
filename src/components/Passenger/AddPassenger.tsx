@@ -3,7 +3,7 @@ import { AddPassengerFields } from "@/types/common/fields";
 import { AddPassengerInterface } from "@/types/common/interfaces";
 import { AddPassengerData } from "@/types/common/mockData";
 import { useState } from "react";
-import SearchInTable from "../common/table/SearchInTable";
+// import SearchInTable from "../common/table/SearchInTable";
 import TableBody from "../common/table/TableBody";
 import TableContainer from "../common/table/TableContainer";
 import TableHeader from "../common/table/TableHeader";
@@ -40,13 +40,13 @@ const AddPassenger = () => {
 
   return (
     <TableWrap>
-      <SearchInTable
+      {/* <SearchInTable
         search={searchQuery}
         field={searchField}
         onSearch={setSearchQuery}
         onFieldChange={handleFieldChange}
         fieldLists={AddPassengerFields.map((element) => element.label)}
-      />
+      /> */}
       <TableContainer>
         <TableHeader
           items={AddPassengerFields.map((element) => element.label)}

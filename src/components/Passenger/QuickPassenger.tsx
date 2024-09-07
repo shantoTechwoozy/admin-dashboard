@@ -3,7 +3,7 @@ import { QuickPassengerFields } from "@/types/common/fields";
 import { QuickPassengerInterface } from "@/types/common/interfaces";
 import { QuickPassengerData } from "@/types/common/mockData";
 import { useState } from "react";
-import SearchInTable from "../common/table/SearchInTable";
+// import SearchInTable from "../common/table/SearchInTable";
 import TableBody from "../common/table/TableBody";
 import TableContainer from "../common/table/TableContainer";
 import TableHeader from "../common/table/TableHeader";
@@ -41,13 +41,13 @@ const QuickPassenger = () => {
 
     return (
         <TableWrap>
-            <SearchInTable
+            {/* <SearchInTable
                 search={searchQuery}
                 field={searchField}
                 onSearch={setSearchQuery}
                 onFieldChange={handleFieldChange}
                 fieldLists={QuickPassengerFields.map((element) => element.label)}
-            />
+            /> */}
             <TableContainer>
                 <TableHeader
                     items={QuickPassengerFields.map((element) => element.label)}
