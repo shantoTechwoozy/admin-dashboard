@@ -29,8 +29,12 @@ export default function SearchEngineTab() {
             if (foundTab) {
                 setActiveTab(foundTab.value);
             }
+        } else {
+            // If no 'tab' in the URL, set default to 'one-way' and update the URL
+            setActiveTab('one-way');
+            router.replace(`/search-engine?tab=one-way`);
         }
-    }, [tab]);
+    }, [tab, router]);
 
     const handleTabChange = (newTab: string) => {
         setActiveTab(newTab);
