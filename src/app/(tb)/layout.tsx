@@ -2,10 +2,13 @@
 
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
-import { _Children } from "@/types/common/children";
 import { useState } from "react";
 
-export default function DefaultLayout({ children }: _Children) {
+export default function DefaultLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
