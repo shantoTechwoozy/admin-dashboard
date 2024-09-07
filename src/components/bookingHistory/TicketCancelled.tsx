@@ -1,14 +1,14 @@
 'use client'
 import { useState } from "react";
-import { TicketCancelInterface } from "../../../types/common/interfaces";
 
 import TableWrap from "@/components/common/table/TableWrap";
-import SearchInTable from "@/components/common/table/SearchInTable";
+// import SearchInTable from "@/components/common/table/SearchInTable";
 import TableContainer from "@/components/common/table/TableContainer";
 import TableHeader from "@/components/common/table/TableHeader";
 import TableBody from "@/components/common/table/TableBody";
 import { TicketCancelData } from "@/types/common/mockData";
 import { ticketCancelFields } from "@/types/common/fields";
+import { TicketCancelInterface } from '../../types/common/interfaces';
 
 
 const TicketCancelled = () => {
@@ -37,13 +37,13 @@ const TicketCancelled = () => {
 
     return (
         <TableWrap>
-            <SearchInTable
+            {/* <SearchInTable
                 search={searchQuery}
                 field={searchField}
                 onSearch={setSearchQuery}
                 onFieldChange={handleFieldChange}
                 fieldLists={ticketCancelFields.map((element) => element.label)}
-            />
+            /> */}
             <TableContainer>
                 <TableHeader
                     items={ticketCancelFields.map((element) => element.label)}

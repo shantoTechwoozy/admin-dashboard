@@ -1,13 +1,13 @@
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import AllHistory from "@/components/Booking-History/All-History/page";
+import AllHistory from "@/components/bookingHistory/allHistory/AllHistory";
 
 export const metadata: Metadata = {
-    title: "Admin Dashboard",
-    description:
-      "Designed & Developed By Techwoozy LLC",
-  };
+  title: "Admin Dashboard",
+  description:
+    "Designed & Developed By Techwoozy LLC",
+};
 
 const page = () => {
   return (
@@ -15,7 +15,7 @@ const page = () => {
       <Breadcrumb pageName="All Bookings" />
 
       <div className="flex flex-col gap-10">
-        <AllHistory/>
+        <AllHistory />
       </div>
     </DefaultLayout>
   );

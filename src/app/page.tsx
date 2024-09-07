@@ -1,5 +1,4 @@
 import Logo from "@/components/common/Logo";
-import Footer from "@/components/footer/Footer";
 import MobileMenu from "@/components/main/MobileMenu";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -12,7 +11,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="bg-white">
-      <header className="bg-blue-900 absolute inset-x-0 top-0 z-50">
+      <header className="bg-secondary absolute inset-x-0 top-0 z-50">
         <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
           <div className="flex lg:flex-1 justify-between">
             <Logo isDark={false} />
@@ -64,15 +63,15 @@ export default function Home() {
               create memories that last a lifetime.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a
+              <Link
                 href="#"
                 className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Get started
-              </a>
-              <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+              </Link>
+              <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">
                 Learn more <span aria-hidden="true">→</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

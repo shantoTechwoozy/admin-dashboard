@@ -1,5 +1,5 @@
 'use client'
-import SearchInTable from "@/components/common/table/SearchInTable";
+// import SearchInTable from "@/components/common/table/SearchInTable";
 import TableBody from "@/components/common/table/TableBody";
 import TableContainer from "@/components/common/table/TableContainer";
 import TableHeader from "@/components/common/table/TableHeader";
@@ -37,24 +37,22 @@ const OnHold = () => {
         });
 
     return (
-        <>
-            <TableWrap>
-                <SearchInTable
+        <TableWrap>
+            {/* <SearchInTable
                     search={searchQuery}
                     field={searchField}
                     onSearch={setSearchQuery}
                     onFieldChange={handleFieldChange}
                     fieldLists={onHoldFields.map((element) => element.label)}
+                /> */}
+            <TableContainer>
+                <TableHeader
+                    items={onHoldFields.map((field) => field.label)}
                 />
-                <TableContainer>
-                    <TableHeader
-                        items={onHoldFields.map((field) => field.label)}
-                    />
-                    <TableBody items={filteredData} />
-                </TableContainer>
-            </TableWrap>
+                <TableBody items={filteredData} />
+            </TableContainer>
+        </TableWrap>
 
-        </>
     );
 };
 

@@ -1,4 +1,4 @@
-import OnHold from "@/components/Booking-History/flight/OnHold";
+import OnHold from "@/components/bookingHistory/flight/OnHold";
 import React from "react";
 
 const OnHoldPage = () => {
