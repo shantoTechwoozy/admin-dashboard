@@ -6,6 +6,7 @@ interface Props {
   onClick: () => void;
   className?: string;
 }
+
 const ClickOutside: React.FC<Props> = ({
   children,
   exceptionRef,
@@ -16,20 +17,12 @@ const ClickOutside: React.FC<Props> = ({
 
   useEffect(() => {
     const handleClickListener = (event: MouseEvent) => {
-      let clickedInside: null | boolean = false;
-      if (exceptionRef) {
-        clickedInside =
-          (wrapperRef.current &&
-            wrapperRef.current.contains(event.target as Node)) ||
-          (exceptionRef.current && exceptionRef.current === event.target) ||
-          (exceptionRef.current &&
-            exceptionRef.current.contains(event.target as Node));
-      } else {
-        clickedInside =
-          wrapperRef.current &&
-          wrapperRef.current.contains(event.target as Node);
-      }
+      // Check if click is inside the wrapper or the exception element
+      const clickedInside =
+        wrapperRef.current?.contains(event.target as Node) ||
+        exceptionRef?.current?.contains(event.target as Node);
 
+      // If the click is outside both, trigger the onClick callback
       if (!clickedInside) onClick();
     };
 
@@ -41,7 +34,7 @@ const ClickOutside: React.FC<Props> = ({
   }, [exceptionRef, onClick]);
 
   return (
-    <div ref={wrapperRef} className={`${className || ""}`}>
+    <div ref={wrapperRef} className={className ?? ""}>
       {children}
     </div>
   );
