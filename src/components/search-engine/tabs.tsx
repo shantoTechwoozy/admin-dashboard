@@ -12,7 +12,7 @@ type PropsTypes = {
 const TabName: PropsTypes[] = [
     { name: "One Way", value: "one-way" },
     { name: "Round Trip", value: "round-trip" },
-    { name: "Multi City", value: "multicity" },
+    { name: "Multi City", value: "multi-city" },
     { name: "Umrah", value: "umrah" }
 ];
 
@@ -52,7 +52,7 @@ export default function SearchEngineTab() {
                                     {/* Render Icons */}
                                     {tab.value === 'one-way' && <FaPlaneDeparture className="text-blue-600 lg:hidden" size={24} />}
                                     {tab.value === 'round-trip' && <FaPlaneArrival className="text-green-600 lg:hidden" size={24} />}
-                                    {tab.value === 'multicity' && <FaGlobe className="text-orange-600 lg:hidden" size={24} />}
+                                    {tab.value === 'multi-city' && <FaGlobe className="text-orange-600 lg:hidden" size={24} />}
                                     {tab.value === 'umrah' && <FaPray className="text-purple-600 lg:hidden" size={24} />}
 
                                     {/* Display tab name */}
