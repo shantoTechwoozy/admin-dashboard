@@ -2,11 +2,13 @@
 
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
-import { Children } from "@/types/common/children";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 
+interface ReadonlyChildren {
+  readonly children: ReactNode;
+}
 
-export default function DefaultLayout({ children }: Children) {
+const DefaultLayout: React.FC<ReadonlyChildren> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -18,4 +20,6 @@ export default function DefaultLayout({ children }: Children) {
       </div>
     </section>
   );
-}
+};
+
+export default DefaultLayout;
