@@ -2,10 +2,11 @@
 
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
-import { _Children } from "@/types/common/children";
+import { Children } from "@/types/common/children";
 import { useState } from "react";
 
-export default function DefaultLayout({ children }: _Children) {
+
+export default function DefaultLayout({ children }: Children) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (

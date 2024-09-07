@@ -1,5 +1,5 @@
 import React from "react";
 
-export interface _Children {
-  children: React.ReactNode;
+export interface Children {
+  readonly children: React.ReactNode;
 }
