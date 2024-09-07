@@ -1,5 +1,5 @@
 'use client'
-import SearchInTable from "@/components/common/table/SearchInTable";
+// import SearchInTable from "@/components/common/table/SearchInTable";
 import TableBody from "@/components/common/table/TableBody";
 import TableContainer from "@/components/common/table/TableContainer";
 import TableHeader from "@/components/common/table/TableHeader";
@@ -36,13 +36,13 @@ const AllHistory = () => {
 
     return (
         <TableWrap>
-            <SearchInTable
+            {/* <SearchInTable
                 search={searchQuery}
                 field={searchField}
                 onSearch={setSearchQuery}
                 onFieldChange={handleFieldChange}
                 fieldLists={AllHistoryFields.map((element) => element.label)}
-            />
+            /> */}
             <TableContainer>
                 <TableHeader
                     items={AllHistoryFields.map((element) => element.label)}
