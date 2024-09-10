@@ -8,6 +8,7 @@ import { ticketedFields } from "@/types/common/fields";
 import { TicketedData } from "@/types/common/mockData";
 import { useState } from "react";
 import { TicketedInterface } from "../../types/common/interfaces";
+import PageTitle from "../Topup-Request/PageTitle";
 
 
 const Ticketed = () => {
@@ -39,24 +40,26 @@ const Ticketed = () => {
 
 
     return (
-
-        <TableWrap>
-            {/* <SearchInTable
+        <>
+            <PageTitle content="Issued/Ticketed" />
+            <TableWrap>
+                {/* <SearchInTable
                 search={searchQuery}
                 field={searchField}
                 onSearch={setSearchQuery}
                 onFieldChange={handleFieldChange}
                 fieldLists={ticketedFields.map((element) => element.label)}
             /> */}
-            <TableContainer>
-                <TableHeader
-                    items={ticketedFields.map((element) => element.label)}
-                />
-                <TableBody
-                    items={filteredData}
-                />
-            </TableContainer>
-        </TableWrap>
+                <TableContainer>
+                    <TableHeader
+                        items={ticketedFields.map((element) => element.label)}
+                    />
+                    <TableBody
+                        items={filteredData}
+                    />
+                </TableContainer>
+            </TableWrap>
+        </>
     );
 };
 

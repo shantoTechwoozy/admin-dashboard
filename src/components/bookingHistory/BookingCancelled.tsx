@@ -8,6 +8,7 @@ import { BookingCancelFields } from "@/types/common/fields";
 import { BookingCancelInterface } from "@/types/common/interfaces";
 import { BookingCancelData } from "@/types/common/mockData";
 import { useState } from "react";
+import PageTitle from "../Topup-Request/PageTitle";
 
 
 const BookingCancelled = () => {
@@ -36,23 +37,26 @@ const BookingCancelled = () => {
 
 
     return (
-        <TableWrap>
-            {/* <SearchInTable
+        <>
+            <PageTitle content="Ticket Cancelled" />
+            <TableWrap>
+                {/* <SearchInTable
                 search={searchQuery}
                 field={searchField}
                 onSearch={setSearchQuery}
                 onFieldChange={handleFieldChange}
                 fieldLists={BookingCancelFields.map((element) => element.label)}
             /> */}
-            <TableContainer>
-                <TableHeader
-                    items={BookingCancelFields.map((element) => element.label)}
-                />
-                <TableBody
-                    items={filteredData}
-                />
-            </TableContainer>
-        </TableWrap>
+                <TableContainer>
+                    <TableHeader
+                        items={BookingCancelFields.map((element) => element.label)}
+                    />
+                    <TableBody
+                        items={filteredData}
+                    />
+                </TableContainer>
+            </TableWrap>
+        </>
     );
 };
 

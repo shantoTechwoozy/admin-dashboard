@@ -5,14 +5,20 @@ let prevLink = "/partial-payment";
 export const partialPaymentChildrenMenuList: MenuItem[] = [
   {
     level: 2,
-    label: "due list",
+    label: "Instant payment",
     route: prevLink + "/due-list",
-    icon: <IconSidebar.searchEngine />,
+    icon: <IconSidebar.SearchEngine />,
   },
   {
     level: 2,
-    label: "paid list",
+    label: "Submit payment request",
     route: prevLink + "/paid-list",
-    icon: <IconSidebar.searchEngine />,
+    icon: <IconSidebar.SearchEngine />,
+  },
+  {
+    level: 3,
+    label: "Bank List",
+    route: prevLink + "/paid-list",
+    icon: <IconSidebar.SearchEngine />,
   },
 ];

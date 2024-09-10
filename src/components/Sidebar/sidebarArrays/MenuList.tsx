@@ -16,7 +16,7 @@ export const MenuLists: MenuGroup[] = [
         level: 1,
         label: "Search Engine",
         route: "/search-engine",
-        icon: <IconSidebar.searchEngine />,
+        icon: <IconSidebar.SearchEngine />,
       },
       {
         level: 1,
@@ -40,23 +40,10 @@ export const MenuLists: MenuGroup[] = [
       },
       {
         level: 1,
-        label: "partial payment",
+        label: "Payment",
         route: "/partial-payment",
         icon: <IconSidebar.partialPayment />,
         children: partialPaymentChildrenMenuList,
-      },
-      {
-        level: 1,
-        label: "transactions history",
-        route: "/transactions-history",
-        icon: <IconSidebar.transaction />,
-      },
-      {
-        level: 1,
-        label: "payments",
-        route: "/payments",
-        icon: <IconSidebar.payment />,
-        children: paymentsChildrenMenuList,
       },
       {
         level: 1,
@@ -79,6 +66,22 @@ export const MenuLists: MenuGroup[] = [
         icon: <IconSidebar.settings />,
         children: settingsChildrenMenuList,
       },
+      {
+        level: 1,
+        label: "transactions history",
+        route: "/transactions-history",
+        icon: <IconSidebar.transaction />,
+      },
+      {
+        level: 1,
+        label: "payments",
+        route: "/payments",
+        icon: <IconSidebar.payment />,
+        children: paymentsChildrenMenuList,
+      },
+
+
+
     ],
   },
 ];

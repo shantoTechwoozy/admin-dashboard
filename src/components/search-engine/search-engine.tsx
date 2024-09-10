@@ -33,7 +33,7 @@ const SearchEngine: React.FC = () => {
 
   return (
     <div className="flex items-center justify-center">
-      <div className="w-full max-w-5xl banner">
+      <div className="w-full  banner">
         {/* Navigation */}
         <SubMenu />
 

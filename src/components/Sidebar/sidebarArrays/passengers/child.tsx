@@ -7,12 +7,12 @@ export const passengerChildrenMenuList: MenuItem[] = [
     level: 2,
     label: "add passenger",
     route: prevLink + "/add-passenger",
-    icon: <IconSidebar.searchEngine />,
+    icon: <IconSidebar.SearchEngine />,
   },
   {
     level: 2,
     label: "quick passenger",
     route: prevLink + "/quick-passenger",
-    icon: <IconSidebar.searchEngine />,
+    icon: <IconSidebar.SearchEngine />,
   },
 ];
