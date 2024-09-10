@@ -1,9 +1,9 @@
-import React from 'react';
-import { nanoid } from 'nanoid';
-import { FaPlane, FaHotel, FaSuitcase, FaMobileAlt, FaDollarSign } from 'react-icons/fa';
-import { RiVisaFill } from "react-icons/ri";
-import { FaUserGroup } from 'react-icons/fa6';
 import "@/css/style.css";
+import { nanoid } from 'nanoid';
+import React from 'react';
+import { FaHotel, FaPlane, FaSuitcase } from 'react-icons/fa';
+import { FaUserGroup } from 'react-icons/fa6';
+import { RiVisaFill } from "react-icons/ri";
 
 type MenuItem = {
     label: string;

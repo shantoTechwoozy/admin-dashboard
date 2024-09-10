@@ -1,4 +1,4 @@
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
+import Breadcrumb from "@/components/breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 
@@ -15,7 +15,7 @@ const page = () => {
     <DefaultLayout>
       <Breadcrumb pageName="Contact Us" />
       <div className="flex flex-col gap-10">
-       <SupportPage/>
+        <SupportPage />
       </div>
     </DefaultLayout>
   );

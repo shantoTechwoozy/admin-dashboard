@@ -3,15 +3,16 @@ import "@/css/style.css";
 import { nanoid } from "nanoid";
 import { useSearchParams } from "next/navigation";
 import React, { useState } from "react";
-import MulticityTab from "./MulticityTab";
-import OneWayTab from "./OneWayTab";
-import RoundTripTab from "./RoundTripTab";
+import MulticityTab from "./multiCity/MulticityTab";
+import OneWayTab from "./oneWay/OneWayTab";
 import { SelectAge } from "./select-age";
 import { SelectEconomy } from "./select-economy";
 import SubMenu from "./sub-menu";
 import SearchEngineTab from "./tabs";
 import { IconSearchEngine } from "@/icons";
 import Button from "../common/buttons/Button";
+import FlightSearch from "./oneWay/FlightSearch";
+import RoundTripTab from "./roundTrip/RoundTripTab";
 
 const SearchEngine: React.FC = () => {
   const searchParams = useSearchParams(); // Use searchParams to get URL query parameters
@@ -93,6 +94,7 @@ const SearchEngine: React.FC = () => {
             </>
           )}
         </div>
+        <FlightSearch />
       </div>
     </div>
   );

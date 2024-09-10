@@ -1,14 +1,14 @@
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
+import Breadcrumb from "@/components/breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import TopupRequest from "@/components/Topup-Request/page";
 
 
 export const metadata: Metadata = {
-    title: "Admin Dashboard",
-    description:
-      "Designed & Developed By Techwoozy LLC",
-  };
+  title: "Admin Dashboard",
+  description:
+    "Designed & Developed By Techwoozy LLC",
+};
 
 const page = () => {
   return (
@@ -16,7 +16,7 @@ const page = () => {
       <Breadcrumb pageName="Topup Request" />
 
       <div className="flex flex-col gap-10">
-        <TopupRequest/>
+        <TopupRequest />
       </div>
     </DefaultLayout>
   );
