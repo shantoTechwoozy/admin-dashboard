@@ -7,6 +7,6 @@ export const paymentsChildrenMenuList: MenuItem[] = [
     level: 2,
     label: "bank lists",
     route: prevLink + "/bank-lists",
-    icon: <IconSidebar.searchEngine />,
+    icon: <IconSidebar.SearchEngine />,
   },
 ];

@@ -1,4 +1,4 @@
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
+import Breadcrumb from "@/components/breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import RefundStatus from "@/components/Report/Refund-Status/page";
@@ -14,7 +14,7 @@ const page = () => {
     <DefaultLayout>
       <Breadcrumb pageName="Refund Status" />
       <div className="flex flex-col gap-10">
-        <RefundStatus/>
+        <RefundStatus />
       </div>
     </DefaultLayout>
   );

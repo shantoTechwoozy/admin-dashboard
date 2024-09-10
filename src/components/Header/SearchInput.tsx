@@ -1,16 +1,16 @@
 import { IconTopBar } from "@/icons";
 import React from "react";
 
-interface _PropsTypes {
+interface PropsTypes {
   value?: string;
   onChange: (e: any) => void;
 }
 
-const SearchInput: React.FC<_PropsTypes> = ({ value, onChange }) => {
+const SearchInput: React.FC<PropsTypes> = ({ value, onChange }) => {
   return (
     <div className="relative hidden sm:block">
       <button className="absolute left-0 top-1/2 -translate-y-1/2">
-        <IconTopBar.search className="text-xl" />
+        <IconTopBar.Search className="text-xl" />
       </button>
 
       <input

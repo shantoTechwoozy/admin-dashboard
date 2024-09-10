@@ -7,18 +7,18 @@ export const settingsChildrenMenuList: MenuItem[] = [
     level: 2,
     label: "portal",
     route: prevLink + "/portal",
-    icon: <IconSidebar.searchEngine />,
+    icon: <IconSidebar.SearchEngine />,
   },
   {
     level: 2,
     label: "notifications",
     route: prevLink + "/notifications",
-    icon: <IconSidebar.searchEngine />,
+    icon: <IconSidebar.SearchEngine />,
   },
   {
     level: 2,
     label: "user",
     route: prevLink + "/user",
-    icon: <IconSidebar.searchEngine />,
+    icon: <IconSidebar.SearchEngine />,
   },
 ];

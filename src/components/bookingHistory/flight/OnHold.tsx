@@ -8,6 +8,7 @@ import { onHoldFields } from "@/types/common/fields";
 import { OnHoldData } from "@/types/common/mockData";
 import { useState } from "react";
 import { OnHoldInterface } from '../../../types/common/interfaces';
+import PageTitle from "@/components/Topup-Request/PageTitle";
 
 
 
@@ -37,22 +38,24 @@ const OnHold = () => {
         });
 
     return (
-        <TableWrap>
-            {/* <SearchInTable
+        <>
+            <PageTitle content="On Hold" />
+            <TableWrap>
+                {/* <SearchInTable
                     search={searchQuery}
                     field={searchField}
                     onSearch={setSearchQuery}
                     onFieldChange={handleFieldChange}
                     fieldLists={onHoldFields.map((element) => element.label)}
                 /> */}
-            <TableContainer>
-                <TableHeader
-                    items={onHoldFields.map((field) => field.label)}
-                />
-                <TableBody items={filteredData} />
-            </TableContainer>
-        </TableWrap>
-
+                <TableContainer>
+                    <TableHeader
+                        items={onHoldFields.map((field) => field.label)}
+                    />
+                    <TableBody items={filteredData} />
+                </TableContainer>
+            </TableWrap>
+        </>
     );
 };
 

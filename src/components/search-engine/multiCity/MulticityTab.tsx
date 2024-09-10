@@ -1,9 +1,9 @@
 import React from 'react'
-import FlightPlaceInput from './FlightPlaceInput'
+import FlightPlaceInput from '../FlightPlaceInput'
 import { IconSearchEngine } from '@/icons'
-import Button from '../common/buttons/Button'
+import Button from '../../common/buttons/Button'
 
-const RoundTripTab = () => {
+const MulticityTab = () => {
     return (
         <div className="flex gap-5 w-full p-5">
             <div className="flex flex-1 items-center gap-5">
@@ -19,7 +19,6 @@ const RoundTripTab = () => {
             <div className="min-w-[2px] max-w-[2px] h-[50px] bg-slate-500" />
             <div className="flex flex-1 gap-2">
                 <FlightPlaceInput label='Depart' placeholder="Select Date" value="" required />
-                <FlightPlaceInput label='Return' placeholder="Select Date" value="" />
                 <div className="w-25 flex h-12 items-center justify-center">
                     <Button
                         text="Search"
@@ -32,4 +31,4 @@ const RoundTripTab = () => {
     )
 }
 
-export default RoundTripTab
+export default MulticityTab

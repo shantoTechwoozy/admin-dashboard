@@ -6,6 +6,7 @@ import { GrContactInfo, GrMenu } from "react-icons/gr";
 import { HiBriefcase, HiOutlineSearch } from "react-icons/hi";
 import { IoArrowBack, IoCashOutline, IoSettingsOutline } from "react-icons/io5";
 import { CgArrowsExchange } from "react-icons/cg";
+import { WiDayHaze } from "react-icons/wi";
 
 import {
   MdOutlineDashboardCustomize,
@@ -24,7 +25,7 @@ import {
 import { VscGitPullRequestNewChanges, VscIssueReopened } from "react-icons/vsc";
 
 
-import { GiAvoidance } from "react-icons/gi";
+import { GiAvoidance, GiAirplaneDeparture } from "react-icons/gi";
 import { RiRefund2Line, RiHotelLine, RiVisaFill } from "react-icons/ri";
 
 
@@ -37,8 +38,8 @@ import { TfiInstagram, TfiTwitter } from "react-icons/tfi";
 
 // Define icon sets
 export const IconTopBar = {
-  menu: GrMenu,
-  search: HiOutlineSearch,
+  Menu: GrMenu,
+  Search: HiOutlineSearch,
   downArrow: FaAngleDown,
   myProfile: CiUser,
   accountSettings: IoSettingsOutline,
@@ -51,7 +52,7 @@ export const IconSidebar = {
   backButton: IoArrowBack,
   downArrow: FaAngleDown,
   dashboard: MdOutlineDashboardCustomize,
-  searchEngine: TbLocationSearch,
+  SearchEngine: TbLocationSearch,
   sharePnr: GrContactInfo,
   bookingHistory: FaHistory,
   flight: MdOutlineFlight,
@@ -79,7 +80,7 @@ export const IconSidebar = {
 
 // Other icon sets can be similarly defined
 export const IconDashboard = { authentication: TbLogin2 };
-export const IconSearchEngine = { Swap: CgArrowsExchange, AddNew: FaSearchPlus };
+export const IconSearchEngine = { Swap: CgArrowsExchange, AddNew: FaSearchPlus, Day: WiDayHaze, DownArrow: FaAngleDown, Flight: GiAirplaneDeparture };
 export const IconSharePnr = { plane: FaPlane };
 export const IconBookingHistory = { authentication: TbLogin2 };
 export const IconPartialPayment = { authentication: TbLogin2 };
