@@ -20,6 +20,7 @@ const Breadcrumb = ({ pageName }: BreadcrumbProps) => {
         </ol>
       </nav>
     </div>
+
   );
 };
 
