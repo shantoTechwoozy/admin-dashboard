@@ -80,8 +80,6 @@ export const MenuLists: MenuGroup[] = [
         children: paymentsChildrenMenuList,
       },
 
-
-
     ],
   },
 ];
