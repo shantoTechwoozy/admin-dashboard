@@ -1,4 +1,4 @@
-import Breadcrumb from "@/components/breadcrumbs/Breadcrumb";
+import Breadcrumb from "@/components/breadcr/Breadcrumb";
 import SharePNR from "@/components/Share-PNR/page";
 import { Metadata } from "next";
 

@@ -1,4 +1,4 @@
-import Breadcrumb from "@/components/breadcrumbs/Breadcrumb";
+import Breadcrumb from "@/components/breadcr/Breadcrumb";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import DueList from "@/components/Partial-Payment/DueList";
 import PaidList from "@/components/Partial-Payment/PaidList";

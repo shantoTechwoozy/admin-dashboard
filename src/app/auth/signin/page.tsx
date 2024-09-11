@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Breadcrumb from "@/components/breadcrumbs/Breadcrumb";
+import Breadcrumb from "@/components/breadcr/Breadcrumb";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 
