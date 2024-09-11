@@ -3,11 +3,11 @@ import { useState } from "react";
 
 import TableWrap from "@/components/common/table/TableWrap";
 // import SearchInTable from "@/components/common/table/SearchInTable";
+import TableBody from "@/components/common/table/TableBody";
 import TableContainer from "@/components/common/table/TableContainer";
 import TableHeader from "@/components/common/table/TableHeader";
-import TableBody from "@/components/common/table/TableBody";
-import { TicketCancelData } from "@/types/common/mockData";
 import { ticketCancelFields } from "@/types/common/fields";
+import { TicketCancelData } from "@/types/common/mockData";
 import { TicketCancelInterface } from '../../types/common/interfaces';
 
 
