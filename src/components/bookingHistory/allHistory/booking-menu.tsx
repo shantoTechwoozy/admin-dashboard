@@ -12,6 +12,7 @@ function BookingMenu() {
         setIsMenuOpen(!isMenuOpen);
     };
 
+
     return (
         <div>
             {/* Mobile Menu Button */}
