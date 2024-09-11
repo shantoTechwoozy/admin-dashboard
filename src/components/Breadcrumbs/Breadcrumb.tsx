@@ -9,6 +9,7 @@ const Breadcrumb = ({ pageName }: BreadcrumbProps) => {
         {pageName}
       </h2>
 
+
       <nav>
         <ol className="flex items-center gap-2">
           <li>
@@ -20,7 +21,6 @@ const Breadcrumb = ({ pageName }: BreadcrumbProps) => {
         </ol>
       </nav>
     </div>
-
   );
 };
 
