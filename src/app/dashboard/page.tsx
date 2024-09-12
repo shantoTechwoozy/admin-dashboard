@@ -1,4 +1,4 @@
-import Breadcrumb from "@/components/breadcrumbs/Breadcrumb";
+import Breadcrumb from "@/components/breadcr/Breadcrumb";
 import Report from "@/components/Dashboard/report";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import { Metadata } from "next";

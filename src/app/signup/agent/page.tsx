@@ -1,96 +1,260 @@
-"use client";
-import Input from "@/components/common/inputs/Input";
-import Logo from "@/components/common/Logo";
-import { useState } from "react";
+"use client"
+import SignupContainer from '@/components/common/auth/SignupContainer';
+import SignupLabel from '@/components/common/auth/SignupLabel';
+import React, { useState } from 'react';
+import SignupInput from '@/components/common/auth/SignupInput';
+import Link from 'next/link';
+import Select from 'react-dropdown-select';
+import Button from '@/components/common/buttons/Button';
 
-const AgentRegistrationPage = () => {
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [retypePassword, setRetypePassword] = useState("");
+const SignupForm = () => {
+    const [options, setOptions] = useState<{ value: number; label: string }[]>([]);
+    const [formData, setFormData] = useState({
+        typeOfOrg: '',
+        nameOfOrg: '',
+        status: '',
+        firstName: '',
+        lastName: '',
+        address1: '',
+        address2: '',
+        city: '',
+        country: '',
+        email: '',
+        phoneCode: '',
+        phoneNumber: '',
+        currency: '',
+        zipCode: '',
+    });
+
+    const organisation = [
+        { value: 1, label: 'Non-Profit' },
+        { value: 2, label: 'For-Profit' }
+    ];
+    const tagName = [
+        { value: 1, label: 'Mr' },
+        { value: 1, label: 'Mrs' },
+        { value: 1, label: 'Ms' }
+    ]
+    const country = [
+        { value: 1, label: 'United States' },
+        { value: 1, label: 'United States' },
+        { value: 1, label: 'United States' }
+    ]
+
+
+    const handleChange = (e: { target: { name: any; value: any; }; }) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const handleSubmit = (e: { target: { name: any; value: any; }; }) => {
+        console.log(formData);
+    };
 
     return (
-        <div className="min-w-screen min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-800">
-            <div className="flex lg:flex-row flex-col items-center bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden">
-                {/* Left Side - Registration Form */}
-                <div className="w-full p-8">
-                    <div className="flex flex-col items-center justify-center gap-2 mb-8">
-                        <p className=" m-0 text-[16px] font-semibold dark:text-white">Agent Register</p>
-                    </div>
+        <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
+            <form className="bg-white p-8 rounded-md shadow-md w-full max-w-4xl" >
+                <h2 className="text-2xl font-semibold mb-6">Agency Registration:</h2>
 
-                    {/* Organization Type and Name */}
-                    <div className="flex gap-5">
-                        <Input className="shadow-none outline-none rounded-none border border-slate-600 border-r-0 border-t-0 border-l-0" label="Type of organisation*" placeHolder="" type="select" parentClassName="w-full flex flex-col gap-1" value={firstName} onChange={setFirstName} />
-                        <Input className="shadow-none outline-none rounded-none border border-slate-600 border-r-0 border-t-0 border-l-0" label="Name of organization*" placeHolder="" type="text" parentClassName="w-full flex flex-col gap-1" value={lastName} onChange={setLastName} />
-                    </div>
-
-                    <h2 className="flex font-bold mt-2 ml-2">Enter contact details:</h2>
-
-                    {/* Title and First Name */}
-                    <div className="flex gap-5 mt-6">
-                        <div className="flex flex-1 gap-2 items-center">
-                            {/* Title Dropdown */}
-
-                            <div className="w-1/4 mt-8.5">
-                                <select
-                                    className="w-full shadow-none outline-none rounded-none border border-slate-600 border-r-0 border-t-0 border-l-0 p-2"
-                                >
-                                    <option value="Mr">Mr.</option>
-                                    <option value="Mrs">Mrs.</option>
-                                    <option value="Ms">Ms.</option>
-                                </select>
-                            </div>
-
-                            {/* First Name Input */}
-                            <Input
-                                className="shadow-none outline-none rounded-none border border-slate-600 border-r-0 border-t-0 border-l-0 p-2 flex-1"
-                                label="First Name*"
-                                placeHolder="Enter First Name"
-                                type="text"
-                                parentClassName="w-full flex flex-col gap-1"
-                                value={firstName}
-                                onChange={setFirstName}
-                            />
-                        </div>
-
-                        {/* Last Name Input */}
-                        <Input
-                            className="shadow-none outline-none rounded-none border border-slate-600 border-r-0 border-t-0 border-l-0 p-2 w-full"
-                            label="Last Name*"
-                            placeHolder="Enter Last Name"
-                            type="text"
-                            parentClassName="w-full flex flex-col gap-1"
-                            value={lastName}
-                            onChange={setLastName}
+                <SignupContainer>
+                    <div>
+                        <SignupLabel label="Type of organisation" required />
+                        <Select
+                            options={organisation} // Pass the organisation array in value-label format
+                            onChange={(values) => setOptions(values)}// Update options when changed
+                            searchable={true} // Enable search functionality by default
+                            placeholder="Select an option"
+                            values={[]} // Initialize with empty selection
+                            className="mt-3 w-full !border-b !border-b-black !border-t-white !border-l-white !border-r-white p-2 outline-none rounded-none" // You can add your custom styles via CSS
+                            clearOnSelect={false} // Do not clear search on selection
+                            dropdownHeight="200px"
                         />
                     </div>
+                    <div>
+                        <SignupLabel label="Name of organisation" required />
 
-                    {/* Address Fields */}
-                    <div className="flex gap-5 mt-2">
-                        <Input className="shadow-none outline-none rounded-none border border-slate-600 border-r-0 border-t-0 border-l-0" label="Address line 1*" placeHolder="" type="text" parentClassName="w-full flex flex-col gap-1" value={firstName} onChange={setFirstName} />
-                        <Input className="shadow-none outline-none rounded-none border border-slate-600 border-r-0 border-t-0 border-l-0" label="Address line 2" placeHolder="" type="text" parentClassName="w-full flex flex-col gap-1" value={lastName} onChange={setLastName} />
+                        <SignupInput
+                            type="text"
+                            name="nameOfOrg"
+                            value={formData.nameOfOrg}
+                            onChange={handleChange}
+                            placeholder="Type"
+                        />
                     </div>
-                    <div className="flex gap-5 mt-2">
-                        <Input className="shadow-none outline-none rounded-none border border-slate-600 border-r-0 border-t-0 border-l-0" label="City / Town*" placeHolder="" type="text" parentClassName="w-full flex flex-col gap-1" value={firstName} onChange={setFirstName} />
-                        <Input className="shadow-none outline-none rounded-none border border-slate-600 border-r-0 border-t-0 border-l-0" label="Country*" placeHolder="" type="text" parentClassName="w-full flex flex-col gap-1" value={lastName} onChange={setLastName} />
-                    </div>
-                    <div className="flex gap-5 mt-2">
-                        <Input className="shadow-none outline-none rounded-none border border-slate-600 border-r-0 border-t-0 border-l-0" label="Email Address*" placeHolder="" type="text" parentClassName="w-full flex flex-col gap-1" value={firstName} onChange={setFirstName} />
-                        <Input className="shadow-none outline-none rounded-none border border-slate-600 border-r-0 border-t-0 border-l-0" label="Phone Number*" placeHolder="" type="text" parentClassName="w-full flex flex-col gap-1" value={lastName} onChange={setLastName} />
-                    </div>
-                    <div className="flex gap-5 mt-2">
-                        <Input className="shadow-none outline-none rounded-none border border-slate-600 border-r-0 border-t-0 border-l-0" label="Zip / Postal Code*" placeHolder="" type="text" parentClassName="w-full flex flex-col gap-1" value={lastName} onChange={setLastName} />
+                </SignupContainer>
+
+                <h3 className="text-xl font-semibold mb-4">Enter contact details:</h3>
+                <div className="grid grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <SignupLabel label="First Name" required />
+                        <div className="flex">
+                            {/* Dropdown for Title (Mr, Mrs, Ms) */}
+                            <Select
+                                options={tagName}
+                                onChange={(values) => setOptions(values)}
+                                searchable={true}
+                                placeholder="Select an option"
+                                values={[]}
+                                className="!w-[80px] mt-3.5 !border-b !border-b-black !border-t-white !border-l-white !border-r-white p-2 outline-none rounded-none mr-2"
+                                clearOnSelect={false}
+                                dropdownHeight="200px"
+                            />
+
+                            {/* Input for First Name */}
+                            <SignupInput
+                                type="text"
+                                name="firstName"
+                                value={formData.firstName}
+                                onChange={handleChange}
+                                className="w-3/4 border border-b-black p-2 outline-none rounded-none border-l-0 border-r-0 border-t-0"
+                                placeholder="Type"
+                            />
+                        </div>
                     </div>
 
-                    {/* Register Button */}
-                    <button className="w-full mt-5 py-2 bg-orange-500 hover:bg-orange-700 focus:ring-offset-orange-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer select-none">
-                        Register
-                    </button>
+                    <div>
+                        <SignupLabel label="Last Name" required />
+                        <SignupInput
+                            type="text"
+                            name="lastName"
+                            value={formData.lastName}
+                            onChange={handleChange}
+                            placeholder="Type"
+                        />
+                    </div>
                 </div>
-            </div>
+                <div className="grid grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <SignupLabel label="Email Address" required />
+
+                        <SignupInput
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="Type"
+                        />
+                    </div>
+                    <div>
+                        <SignupLabel label="Phone Number" required />
+                        <div className="flex mt-0">
+                            <SignupInput
+                                type="text"
+                                name="phoneCode"
+                                value={formData.phoneCode}
+                                onChange={handleChange}
+                                className="w-1/4 border border-b-black outline-none p-2 rounded-none border-l-0 border-r-0 border-t-0 mr-2"
+                                placeholder="Code"
+                            />
+                            <SignupInput
+                                type="text"
+                                name="phoneNumber"
+                                value={formData.phoneNumber}
+                                onChange={handleChange}
+                                className="w-3/4 border border-b-black p-2 outline-none rounded-none border-l-0 border-r-0 border-t-0"
+                                placeholder="Agency Ph. Number"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className="grid grid-cols-2 gap-6 mb-6">
+
+                    <div>
+                        <SignupLabel label="Country" required />
+                        <Select
+                            options={country} // Pass the organisation array in value-label format
+                            onChange={(values) => setOptions(values)}// Update options when changed
+                            searchable={true} // Enable search functionality by default
+                            placeholder="Select an option"
+                            values={[]} // Initialize with empty selection
+                            className="mt-3 w-full !border-b !border-b-black !border-t-white !border-l-white !border-r-white p-2 outline-none rounded-none" // You can add your custom styles via CSS
+                            clearOnSelect={false} // Do not clear search on selection
+                            dropdownHeight="200px"
+                        />
+                    </div>
+                    <div>
+                        <SignupLabel label="State" required />
+                        <Select
+                            options={country} // Pass the organisation array in value-label format
+                            onChange={(values) => setOptions(values)}// Update options when changed
+                            searchable={true} // Enable search functionality by default
+                            placeholder="Select an option"
+                            values={[]} // Initialize with empty selection
+                            className="mt-3 w-full !border-b !border-b-black !border-t-white !border-l-white !border-r-white p-2 outline-none rounded-none" // You can add your custom styles via CSS
+                            clearOnSelect={false} // Do not clear search on selection
+                            dropdownHeight="200px"
+                        />
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <SignupLabel label="City/Town" required />
+
+                        <Select
+                            options={country} // Pass the organisation array in value-label format
+                            onChange={(values) => setOptions(values)}// Update options when changed
+                            searchable={true} // Enable search functionality by default
+                            placeholder="Select an option"
+                            values={[]} // Initialize with empty selection
+                            className="mt-3 w-full !border-b !border-b-black !border-t-white !border-l-white !border-r-white p-2 outline-none rounded-none" // You can add your custom styles via CSS
+                            clearOnSelect={false} // Do not clear search on selection
+                            dropdownHeight="200px"
+                        />
+                    </div>
+                    <div>
+                        <SignupLabel label="Address line" required />
+                        <SignupInput
+                            type="text"
+                            name="address"
+                            value={formData.address1}
+                            onChange={handleChange}
+                            placeholder="Type" />
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <SignupLabel label="Zip / Postal Code" required />
+                        <SignupInput
+                            type="text"
+                            name="zipCode"
+                            value={formData.zipCode}
+                            onChange={handleChange}
+                            placeholder="Type" />
+                    </div>
+                </div>
+
+                <div className="flex items-center justify-start mb-6">
+                    {/* <button
+                        type="button"
+                        className="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600"
+                    >
+                        Upload document
+                    </button> */}
+                    <div className="text-sm text-gray-600">
+                        By creating an account you are agreeing to our{' '}
+                        <Link href="#" className="text-blue-500">T & C</Link>.
+                    </div>
+                </div>
+
+
+                <div className="flex justify-start">
+
+                    <div>
+                        <Button
+                            text='Submit'
+                            onClick={() => { }}
+                            className="flex w-[300px] text-center rounded-full items-center justify-center"
+                        />
+                    </div>
+                </div>
+
+            </form>
         </div>
     );
 };
 
-export default AgentRegistrationPage;
+export default SignupForm;
