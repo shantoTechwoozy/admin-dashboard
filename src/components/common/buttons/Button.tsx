@@ -11,7 +11,7 @@ interface PropsTypes {
 const Button: React.FC<PropsTypes> = ({ text, onClick, prevIcon, nextIcon, className }) => {
     return (
         <button
-            className={cn("flex items-center text-sm justify-center capitalize flex-1 px-3 py-2 gap-1 rounded-md bg-primary text-white w-fit", className)}
+            className={cn("flex items-center text-sm justify-center capitalize flex-1 px-3 py-2 gap-1 rounded-md bg-primary text-white", className)}
             onClick={onClick}
         >
             {prevIcon && <span>{prevIcon}</span>}
