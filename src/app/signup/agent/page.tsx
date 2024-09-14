@@ -6,6 +6,7 @@ import SignupInput from "@/components/common/auth/SignupInput";
 import Link from "next/link";
 import Select from "react-dropdown-select";
 import Button from "@/components/common/buttons/Button";
+import FormFooter from "@/components/common/auth/FormFooter";
 
 const SignupForm = () => {
   const [options, setOptions] = useState<{ value: number; label: string }[]>(
@@ -35,28 +36,34 @@ const SignupForm = () => {
   ];
   const tagName = [
     { value: 1, label: "Mr" },
-    { value: 1, label: "Mrs" },
-    { value: 1, label: "Ms" },
+    { value: 2, label: "Mrs" },
+    { value: 3, label: "Ms" },
   ];
   const country = [
     { value: 1, label: "United States" },
-    { value: 1, label: "United States" },
-    { value: 1, label: "United States" },
+    { value: 2, label: "United States" },
+    { value: 3, label: "United States" },
   ];
+
   const state = [
-    { value: 1, label: "United States" },
-    { value: 1, label: "United States" },
-    { value: 1, label: "United States" },
+    { value: 1, label: "United St" },
+    { value: 2, label: "United Stats" },
+    { value: 3, label: "Unied States" },
   ];
 
   const handleChange = (e: { target: { name: any; value: any } }) => {
+
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
+  const handleSelectChange = (field: string, values: any[]) => {
+    setFormData({ ...formData, [field]: values.length > 0 ? values[0].label : "", })
+  }
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: any) => {
+    e.preventDefault()
     console.log(formData);
   };
 
@@ -73,11 +80,7 @@ const SignupForm = () => {
             <SignupLabel label="Type of organization" required />
             <Select
               options={organization}
-              onChange={(values) =>
-                setFormData((prev) => ({
-                  ...prev,
-                }))
-              }
+              onChange={(values) => handleSelectChange("type", values)}
               searchable={true}
               placeholder="Select Type of Org."
               values={[]}
@@ -106,15 +109,14 @@ const SignupForm = () => {
             <SignupLabel label="First Name" required />
             <div className="flex">
               {/* Dropdown for Title (Mr, Mrs, Ms) */}
-              <Select
-                options={tagName}
-                onChange={(values) => setOptions(values)}
-                searchable={true}
-                placeholder=""
-                values={[]}
-                className="mr-2 mt-3.5 !w-[80px] rounded-none !border-b !border-b-black !border-l-white !border-r-white !border-t-white p-2 outline-none"
-                clearOnSelect={false}
-                dropdownHeight="200px"
+
+              <SignupInput
+                type="text"
+                name="presenterDesignation"
+                value={formData.presenterDesignation}
+                onChange={handleChange}
+                className="mr-2 mt-3.5 !w-[100px] rounded-none !border-b !border-b-black !border-l-white !border-r-white !border-t-white p-2 outline-none"
+                placeholder="Designation"
               />
 
               {/* Input for First Name */}
@@ -179,7 +181,7 @@ const SignupForm = () => {
             <SignupLabel label="Country" required />
             <Select
               options={country}
-              onChange={(values) => setOptions(values)}
+              onChange={(values) => handleSelectChange("country", values)}
               searchable={true}
               placeholder="Select Country"
               values={[]}
@@ -192,7 +194,7 @@ const SignupForm = () => {
             <SignupLabel label="State" required />
             <Select
               options={state}
-              onChange={(values) => setOptions(values)}
+              onChange={(values) => handleSelectChange("state", values)}
               searchable={true}
               placeholder="Select State"
               values={[]}
@@ -209,7 +211,7 @@ const SignupForm = () => {
 
             <Select
               options={country}
-              onChange={(values) => setOptions(values)}
+              onChange={(values) => handleSelectChange("city", values)}
               searchable={true}
               placeholder="Select City/Town"
               values={[]}
@@ -255,7 +257,7 @@ const SignupForm = () => {
             <Link href="#" className="text-blue-500">
               T & C
             </Link>
-            .
+            <FormFooter name="Already have an account?" registration="Login" href="/signin/agent" />
           </div>
         </div>
 
