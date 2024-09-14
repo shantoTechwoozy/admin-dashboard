@@ -1,6 +1,6 @@
 "use client"
 import LoginForm from "@/components/common/auth/LoginForm";
-import LoginFormFooter from "@/components/common/auth/LoginFormFooter";
+import LoginFormFooter from "@/components/common/auth/FormFooter";
 import { useState } from "react";
 
 const AgentLoginPage = () => {
@@ -14,7 +14,7 @@ const AgentLoginPage = () => {
                 <div className="flex justify-center items-center min-h-90 text-left bg-white dark:bg-gray-900 rounded-[50px] shadow-lg">
                     <div className="flex flex-col justify-center items-center h-full">
                         <LoginForm title="Agent Login" loginData={loginData} setLoginData={setLoginData} />
-                        <LoginFormFooter name="Agent" registration="Register" />
+                        <LoginFormFooter name="Agent" registration="Register" href="/signup/agent" forgetTitle="Forget password?" />
                     </div>
                 </div>
             </div>

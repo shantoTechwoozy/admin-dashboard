@@ -6,6 +6,7 @@ import SignupInput from '@/components/common/auth/SignupInput';
 import Link from 'next/link';
 import Select from 'react-dropdown-select';
 import Button from '@/components/common/buttons/Button';
+import FormFooter from '@/components/common/auth/FormFooter';
 
 const SignupForm = () => {
     const [options, setOptions] = useState<{ value: number; label: string }[]>([]);
@@ -237,12 +238,13 @@ const SignupForm = () => {
                     <div className="text-sm text-gray-600">
                         By creating an account you are agreeing to our{' '}
                         <Link href="#" className="text-blue-500">T & C</Link>.
+                        <FormFooter name="Already Registerd?" registration="Login" href="/signin/agent" />
+
                     </div>
                 </div>
 
 
                 <div className="flex justify-start">
-
                     <div>
                         <Button
                             text='Submit'

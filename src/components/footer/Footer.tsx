@@ -51,7 +51,7 @@ const SocialMedia: _propsTypes[] = [
 const Footer = () => {
 
     return (
-        <footer className="bg-[#1e2755] text-orange-400">
+        <footer className="bg-secondary text-orange-400">
             <div className="grid grid-cols-1 gap-8 p-6 sm:p-10 lg:grid-cols-6 lg:gap-10 lg:p-12">
                 <div className="flex justify-center lg:justify-start">
                     <a href="/" className="block">
@@ -85,7 +85,7 @@ const Footer = () => {
                 </div>
                 <div>
                     <p className="font-bold text-orange-400 mt-3">Services</p>
-                    <div className="mt-4 space-y-2 sm:space-y-4 text-sm">
+                    <div className="flex flex-col mt-4 space-y-2 sm:space-y-4 text-sm">
                         {Services.map((service) => (
                             <Link key={nanoid()} href={service.href} className="text-gray-3 transition hover:opacity-75">
                                 {service.item}
@@ -179,7 +179,7 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
-            <div className="bg-[#1e2755] py-4 text-center text-xs">
+            <div className="bg-secondary py-4 text-center text-xs">
                 <p>&copy; 2023 TripBeyond. All rights reserved.</p>
             </div>
         </footer>

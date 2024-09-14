@@ -1,4 +1,5 @@
 import Logo from "@/components/common/Logo";
+import Footer from "@/components/footer/Footer";
 import MobileMenu from "@/components/main/MobileMenu";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -20,12 +21,23 @@ export default function Home() {
           </div>
           <div className="hidden lg:flex lg:gap-x-8">
             <Link
-              className="flex items-center text-md p-2 lg:text-white font-thin leading-6 text-gray-900"
-              href="/signup">
+              className="flex items-center text-sm p-2 lg:text-white font-thin leading-6 text-gray-900"
+              href="/signin/user">
+              Sign in
+            </Link>
+            <div className="bg-white w-[1px]"></div>
+            <Link
+              className="flex items-center text-sm p-2 lg:text-white font-thin leading-6 text-gray-900"
+              href="/signup/user">
               Sign up
             </Link>
-            <Link href="/signin" className="w-32 bg-orange-500 text-center hover:bg-orange-700 py-3 px-3 rounded-full text-md font-semibold leading-6 text-white">
-              Sign in <span aria-hidden="true">&rarr;</span>
+            <Link
+              className="flex items-center text-sm p-2 lg:text-white font-thin leading-6 text-gray-900"
+              href="/account">
+              Welcome Md
+            </Link>
+            <Link href="/signin/agent" className="w-36 bg-orange-500 text-center hover:bg-orange-700 py-3 px-3 rounded-full text-sm font-semibold leading-6 text-white">
+              Agent Login <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>
           {/* <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -89,7 +101,7 @@ export default function Home() {
           />
         </div>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

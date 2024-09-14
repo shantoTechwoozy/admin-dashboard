@@ -3,19 +3,21 @@ import React from 'react'
 interface PropsTypes {
     name?: string;
     registration?: string;
+    href: string;
+    forgetTitle?: string;
 }
-const LoginFormFooter: React.FC<PropsTypes> = ({ name, registration }) => {
+const FormFooter: React.FC<PropsTypes> = ({ name, registration, href, forgetTitle }) => {
     return (
         <div className="mt-4 flex justify-between text-sm font-bold text-gray-600 dark:text-gray-400 space-x-30">
             {name}
-            <Link href="/register" className="hover:underline font-normal ml-2">
+            <Link href={href} className="hover:underline font-normal ml-2">
                 {registration}
             </Link>
             <Link href="/forgot-password" className="hover:underline">
-                Forgot password?
+                <span>{forgetTitle}</span>
             </Link>
         </div>
     )
 }
 
-export default LoginFormFooter
+export default FormFooter
