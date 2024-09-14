@@ -15,7 +15,7 @@ const SidebarNav: React.FC<_PropsTypes> = ({ pageName, setPageName }) => {
       <nav className="mt-2 py-4 lg:mt-2 ">
         {MenuLists.map((group) => (
           <div key={nanoid()}>
-            <h3 className="bg-graydark px-4 py-3 text-sm font-semibold text-bodydark2">
+            <h3 className="bg-primary px-4 py-3 text-center text-sm font-semibold text-white">
               {group.name}
             </h3>
 
