@@ -49,26 +49,26 @@ const SignupForm = () => {
         });
     };
 
-    const handleSubmit = (e: { target: { name: any; value: any; }; }) => {
+    const handleSubmit = () => {
         console.log(formData);
     };
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
-            <form className="bg-white p-8 rounded-md shadow-md w-full max-w-4xl" >
+            <form className="bg-white p-8 rounded-md shadow-md w-full max-w-4xl" onSubmit={handleSubmit}>
                 <h2 className="text-2xl font-semibold mb-6">Agency Registration:</h2>
 
                 <SignupContainer>
                     <div>
                         <SignupLabel label="Type of organisation" required />
                         <Select
-                            options={organisation} // Pass the organisation array in value-label format
-                            onChange={(values) => setOptions(values)}// Update options when changed
-                            searchable={true} // Enable search functionality by default
-                            placeholder="Select an option"
-                            values={[]} // Initialize with empty selection
-                            className="mt-3 w-full !border-b !border-b-black !border-t-white !border-l-white !border-r-white p-2 outline-none rounded-none" // You can add your custom styles via CSS
-                            clearOnSelect={false} // Do not clear search on selection
+                            options={organisation}
+                            onChange={(values) => setOptions(values)}
+                            searchable={true}
+                            placeholder="Select Type of Org."
+                            values={[]}
+                            className="mt-3 w-full !border-b !border-b-black !border-t-white !border-l-white !border-r-white p-2 outline-none rounded-none"
+                            clearOnSelect={false}
                             dropdownHeight="200px"
                         />
                     </div>
@@ -80,7 +80,7 @@ const SignupForm = () => {
                             name="nameOfOrg"
                             value={formData.nameOfOrg}
                             onChange={handleChange}
-                            placeholder="Type"
+                            placeholder="Name of Org."
                         />
                     </div>
                 </SignupContainer>
@@ -95,7 +95,7 @@ const SignupForm = () => {
                                 options={tagName}
                                 onChange={(values) => setOptions(values)}
                                 searchable={true}
-                                placeholder="Select an option"
+                                placeholder=""
                                 values={[]}
                                 className="!w-[80px] mt-3.5 !border-b !border-b-black !border-t-white !border-l-white !border-r-white p-2 outline-none rounded-none mr-2"
                                 clearOnSelect={false}
@@ -109,7 +109,7 @@ const SignupForm = () => {
                                 value={formData.firstName}
                                 onChange={handleChange}
                                 className="w-3/4 border border-b-black p-2 outline-none rounded-none border-l-0 border-r-0 border-t-0"
-                                placeholder="Type"
+                                placeholder="Enter First name"
                             />
                         </div>
                     </div>
@@ -121,7 +121,7 @@ const SignupForm = () => {
                             name="lastName"
                             value={formData.lastName}
                             onChange={handleChange}
-                            placeholder="Type"
+                            placeholder="Enter Last name"
                         />
                     </div>
                 </div>
@@ -134,7 +134,7 @@ const SignupForm = () => {
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
-                            placeholder="Type"
+                            placeholder="Enter Email"
                         />
                     </div>
                     <div>
@@ -164,26 +164,26 @@ const SignupForm = () => {
                     <div>
                         <SignupLabel label="Country" required />
                         <Select
-                            options={country} // Pass the organisation array in value-label format
-                            onChange={(values) => setOptions(values)}// Update options when changed
-                            searchable={true} // Enable search functionality by default
-                            placeholder="Select an option"
-                            values={[]} // Initialize with empty selection
-                            className="mt-3 w-full !border-b !border-b-black !border-t-white !border-l-white !border-r-white p-2 outline-none rounded-none" // You can add your custom styles via CSS
-                            clearOnSelect={false} // Do not clear search on selection
+                            options={country}
+                            onChange={(values) => setOptions(values)}
+                            searchable={true}
+                            placeholder="Select Country"
+                            values={[]}
+                            className="mt-3 w-full !border-b !border-b-black !border-t-white !border-l-white !border-r-white p-2 outline-none rounded-none"
+                            clearOnSelect={false}
                             dropdownHeight="200px"
                         />
                     </div>
                     <div>
                         <SignupLabel label="State" required />
                         <Select
-                            options={country} // Pass the organisation array in value-label format
-                            onChange={(values) => setOptions(values)}// Update options when changed
-                            searchable={true} // Enable search functionality by default
-                            placeholder="Select an option"
-                            values={[]} // Initialize with empty selection
-                            className="mt-3 w-full !border-b !border-b-black !border-t-white !border-l-white !border-r-white p-2 outline-none rounded-none" // You can add your custom styles via CSS
-                            clearOnSelect={false} // Do not clear search on selection
+                            options={country}
+                            onChange={(values) => setOptions(values)}
+                            searchable={true}
+                            placeholder="Select State"
+                            values={[]}
+                            className="mt-3 w-full !border-b !border-b-black !border-t-white !border-l-white !border-r-white p-2 outline-none rounded-none"
+                            clearOnSelect={false}
                             dropdownHeight="200px"
                         />
                     </div>
@@ -194,13 +194,13 @@ const SignupForm = () => {
                         <SignupLabel label="City/Town" required />
 
                         <Select
-                            options={country} // Pass the organisation array in value-label format
-                            onChange={(values) => setOptions(values)}// Update options when changed
-                            searchable={true} // Enable search functionality by default
-                            placeholder="Select an option"
-                            values={[]} // Initialize with empty selection
-                            className="mt-3 w-full !border-b !border-b-black !border-t-white !border-l-white !border-r-white p-2 outline-none rounded-none" // You can add your custom styles via CSS
-                            clearOnSelect={false} // Do not clear search on selection
+                            options={country}
+                            onChange={(values) => setOptions(values)}
+                            searchable={true}
+                            placeholder="Select City/Town"
+                            values={[]}
+                            className="mt-3 w-full !border-b !border-b-black !border-t-white !border-l-white !border-r-white p-2 outline-none rounded-none"
+                            clearOnSelect={false}
                             dropdownHeight="200px"
                         />
                     </div>
@@ -211,7 +211,7 @@ const SignupForm = () => {
                             name="address"
                             value={formData.address1}
                             onChange={handleChange}
-                            placeholder="Type" />
+                            placeholder="Input Address" />
                     </div>
                 </div>
 
@@ -223,7 +223,7 @@ const SignupForm = () => {
                             name="zipCode"
                             value={formData.zipCode}
                             onChange={handleChange}
-                            placeholder="Type" />
+                            placeholder="Enter Zip / Postal Code" />
                     </div>
                 </div>
 

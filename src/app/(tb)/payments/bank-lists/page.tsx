@@ -1,7 +1,7 @@
-import React from "react";
+import BankList from "@/components/banklist/BankList";
 
 const PaymentBankListsPage = () => {
-  return <div>PaymentBankListsPage</div>;
+  return <BankList />
 };
 
 export default PaymentBankListsPage;

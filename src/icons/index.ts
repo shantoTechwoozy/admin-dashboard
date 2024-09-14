@@ -95,5 +95,5 @@ export const IconBankList = { authentication: TbLogin2 };
 export const IconCompany = { authentication: TbLogin2 };
 export const IconSettings = { authentication: TbLogin2 };
 export const IconProfile = { authentication: TbLogin2 };
-export const IconAuthentication = { user: FaUser, agent: FaUserShield, facebook: FaFacebookF, google: FaGoogle };
+export const IconAuthentication = { user: FaUser, agent: FaUserShield, Facebook: FaFacebookF, Google: FaGoogle };
 export const IconFooter = { youtube: CiYoutube, facebook: FaFacebookF, linkedin: SlSocialLinkedin, instagram: TfiInstagram, twitter: TfiTwitter }
