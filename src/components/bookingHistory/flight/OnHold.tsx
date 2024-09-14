@@ -8,7 +8,7 @@ import { onHoldFields } from "@/types/common/fields";
 import { OnHoldData } from "@/types/common/mockData";
 import { useState } from "react";
 import { OnHoldInterface } from '../../../types/common/interfaces';
-import PageTitle from "@/components/Topup-Request/PageTitle";
+import PageTitle from "@/components/paymentRequests/PageTitle";
 
 
 
