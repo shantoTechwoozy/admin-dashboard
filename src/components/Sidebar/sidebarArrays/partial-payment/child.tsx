@@ -18,7 +18,7 @@ export const partialPaymentChildrenMenuList: MenuItem[] = [
   {
     level: 3,
     label: "Bank List",
-    route: prevLink + "/paid-list",
+    route: prevLink + "/bank-lists",
     icon: <IconSidebar.SearchEngine />,
   },
 ];

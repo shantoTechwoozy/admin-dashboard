@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
-import BankAccounts from "../Topup-Request/BankAccounts";
-import MyBankAcc from "../Topup-Request/MyBankAcc";
-import OnlineDeposit from "../Topup-Request/OnlineDeposit";
-import SubmitForm from "../Topup-Request/submitForm";
-import Tab from "../Topup-Request/tab";
-import TransactionForm from "../Topup-Request/Transactions";
+import BankAccounts from "../paymentRequests/BankAccounts";
+import MyBankAcc from "../paymentRequests/MyBankAcc";
+import OnlineDeposit from "../paymentRequests/OnlineDeposit";
+import SubmitForm from "../paymentRequests/submitForm";
+import Tab from "../paymentRequests/tab";
+import TransactionForm from "../paymentRequests/Transactions";
 
 const BankList = () => {
     const [tabName, setTabName] = useState("SubmitRequest");
