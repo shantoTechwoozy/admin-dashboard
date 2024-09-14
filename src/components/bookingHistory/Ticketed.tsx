@@ -8,7 +8,7 @@ import { ticketedFields } from "@/types/common/fields";
 import { TicketedData } from "@/types/common/mockData";
 import { useState } from "react";
 import { TicketedInterface } from "../../types/common/interfaces";
-import PageTitle from "../Topup-Request/PageTitle";
+import PageTitle from "../paymentRequests/PageTitle";
 
 
 const Ticketed = () => {

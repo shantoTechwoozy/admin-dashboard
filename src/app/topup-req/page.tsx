@@ -1,7 +1,7 @@
 import Breadcrumb from "@/components/breadcr/Breadcrumb";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import TopupRequest from "@/components/Topup-Request/page";
+import TopupRequest from "@/components/paymentRequests/page";
 
 
 export const metadata: Metadata = {

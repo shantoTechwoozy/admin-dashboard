@@ -68,7 +68,7 @@ const SidebarItem: React.FC<_PropsTypes> = ({ item, className }) => {
 
         {/* Render down arrow for items with children */}
         {item.children && (
-          <IconSidebar.downArrow
+          <IconSidebar.DownArrow
             className={cn("ml-auto rotate-[-90deg] duration-300", {
               "rotate-[0deg]": isOpen,
             })}

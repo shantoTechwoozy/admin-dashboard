@@ -8,7 +8,7 @@ import { BookingCancelFields } from "@/types/common/fields";
 import { BookingCancelInterface } from "@/types/common/interfaces";
 import { BookingCancelData } from "@/types/common/mockData";
 import { useState } from "react";
-import PageTitle from "../Topup-Request/PageTitle";
+import PageTitle from "../paymentRequests/PageTitle";
 
 
 const BookingCancelled = () => {
