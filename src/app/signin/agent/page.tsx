@@ -43,7 +43,7 @@ const AgentLoginPage = () => {
   };
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-800 flex min-h-screen w-screen items-center justify-center px-4 sm:px-6 lg:px-8">
+    <div className="w-full bg-gray-50 dark:bg-gray-800 flex min-h-screen items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="relative py-3 sm:mx-auto sm:w-115">
         <div className="dark:bg-gray-900 flex min-h-90 items-center justify-center rounded-[50px] bg-white text-left shadow-lg">
           <div className="flex h-full flex-col items-center justify-center">
@@ -54,7 +54,7 @@ const AgentLoginPage = () => {
               onSubmit={onSubmit}
               isLoading={loading}
             />
-            <LoginFormFooter name="Agent" registration="Register" href="/signup/agent" />
+            <LoginFormFooter name="Agent" registration="Register" href="/signup/agent" forgetTitle="Forget Password" />
           </div>
         </div>
       </div>
