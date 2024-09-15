@@ -1,4 +1,5 @@
 import Logo from "@/components/common/Logo";
+import Footer from "@/components/footer/Footer";
 import MobileMenu from "@/components/main/MobileMenu";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -95,7 +96,7 @@ export default function Home() {
           />
         </div>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

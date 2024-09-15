@@ -25,8 +25,8 @@ const LoginForm: React.FC<PropsTypes> = ({
   isLoading,
 }) => {
   return (
-    <form className="mt-2 flex h-full w-full flex-1 select-none flex-col items-center justify-center">
-      <p className="mb-5 text-[16px] font-semibold dark:text-white">{title}</p>
+    <form className="mt-2 flex h-full min-w-full flex-1 select-none flex-col  ">
+      <p className="mb-5 text-[16px] font-semibold dark:text-white text-center">{title}</p>
 
       <Input
         className="rounded-2xl text-center"
