@@ -9,10 +9,6 @@ import Button from "@/components/common/buttons/Button";
 import FormFooter from "@/components/common/auth/FormFooter";
 
 const SignupForm = () => {
-  const [options, setOptions] = useState<{ value: number; label: string }[]>(
-    [],
-  );
-
   const [formData, setFormData] = useState({
     type: "",
     name: "",
@@ -34,11 +30,6 @@ const SignupForm = () => {
     { value: 1, label: "Non-Profit" },
     { value: 2, label: "For-Profit" },
   ];
-  const tagName = [
-    { value: 1, label: "Mr" },
-    { value: 2, label: "Mrs" },
-    { value: 3, label: "Ms" },
-  ];
   const country = [
     { value: 1, label: "United States" },
     { value: 2, label: "United States" },
@@ -59,7 +50,7 @@ const SignupForm = () => {
     });
   };
   const handleSelectChange = (field: string, values: any[]) => {
-    setFormData({ ...formData, [field]: values.length > 0 ? values[0].label : "", })
+    setFormData({ ...formData, [field]: values.length > 0 ? values[0].label : "" })
   }
 
   const handleSubmit = (e: any) => {

@@ -15,6 +15,7 @@ const Elements: CardData[] = [
     { title: "Early Morning", time: "06AM-8AM", icon: <IconSearchEngine.Day /> }
 ]
 
+
 const FilterCard = () => {
     return (
         <div className="flex justify-center items-center px-2 py-5">
