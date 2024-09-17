@@ -257,5 +257,10 @@ input[type="search"]::-webkit-search-cancel-button {
   .banner{
     background-image: url("../../public/images/banner/banner.webp");
   }
-  
+
+
+  /* react dropdown select down arrow */
+  .e1vudypg0 {
+    display: none;
+}
   

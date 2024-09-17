@@ -3,6 +3,7 @@ import Input from "@/components/common/inputs/Input";
 import Logo from "@/components/common/Logo";
 import { IconAuthentication } from "@/icons";
 import { useState } from "react";
+import LoginFormFooter from '@/components/common/auth/FormFooter';
 
 const UserRegistrationPage = () => {
     const [firstName, setFirstName] = useState("");
@@ -126,6 +127,8 @@ const UserRegistrationPage = () => {
                                 <span>Log In with Google</span>
                             </button>
                         </div>
+                        <LoginFormFooter name="Already have an account?" registration="Login" href="/signin/user" />
+
                     </div>
                 </div>
             </form>

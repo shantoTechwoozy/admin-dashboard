@@ -31,7 +31,7 @@ const Input = ({
         placeholder={placeHolder}
         onChange={onChange}
         className={cn(
-          "w-full rounded-full border outline-1 border-slate-300 px-3 py-2 shadow-md transition-shadow hover:shadow-lg",
+          "min-w-full rounded-full border outline-1 border-slate-300 px-3 py-2 shadow-md transition-shadow hover:shadow-lg",
           className,
         )}
       />

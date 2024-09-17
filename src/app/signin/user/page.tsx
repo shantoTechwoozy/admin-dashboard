@@ -1,6 +1,6 @@
 "use client";
 import LoginForm from "@/components/common/auth/LoginForm";
-import LoginFormFooter from "@/components/common/auth/LoginFormFooter";
+import LoginFormFooter from "@/components/common/auth/FormFooter";
 import { useState } from "react";
 
 const UserLoginPage = () => {
@@ -18,9 +18,9 @@ const UserLoginPage = () => {
               title="User Login"
               loginData={loginData}
               setLoginData={setLoginData}
-              onSubmit={() => {}}
+              onSubmit={() => { }}
             />
-            <LoginFormFooter name="User" registration="Register" />
+            <LoginFormFooter name="User" registration="Register" href="/signup/user" />
           </div>
         </div>
       </div>
