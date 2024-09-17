@@ -31,7 +31,7 @@ const SearchEnginePage = () => {
               SearchCriteriaFlight: [
                 {
                   "@type": "SearchCriteriaFlight",
-                  departureDate: "{{InitialDepartureYYYY-MM-DD}}",
+                  departureDate: "2024-09-20",
                   From: {
                     value: "ORD",
                   },
@@ -68,7 +68,7 @@ const SearchEnginePage = () => {
   return (
     <div>
       <h1>Search Engine</h1>
-      {/* <SearchEngine /> */}
+      <SearchEngine />
 
       <button onClick={postData} disabled={loading}>
         {loading ? "Searching..." : "Search Flights"}

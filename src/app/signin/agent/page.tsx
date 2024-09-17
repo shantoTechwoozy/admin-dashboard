@@ -1,49 +1,27 @@
 "use client";
-import LoginForm from "@/components/common/auth/LoginForm";
 import LoginFormFooter from "@/components/common/auth/FormFooter";
-import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import LoginForm from "@/components/common/auth/LoginForm";
+import { useStoreActions, useStoreState } from "easy-peasy";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { BaseApiUrl } from "../../../../env";
 
 const AgentLoginPage = () => {
   const [loginData, setLoginData] = useState({ agentID: "", password: "" });
-  const [loading, setLoading] = useState(false);
   const router = useRouter();
+
+  /**Redux state */
+  const { isLoading } = useStoreState((state: any) => state.auth.login);
+  const { login } = useStoreActions((actions: any) => actions.auth.login);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
-    try {
-      const response = await fetch(BaseApiUrl + "/agent/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(loginData),
-      });
-
-      if (response.ok) {
-        const result = await response.json();
-        toast.success(result.message);
-        console.log(result);
-        setLoginData({
-          agentID: "",
-          password: "",
-        });
-
-        router.push("/search-engine");
-      } else toast.error("Failed to login with this credentials");
-    } catch (error: any) {
-      toast.error(error.message);
-    } finally {
-      setLoading(false);
-    }
+    await login({ credentials: loginData, router });
   };
 
   return (
-    <div className="w-full bg-gray-50 dark:bg-gray-800 flex min-h-screen items-center justify-center px-4 sm:px-6 lg:px-8">
+    <div className="bg-gray-50 dark:bg-gray-800 flex min-h-screen w-full items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="relative py-3 sm:mx-auto sm:w-115">
         <div className="dark:bg-gray-900 flex min-h-90 items-center justify-center rounded-[50px] bg-white text-left shadow-lg">
           <div className="flex h-full flex-col items-center justify-center">
@@ -52,9 +30,14 @@ const AgentLoginPage = () => {
               loginData={loginData}
               setLoginData={setLoginData}
               onSubmit={onSubmit}
-              isLoading={loading}
+              isLoading={isLoading}
             />
-            <LoginFormFooter name="Agent" registration="Register" href="/signup/agent" forgetTitle="Forget Password" />
+            <LoginFormFooter
+              name="Agent"
+              registration="Register"
+              href="/signup/agent"
+              forgetTitle="Forget Password"
+            />
           </div>
         </div>
       </div>
