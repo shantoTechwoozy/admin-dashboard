@@ -1,12 +1,6 @@
-import { configureStore } from "@reduxjs/toolkit";
-import filterReducer from "./features/filterSlice";
+import { createStore } from "easy-peasy";
+import { tripFilterModel } from "./models/tripFilterModel";
 
-export const store = configureStore({
-    reducer: {
-        filter: filterReducer,
-    }
-})
-
-export type RootState = ReturnType<typeof store.getState>;
-
-export type AppDispatch = typeof store.dispatch;
+export const store = createStore({
+  tripFilter: tripFilterModel,
+});
