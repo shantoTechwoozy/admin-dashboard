@@ -1,4 +1,4 @@
-import { AddPassengerInterface, AllHistoryInterface, BookingCancelInterface, OnHoldInterface, QuickPassengerInterface, TicketCancelInterface, TicketedInterface } from "../../types/common/interfaces";
+import { AddPassengerInterface, AllHistoryInterface, BookingCancelInterface, GroupTourHistoryInterface, HotelHistoryInterface, OnHoldInterface, QuickPassengerInterface, RefundHistoryInterface, ReissueHistoryInterface, TicketCancelInterface, TicketedInterface, TourPackageHistoryInterface, VisaHistoryInterface, VoidHistoryInterface } from "../../types/common/interfaces";
 
 // Mock data array object
 export const OnHoldData: OnHoldInterface[] = [
@@ -63,7 +63,196 @@ export const OnHoldData: OnHoldInterface[] = [
         action: "VB RS",
     },
 ];
+export const VoidHistoryData: VoidHistoryInterface[] = [
+    {
+        pnr: "ABC123",
+        airlines_pnr: "XYZ456",
+        requested_by: "John Doe",
+        void_search_id: "V001",
+        booking_code: "BOOK789",
+        status: "Confirmed",
+        account_status: "Active",
+        created_at: "2024-09-18T10:30:00Z",
+        details: "Round-trip flight from New York to Los Angeles."
+    },
+    {
+        pnr: "DEF456",
+        airlines_pnr: "LMN789",
+        requested_by: "Jane Smith",
+        void_search_id: "V002",
+        booking_code: "BOOK123",
+        status: "Pending",
+        account_status: "Pending",
+        created_at: "2024-09-18T12:45:00Z",
+        details: "One-way flight from Chicago to Miami."
+    },
+    {
+        pnr: "GHI789",
+        airlines_pnr: "OPQ123",
+        requested_by: "Robert Johnson",
+        void_search_id: "V003",
+        booking_code: "BOOK456",
+        status: "Cancelled",
+        account_status: "Inactive",
+        created_at: "2024-09-17T09:15:00Z",
+        details: "Business class flight from San Francisco to Tokyo."
+    },
+    {
+        pnr: "JKL012",
+        airlines_pnr: "RST345",
+        requested_by: "Emily Davis",
+        void_search_id: "V004",
+        booking_code: "BOOK678",
+        status: "Void",
+        account_status: "Void",
+        created_at: "2024-09-16T08:00:00Z",
+        details: "Economy class flight from Dallas to Paris."
+    }
+];
+export const RefundHistoryData: RefundHistoryInterface[] = [
+    {
+        pnr: "ABC123",
+        airlines_pnr: "XYZ456",
+        requested_by: "John Doe",
+        void_search_id: "V001",
+        booking_code: "BOOK789",
+        status: "Confirmed",
+        account_status: "Active",
+        created_at: "2024-09-18T10:30:00Z",
+        details: "Round-trip flight from New York to Los Angeles."
+    },
+    {
+        pnr: "DEF456",
+        airlines_pnr: "LMN789",
+        requested_by: "Jane Smith",
+        void_search_id: "V002",
+        booking_code: "BOOK123",
+        status: "Pending",
+        account_status: "Pending",
+        created_at: "2024-09-18T12:45:00Z",
+        details: "One-way flight from Chicago to Miami."
+    },
+    {
+        pnr: "GHI789",
+        airlines_pnr: "OPQ123",
+        requested_by: "Robert Johnson",
+        void_search_id: "V003",
+        booking_code: "BOOK456",
+        status: "Cancelled",
+        account_status: "Inactive",
+        created_at: "2024-09-17T09:15:00Z",
+        details: "Business class flight from San Francisco to Tokyo."
+    },
+    {
+        pnr: "JKL012",
+        airlines_pnr: "RST345",
+        requested_by: "Emily Davis",
+        void_search_id: "V004",
+        booking_code: "BOOK678",
+        status: "Void",
+        account_status: "Void",
+        created_at: "2024-09-16T08:00:00Z",
+        details: "Economy class flight from Dallas to Paris."
+    }
+];
+export const ReissueHistoryData: ReissueHistoryInterface[] = [
+    {
+        pnr: "ABC123",
+        airlines_pnr: "XYZ456",
+        requested_by: "John Doe",
+        void_search_id: "V001",
+        booking_code: "BOOK789",
+        status: "Confirmed",
+        account_status: "Active",
+        created_at: "2024-09-18T10:30:00Z",
+        details: "Round-trip flight from New York to Los Angeles."
+    },
+    {
+        pnr: "DEF456",
+        airlines_pnr: "LMN789",
+        requested_by: "Jane Smith",
+        void_search_id: "V002",
+        booking_code: "BOOK123",
+        status: "Pending",
+        account_status: "Pending",
+        created_at: "2024-09-18T12:45:00Z",
+        details: "One-way flight from Chicago to Miami."
+    },
+    {
+        pnr: "GHI789",
+        airlines_pnr: "OPQ123",
+        requested_by: "Robert Johnson",
+        void_search_id: "V003",
+        booking_code: "BOOK456",
+        status: "Cancelled",
+        account_status: "Inactive",
+        created_at: "2024-09-17T09:15:00Z",
+        details: "Business class flight from San Francisco to Tokyo."
+    },
+    {
+        pnr: "JKL012",
+        airlines_pnr: "RST345",
+        requested_by: "Emily Davis",
+        void_search_id: "V004",
+        booking_code: "BOOK678",
+        status: "Void",
+        account_status: "Void",
+        created_at: "2024-09-16T08:00:00Z",
+        details: "Economy class flight from Dallas to Paris."
+    }
+];
 
+export const hotelHistoryData: HotelHistoryInterface[] = [
+    {
+        booked_by: 'John Doe',
+        hotel_name: 'Grand Hotel',
+        city: 'Paris',
+        country: 'France',
+        booking_id: 'H123456789',
+        total_price: '350 USD',
+        refundable: 'Yes',
+        booking_status: 'Confirmed',
+        payment_status: 'Paid',
+        payment_type: 'Credit Card',
+        agent_confirmation_status: 'Confirmed',
+        checkin_date: '2024-09-10',
+        checkout_date: '2024-09-15',
+        last_cancellation_date: '2024-09-01',
+    },
+];
+
+export const visaHistoryData: VisaHistoryInterface[] = [
+    {
+        booked_by: 'Sarah Connor',
+        booking_code: 'VISA987654',
+        destination_country: 'Canada',
+        visa_type: 'Tourist Visa',
+        entry_date: '2024-08-20',
+        exit_date: '2024-09-20',
+        total_amount: '150 USD',
+        payment_status: 'Paid',
+        visa_status: 'Approved',
+        booking_date: '2024-07-30',
+        traveller_country: 'USA',
+    },
+];
+
+export const tourPackageHistoryData: TourPackageHistoryInterface[] = [
+    {
+        category: 'Luxury Tour',
+        created_at: '2024-07-25',
+        request_status: 'Pending',
+        actions: 'View/Edit/Delete',
+    },
+];
+export const groupTourHistoryData: GroupTourHistoryInterface[] = [
+    {
+        category: 'Family Tour',
+        created_at: '2024-06-15',
+        request_status: 'Confirmed',
+        actions: 'View/Edit/Delete',
+    },
+];
 // Mock data array
 export const TicketedData: TicketedInterface[] = [
     {

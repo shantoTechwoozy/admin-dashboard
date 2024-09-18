@@ -4,29 +4,29 @@ import TableBody from "@/components/common/table/TableBody";
 import TableContainer from "@/components/common/table/TableContainer";
 import TableHeader from "@/components/common/table/TableHeader";
 import TableWrap from "@/components/common/table/TableWrap";
-import { ticketedFields } from "@/types/common/fields";
-import { TicketedData } from "@/types/common/mockData";
+import PageTitle from "@/components/paymentRequests/PageTitle";
+import { RefundHistoryFields } from "@/types/common/fields";
+import { RefundHistoryInterface } from '@/types/common/interfaces';
 import { useState } from "react";
-import { TicketedInterface } from "../../types/common/interfaces";
-import PageTitle from "../paymentRequests/PageTitle";
+import { RefundHistoryData } from '../../../types/common/mockData';
 
 
-const Ticketed = () => {
-    const [sortField, setSortField] = useState<keyof TicketedInterface>('booking_date');
+const RefundHistory = () => {
+    const [sortField, setSortField] = useState<keyof RefundHistoryInterface>('pnr');
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
     const [searchQuery, setSearchQuery] = useState<string>('');
-    const [searchField, setSearchField] = useState<keyof TicketedInterface>('route');
+    const [searchField, setSearchField] = useState<keyof RefundHistoryInterface>('pnr');
 
     const handleFieldChange = (item: string) => {
-        setSearchField(item as keyof TicketedInterface);
+        setSearchField(item as keyof RefundHistoryInterface);
     };
-    const handleSort = (field: keyof TicketedInterface) => {
+    const handleSort = (field: keyof RefundHistoryInterface) => {
         const order = sortField === field && sortOrder === 'asc' ? 'desc' : 'asc';
         setSortField(field);
         setSortOrder(order);
     };
 
-    const filteredData = TicketedData
+    const filteredData = RefundHistoryData
         .filter((item) =>
             item[searchField].toString().toLowerCase().includes(searchQuery.toLowerCase())
         )
@@ -41,7 +41,7 @@ const Ticketed = () => {
 
     return (
         <>
-            <PageTitle content="Issued/Ticketed" />
+            <PageTitle content="Refund/History" />
             <TableWrap>
                 {/* <SearchInTable
                 search={searchQuery}
@@ -52,7 +52,7 @@ const Ticketed = () => {
             /> */}
                 <TableContainer>
                     <TableHeader
-                        items={ticketedFields.map((element) => element.label)}
+                        items={RefundHistoryFields.map((element) => element.label)}
                     />
                     <TableBody
                         items={filteredData}
@@ -63,4 +63,4 @@ const Ticketed = () => {
     );
 };
 
-export default Ticketed;
+export default RefundHistory;

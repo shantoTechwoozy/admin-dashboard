@@ -1,7 +1,8 @@
+import VoidHistory from "@/components/bookingHistory/void/History";
 import React from "react";
 
 const Void_HistoryPage = () => {
-  return <div>Void_HistoryPage</div>;
+  return <VoidHistory />
 };
 
 export default Void_HistoryPage;

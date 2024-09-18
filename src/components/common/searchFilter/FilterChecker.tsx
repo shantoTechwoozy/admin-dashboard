@@ -1,6 +1,5 @@
 import { useStoreActions, useStoreState } from 'easy-peasy';
 import React from 'react'
-import { oneWayFilterModel } from '../../../redux/models/oneWayFilterModel';
 
 interface Propstypes {
     shops?: number;

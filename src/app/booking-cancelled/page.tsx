@@ -1,7 +1,7 @@
 import Breadcrumb from "@/components/breadcr/Breadcrumb";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import BookingCancelled from "@/components/bookingHistory/BookingCancelled";
+import BookingCancelled from "@/components/bookingHistory/flight/BookingCancelled";
 
 export const metadata: Metadata = {
   title: "Admin Dashboard",
