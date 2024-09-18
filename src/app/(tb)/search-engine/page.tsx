@@ -68,7 +68,7 @@ const SearchEnginePage = () => {
   return (
     <div>
       <h1>Search Engine</h1>
-      {/* <SearchEngine /> */}
+      <SearchEngine />
 
       <button onClick={postData} disabled={loading}>
         {loading ? "Searching..." : "Search Flights"}

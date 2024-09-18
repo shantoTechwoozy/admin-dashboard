@@ -1,4 +1,4 @@
-import BookingCancelled from "@/components/bookingHistory/BookingCancelled";
+import BookingCancelled from "@/components/bookingHistory/flight/BookingCancelled";
 import React from "react";
 
 const CanceledBookingPage = () => {

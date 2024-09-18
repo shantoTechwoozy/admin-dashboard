@@ -1,4 +1,4 @@
-import Ticketed from "@/components/bookingHistory/Ticketed";
+import Ticketed from "@/components/bookingHistory/flight/Ticketed";
 import React from "react";
 
 const IssuedPage = () => {

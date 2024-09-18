@@ -1,7 +1,8 @@
+import ReissueHistory from "@/components/bookingHistory/reissue/History";
 import React from "react";
 
 const Reissue_HistoryPage = () => {
-  return <div>Reissue_HistoryPage</div>;
+  return <ReissueHistory />
 };
 
 export default Reissue_HistoryPage;

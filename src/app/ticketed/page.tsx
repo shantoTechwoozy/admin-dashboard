@@ -1,7 +1,7 @@
 import Breadcrumb from "@/components/breadcr/Breadcrumb";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import Ticketed from "@/components/bookingHistory/Ticketed";
+import Ticketed from "@/components/bookingHistory/flight/Ticketed";
 
 
 export const metadata: Metadata = {
