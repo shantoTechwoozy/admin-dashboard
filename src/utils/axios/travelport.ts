@@ -5,27 +5,23 @@ import {
   travelportBaseUrl,
 } from "../../../env";
 
-// Create an instance of Axios with default headers
 const travelport = axios.create({
-  baseURL: travelportBaseUrl, // Replace with your base URL
+  baseURL: travelportBaseUrl,
   // headers: {
   //   // "Accept-Encoding": "gzip, deflate",
   //   "Cache-Control": "no-cache",
   //   Accept: "application/json",
   //   "Content-Type": "application/json",
-  //   Authorization: `Bearer ${travelPortAuthToken}`, // This needs to be dynamically set with the token
-  //   XAUTH_TRAVELPORT_ACCESSGROUP: accessGroup, // Add your PCC access group
+  //   Authorization: `Bearer ${travelPortAuthToken}`,
+  //   XAUTH_TRAVELPORT_ACCESSGROUP: accessGroup,
   // },
 });
 
-// Add an interceptor to dynamically set the Authorization token and Travelport Access Group
+// An interceptor to dynamically set the Authorization token and Travelport Access Group
 travelport.interceptors.request.use(
   (config: any) => {
-    // Insert logic here to get the token dynamically, if needed
-    const token = travelPortAuthToken; // You should replace this with your token logic
-
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
+    if (travelPortAuthToken) {
+      config.headers.Authorization = `Bearer ${travelPortAuthToken}`;
     }
 
     if (accessGroup) {

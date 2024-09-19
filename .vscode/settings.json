@@ -1,7 +1,12 @@
 {
-    "cSpell.words": [
-        "peasy",
-        "travelport",
-        "tripbeyond"
-    ]
+  "cSpell.words": [
+    "ACCESSGROUP",
+    "peasy",
+    "signin",
+    "Signup",
+    "toastify",
+    "travelport",
+    "tripbeyond",
+    "XAUTH"
+  ]
 }

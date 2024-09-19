@@ -4,16 +4,14 @@ import LoginForm from "@/components/common/auth/LoginForm";
 import { useStoreActions, useStoreState } from "easy-peasy";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const AgentLoginPage = () => {
   const [loginData, setLoginData] = useState({ agentID: "", password: "" });
   const router = useRouter();
 
   /**Redux state */
-  const { isLoading } = useStoreState((state: any) => state.auth.login);
-  const { login } = useStoreActions((actions: any) => actions.auth.login);
+  const { isLoading } = useStoreState((state: any) => state.auth);
+  const { login } = useStoreActions((actions: any) => actions.auth);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -41,7 +39,6 @@ const AgentLoginPage = () => {
           </div>
         </div>
       </div>
-      <ToastContainer />
     </div>
   );
 };
