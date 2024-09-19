@@ -4,28 +4,29 @@ import TableBody from "@/components/common/table/TableBody";
 import TableContainer from "@/components/common/table/TableContainer";
 import TableHeader from "@/components/common/table/TableHeader";
 import TableWrap from "@/components/common/table/TableWrap";
-import { BookingCancelFields } from "@/types/common/fields";
-import { BookingCancelInterface } from "@/types/common/interfaces";
-import { BookingCancelData } from "@/types/common/mockData";
+import PageTitle from "@/components/paymentRequests/PageTitle";
+import { VoidHistoryFields } from "@/types/common/fields";
+import { VoidHistoryInterface } from '@/types/common/interfaces';
 import { useState } from "react";
-import PageTitle from "../paymentRequests/PageTitle";
+import { VoidHistoryData } from '../../../types/common/mockData';
 
 
-const BookingCancelled = () => {
-    const [sortField, setSortField] = useState<keyof BookingCancelInterface>('booking_date');
+const VoidHistory = () => {
+    const [sortField, setSortField] = useState<keyof VoidHistoryInterface>('pnr');
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
     const [searchQuery, setSearchQuery] = useState<string>('');
-    const [searchField, setSearchField] = useState<keyof BookingCancelInterface>('route');
+    const [searchField, setSearchField] = useState<keyof VoidHistoryInterface>('pnr');
 
-    const handleSort = (field: keyof BookingCancelInterface) => {
+    const handleFieldChange = (item: string) => {
+        setSearchField(item as keyof VoidHistoryInterface);
+    };
+    const handleSort = (field: keyof VoidHistoryInterface) => {
         const order = sortField === field && sortOrder === 'asc' ? 'desc' : 'asc';
         setSortField(field);
         setSortOrder(order);
     };
-    const handleFieldChange = (item: string) => {
-        setSearchField(item as keyof BookingCancelInterface);
-    };
-    const filteredData = BookingCancelData
+
+    const filteredData = VoidHistoryData
         .filter((item) =>
             item[searchField].toString().toLowerCase().includes(searchQuery.toLowerCase())
         )
@@ -35,21 +36,23 @@ const BookingCancelled = () => {
             return 0;
         });
 
+    // Field labels and their corresponding keys
+
 
     return (
         <>
-            <PageTitle content="Ticket Cancelled" />
+            <PageTitle content="Void/History" />
             <TableWrap>
                 {/* <SearchInTable
                 search={searchQuery}
                 field={searchField}
                 onSearch={setSearchQuery}
                 onFieldChange={handleFieldChange}
-                fieldLists={BookingCancelFields.map((element) => element.label)}
+                fieldLists={ticketedFields.map((element) => element.label)}
             /> */}
                 <TableContainer>
                     <TableHeader
-                        items={BookingCancelFields.map((element) => element.label)}
+                        items={VoidHistoryFields.map((element) => element.label)}
                     />
                     <TableBody
                         items={filteredData}
@@ -60,4 +63,4 @@ const BookingCancelled = () => {
     );
 };
 
-export default BookingCancelled;
+export default VoidHistory;

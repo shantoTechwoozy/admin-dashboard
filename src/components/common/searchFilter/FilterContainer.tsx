@@ -13,10 +13,10 @@ const FilterContainer: React.FC<PropsTypes> = ({ titleLeft, titleRight, children
             <div className="flex flex-row justify-between text-sm bg-secondary py-1 px-2 rounded-sm">
                 <p className="font-normal text-white">{titleLeft}</p>
                 {titleRight && <p className="font-normal text-white">{titleRight}</p>
-                }            </div>
+                }
 
+            </div>
             {children}
-
         </div>
     )
 }
