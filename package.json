@@ -29,6 +29,7 @@
     "react-dropdown-select": "^4.11.3",
     "react-icons": "^5.3.0",
     "react-redux": "^9.1.2",
+    "react-select": "^5.8.1",
     "react-tailwindcss-datepicker": "^1.7.2",
     "react-toastify": "^10.0.5",
     "redux": "^5.0.1",
