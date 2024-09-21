@@ -8,6 +8,8 @@ import InputLabel from "@/components/common/inputs/InputLabel";
 import { useStoreActions, useStoreState } from "easy-peasy";
 import formatDate from "@/utils/formatDate";
 
+import { airports } from "../../../../resources/airports";
+
 const OneWayTab = () => {
   const [flightSearchData, setFlightSearchData] = useState<any>({
     origin: "",
@@ -15,6 +17,7 @@ const OneWayTab = () => {
     departureDate: new Date(),
   });
 
+  console.log(flightSearchData);
   /**===================redux start========================= */
   const { isLoading, error, response } = useStoreState(
     (state: any) => state.searchFlight,
@@ -24,17 +27,6 @@ const OneWayTab = () => {
     (actions: any) => actions.searchFlight,
   );
   /**===================redux end========================= */
-
-  const originArray = [
-    { value: "ORD", label: "American(ORD)" },
-    { value: 2, label: "Cox's Bazar (COX)" },
-    { value: 3, label: "Co's Bazar (COX)" },
-  ];
-
-  const destinationArray = [
-    { value: "DEN", label: "American(DEN)" },
-    { value: 2, label: "Cox Bazar (COX)" },
-  ];
 
   const handleSelectChange = (field: string, value: any) => {
     setFlightSearchData({
@@ -93,9 +85,9 @@ const OneWayTab = () => {
         <div className="flex flex-col">
           <InputLabel label="From" required />
           <Select
-            options={originArray}
+            options={airports}
             onChange={(values: any) =>
-              handleSelectChange("origin", values[0].value)
+              handleSelectChange("origin", values[0]?.value)
             }
             searchable
             placeholder="Type city name"
@@ -113,9 +105,9 @@ const OneWayTab = () => {
         <div className="flex flex-col">
           <InputLabel label="To" required />
           <Select
-            options={destinationArray}
+            options={airports}
             onChange={(values: any) =>
-              handleSelectChange("destination", values[0].value)
+              handleSelectChange("destination", values[0]?.value)
             }
             searchable
             placeholder="Type city name"
