@@ -1,6 +1,6 @@
 "use client";
 import { nanoid } from 'nanoid';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { FaGlobe, FaPlaneArrival, FaPlaneDeparture, FaPray } from 'react-icons/fa';
 
@@ -18,11 +18,13 @@ const TabName: PropsTypes[] = [
 
 export default function SearchEngineTab() {
     const router = useRouter();
+    const pathname = usePathname()
+    console.log("Pathname: ", pathname)
     const searchParams = useSearchParams(); // Use searchParams to get URL query parameters
     const tab = searchParams.get('tab'); // Get the 'tab' parameter from the URL
     const [activeTab, setActiveTab] = useState('one-way');
 
-    // Set the active tab based on the URL query parameter
+    // Set the active tab based on the URL query parameter or default to "one-way"
     useEffect(() => {
         if (tab) {
             const foundTab = TabName.find((t) => t.value === tab);
@@ -30,16 +32,16 @@ export default function SearchEngineTab() {
                 setActiveTab(foundTab.value);
             }
         } else {
-            // If no 'tab' in the URL, set default to 'one-way' and update the URL
-            setActiveTab('one-way');
-            router.replace(`/search-engine?tab=one-way`);
+            // If no 'tab' in the URL, set default to 'one-way'
+            setActiveTab('/one-way');
         }
-    }, [tab, router]);
+    }, [tab]);
 
+    // Handle tab change and update the URL without reloading the page
     const handleTabChange = (newTab: string) => {
         setActiveTab(newTab);
-        // Update the URL without reloading the page
-        router.push(`/search-engine?tab=${newTab}`);
+        // Update the URL with the selected tab as a query parameter
+        router.push(`${pathname}?tab=${newTab}`);
     };
 
     return (
@@ -51,7 +53,8 @@ export default function SearchEngineTab() {
                             <li key={nanoid()} className="relative">
                                 <button
                                     onClick={() => handleTabChange(tab.value)}
-                                    className={`flex items-center gap-2 px-4 py-2 rounded-t-md border-b-2 transition hover:text-slate-400 font-medium text-md ${activeTab === tab.value ? 'border-blue-600 text-black' : 'border-transparent text-gray-500'}`}
+                                    className={`flex items-center gap-2 px-4 py-2 rounded-t-md border-b-2 transition hover:text-slate-400 font-medium text-md ${activeTab === tab.value ? 'border-blue-600 text-black' : 'border-transparent text-gray-500'
+                                        }`}
                                 >
                                     {/* Render Icons */}
                                     {tab.value === 'one-way' && <FaPlaneDeparture className="text-blue-600 lg:hidden" size={24} />}

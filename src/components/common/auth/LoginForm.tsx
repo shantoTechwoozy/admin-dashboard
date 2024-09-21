@@ -1,8 +1,6 @@
 "use client";
 import Input from "@/components/common/inputs/Input"; // Importing the actual Input component
-import BtnLoader from "../Loader/BtnLoader";
 import Button from "../buttons/Button";
-
 interface LoginInput {
   // Renamed the interface to avoid conflict
   agentID: string;

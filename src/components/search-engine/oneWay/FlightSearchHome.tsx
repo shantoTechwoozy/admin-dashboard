@@ -5,7 +5,7 @@ import Filter from './Filter';
 import SearchResult from './SearchResult';
 import TripDetails from './TripDetails';
 
-const FlightSearch = () => {
+const FlightSearchHome = () => {
   return (
     <div className="bg-gray-100 w-full min-h-screen">
       <div className="flex flex-wrap lg:flex-nowrap gap-4 my-6">
@@ -50,4 +50,4 @@ const FlightSearch = () => {
   );
 };
 
-export default FlightSearch;
+export default FlightSearchHome;
