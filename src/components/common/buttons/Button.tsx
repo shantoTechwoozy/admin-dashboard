@@ -4,7 +4,7 @@ import BtnLoader from "../Loader/BtnLoader";
 
 interface PropsTypes {
   text: string;
-  onClick: (e: any) => void;
+  onClick?: (e: any) => void;
   prevIcon?: React.ReactNode;
   nextIcon?: React.ReactNode;
   className?: string;

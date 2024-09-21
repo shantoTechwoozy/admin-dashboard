@@ -1,14 +1,21 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const response = NextResponse.next();
+
+  const token = request.cookies.get("auth")?.value;
 
   // use to redirect on another route dynamically
   function redirectTo(path: string) {
     return NextResponse.redirect(new URL(path, request.url));
   }
 
-  // route management for /booking-history route
+  // let se = "/search-engine";
+  // if (pathname === se) {
+  //   return redirectTo(`${se}?tab=one-way`);
+  // }
+
   let bh = "/booking-history";
   if (pathname === bh || pathname === `${bh}/flight`) {
     return redirectTo(`${bh}/flight/on-hold`);
@@ -47,4 +54,10 @@ export function middleware(request: NextRequest) {
   if (pathname === settings) {
     return redirectTo(`${settings}/user`);
   }
+
+  return response;
 }
+
+// export const config = {
+//   matcher: "/",
+// };

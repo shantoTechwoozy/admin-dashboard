@@ -1,14 +1,21 @@
 "use client";
-import SignupContainer from "@/components/common/auth/SignupContainer";
-import SignupLabel from "@/components/common/auth/SignupLabel";
-import React, { useState } from "react";
-import SignupInput from "@/components/common/auth/SignupInput";
-import Link from "next/link";
-import Select from "react-dropdown-select";
-import Button from "@/components/common/buttons/Button";
 import FormFooter from "@/components/common/auth/FormFooter";
+import SignupContainer from "@/components/common/auth/SignupContainer";
+import SignupInput from "@/components/common/auth/SignupInput";
+import SignupLabel from "@/components/common/auth/SignupLabel";
+import Button from "@/components/common/buttons/Button";
+import { useStoreActions, useStoreState } from "easy-peasy";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import Select from "react-dropdown-select";
 
 const SignupForm = () => {
+  const { isLoading } = useStoreState((state: any) => state.auth);
+
+  const { register } = useStoreActions((actions: any) => actions.auth);
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     type: "",
     name: "",
@@ -22,9 +29,8 @@ const SignupForm = () => {
     presenterFirstName: "",
     presenterLastName: "",
     presenterDesignation: "",
+    isApproved: false,
   });
-
-  console.log("formData", formData);
 
   const organization = [
     { value: 1, label: "Non-Profit" },
@@ -43,27 +49,27 @@ const SignupForm = () => {
   ];
 
   const handleChange = (e: { target: { name: any; value: any } }) => {
-
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
+
   const handleSelectChange = (field: string, values: any[]) => {
-    setFormData({ ...formData, [field]: values.length > 0 ? values[0].label : "" })
-  }
+    setFormData({
+      ...formData,
+      [field]: values.length > 0 ? values[0].label : "",
+    });
+  };
 
   const handleSubmit = (e: any) => {
-    e.preventDefault()
-    console.log(formData);
+    e.preventDefault();
+    register({ credentials: formData, router });
   };
 
   return (
     <div className="bg-gray-100 flex min-h-screen items-center justify-center p-6">
-      <form
-        className="w-full max-w-4xl rounded-md bg-white p-8 shadow-md"
-        onSubmit={handleSubmit}
-      >
+      <form className="w-full max-w-4xl rounded-md bg-white p-8 shadow-md">
         <h2 className="mb-6 text-2xl font-semibold">Agency Registration:</h2>
 
         <SignupContainer>
@@ -113,7 +119,7 @@ const SignupForm = () => {
               {/* Input for First Name */}
               <SignupInput
                 type="text"
-                name="firstName"
+                name="presenterFirstName"
                 value={formData.presenterFirstName}
                 onChange={handleChange}
                 className="w-3/4 rounded-none border border-l-0 border-r-0 border-t-0 border-b-black p-2 outline-none"
@@ -126,7 +132,7 @@ const SignupForm = () => {
             <SignupLabel label="Last Name" required />
             <SignupInput
               type="text"
-              name="lastName"
+              name="presenterLastName"
               value={formData.presenterLastName}
               onChange={handleChange}
               placeholder="Enter Last name"
@@ -148,14 +154,14 @@ const SignupForm = () => {
           <div>
             <SignupLabel label="Phone Number" required />
             <div className="mt-0 flex">
-              <SignupInput
+              {/* <SignupInput
                 type="text"
                 name="phoneCode"
                 value={formData.phone}
                 onChange={handleChange}
                 className="mr-2 w-1/4 rounded-none border border-l-0 border-r-0 border-t-0 border-b-black p-2 outline-none"
                 placeholder="Code"
-              />
+              /> */}
               <SignupInput
                 type="text"
                 name="phone"
@@ -237,26 +243,25 @@ const SignupForm = () => {
         </div>
 
         <div className="mb-6 flex items-center justify-start">
-          {/* <button
-                        type="button"
-                        className="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600"
-                    >
-                        Upload document
-                    </button> */}
           <div className="text-gray-600 text-sm">
             By creating an account you are agreeing to our{" "}
             <Link href="#" className="text-blue-500">
               T & C
             </Link>
-            <FormFooter name="Already have an account?" registration="Login" href="/signin/agent" />
+            <FormFooter
+              name="Already have an account?"
+              registration="Login"
+              href="/signin/agent"
+            />
           </div>
         </div>
 
         <div className="flex justify-start">
           <div>
             <Button
-              text="Submit"
-              onClick={() => { }}
+              isLoading={isLoading}
+              onClick={handleSubmit}
+              text="Register"
               className="flex w-[300px] items-center justify-center rounded-full text-center"
             />
           </div>
