@@ -3,6 +3,8 @@ import "@/css/style.css";
 import ProvideStore from "@/redux/ProvideStore";
 import "flatpickr/dist/flatpickr.min.css";
 import "jsvectormap/dist/jsvectormap.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import React from "react";
 import { ToastContainer } from "react-toastify";
