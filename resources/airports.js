@@ -1,53 +1,67 @@
-export const airports = [
+export const defaultOriginAirport = {
+  value: "DAC",
+  label: "Dhaka / Hazrat Shahjalal International Airport",
+  iso: "BD",
+};
+
+export const defaultDestinationAirport = {
+  value: "CXB",
+  label: "Cox's Bazar Airport",
+  iso: "BD",
+};
+
+export const defaultAirports = [
+  defaultOriginAirport,
+  defaultDestinationAirport,
+  {
+    value: "JFK",
+    label: "John F Kennedy International Airport",
+    iso: "US",
+  },
+  {
+    value: "BKK",
+    label: "Suvarnabhumi Airport",
+    iso: "TH",
+  },
+  {
+    value: "KUL",
+    label: "Kuala Lumpur International Airport",
+    iso: "MY",
+  },
+  {
+    value: "CGP",
+    label: "Shah Amanat International Airport",
+    iso: "BD",
+  },
+  {
+    value: "CCU",
+    label: "Netaji Subhash Chandra Bose International Airport",
+    iso: "IN",
+  },
+];
+
+export const restAirports = [
+  { value: "WKK", label: "Aleknagik / New Airport", iso: "US" },
+  { value: "ABP", label: "Atkamba Airport", iso: "PG" },
+  { value: "ADC", label: "Andakombe Airport", iso: "PG" },
+  {
+    value: "TJP",
+    label: "Areopuerto Internacional Michael Gonzalez",
+    iso: "PR",
+  },
+  { value: "AEE", label: "Adareil Airport", iso: "SS" },
+  { value: "AEK", label: "Aseki Airport", iso: "PG" },
+  { value: "OLR", label: "Salerno Landing Zone Airport", iso: "AF" },
+  { value: "AFR", label: "Afore Airstrip", iso: "PG" },
   {
     value: "UTK",
     label: "Utirik Airport",
     iso: "MH",
   },
   {
-    value: "WKK",
-    label: "Aleknagik / New Airport",
-    iso: "US",
-  },
-  {
     value: "FOB",
     label: "Fort Bragg Airport",
     iso: "US",
-  },
-  {
-    value: "ABP",
-    label: "Atkamba Airport",
-    iso: "PG",
-  },
-  {
-    value: "ADC",
-    label: "Andakombe Airport",
-    iso: "PG",
-  },
-  {
-    value: "TJP",
-    label: "Areopuerto Internacional Michael Gonzalez",
-    iso: "PR",
-  },
-  {
-    value: "AEE",
-    label: "Adareil Airport",
-    iso: "SS",
-  },
-  {
-    value: "AEK",
-    label: "Aseki Airport",
-    iso: "PG",
-  },
-  {
-    value: "OLR",
-    label: "Salerno Landing Zone Airport",
-    iso: "AF",
-  },
-  {
-    value: "AFR",
-    label: "Afore Airstrip",
-    iso: "PG",
   },
   {
     value: "AFT",
@@ -11769,11 +11783,7 @@ export const airports = [
     label: "Jonesboro Municipal Airport",
     iso: "US",
   },
-  {
-    value: "JFK",
-    label: "John F Kennedy International Airport",
-    iso: "US",
-  },
+
   {
     value: "JLN",
     label: "Joplin Regional Airport",
@@ -27014,11 +27024,7 @@ export const airports = [
     label: "Biju Patnaik Airport",
     iso: "IN",
   },
-  {
-    value: "CCU",
-    label: "Netaji Subhash Chandra Bose International Airport",
-    iso: "IN",
-  },
+
   {
     value: "COH",
     label: "Cooch Behar Airport",
@@ -27164,21 +27170,13 @@ export const airports = [
     label: "Barisal Airport",
     iso: "BD",
   },
-  {
-    value: "CXB",
-    label: "Cox's Bazar Airport",
-    iso: "BD",
-  },
+
   {
     value: "CLA",
     label: "Comilla Airport",
     iso: "BD",
   },
-  {
-    value: "CGP",
-    label: "Shah Amanat International Airport",
-    iso: "BD",
-  },
+
   {
     value: "IRD",
     label: "Ishurdi Airport",
@@ -27219,11 +27217,7 @@ export const airports = [
     label: "Osmany International Airport",
     iso: "BD",
   },
-  {
-    value: "DAC",
-    label: "Dhaka / Hazrat Shahjalal International Airport",
-    iso: "BD",
-  },
+
   {
     value: "HKG",
     label: "Chek Lap Kok International Airport",
@@ -27819,11 +27813,7 @@ export const airports = [
     label: "Trat Airport",
     iso: "TH",
   },
-  {
-    value: "BKK",
-    label: "Suvarnabhumi Airport",
-    iso: "TH",
-  },
+
   {
     value: "UTP",
     label: "U-Tapao International Airport",
@@ -29354,11 +29344,7 @@ export const airports = [
     label: "Senai International Airport",
     iso: "MY",
   },
-  {
-    value: "KUL",
-    label: "Kuala Lumpur International Airport",
-    iso: "MY",
-  },
+
   {
     value: "LGK",
     label: "Langkawi International Airport",
