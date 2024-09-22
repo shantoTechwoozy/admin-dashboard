@@ -124,7 +124,7 @@ const UserSignup = () => {
                                 <span>Log In with Google</span>
                             </button>
                         </div>
-                        <LoginFormFooter name="Already have an account?" registration="Login" href="/signin/user" />
+                        {/* <LoginFormFooter name="Already have an account?" registration="Login" href="/signin/user" /> */}
 
                     </div>
                 </div>
