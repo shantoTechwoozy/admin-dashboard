@@ -248,7 +248,7 @@ const AgentSignup = () => {
                         <Link href="#" className="text-blue-500">
                             T & C
                         </Link>
-                        <FormFooter name="Already have an account?" registration="Login" href="/signin/agent" />
+                        {/* <FormFooter name="Already have an account?" registration="Login" href="/signin/agent" /> */}
                     </div>
                 </div>
 

@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
 import Slider from "react-slick";
-import dealsData from "./DealsData";
 import { nanoid } from "nanoid";
 import Image from "next/image";
 import Button from "@/components/common/buttons/Button";
+import DestinationData from "./DestinationData";
 
-function Deals() {
+function FavouriteDestination() {
     const settings = {
         dots: true,
         infinite: true,
@@ -17,10 +17,10 @@ function Deals() {
     };
 
     return (
-        <div className="w-full max-w-screen-lg mx-auto mt-24 mb-5">
-            <h3 className="flex flex-col text-center items-center px-5 py-5 font-bold text-black text-2xl">Find Great Deals, Only for you</h3>
+        <div className="w-full max-w-screen-lg mx-auto">
+            <h3 className="flex flex-col text-center items-center px-5 py-5 font-bold text-black text-2xl">Favourite Destination Packages</h3>
             <Slider {...settings}>
-                {dealsData.map((deal) => (
+                {DestinationData.map((deal) => (
                     <div key={nanoid()} className="relative px-4"> {/* px-4 adds gap between the slides */}
                         <div className="relative flex justify-evenly gap-5 h-[250px] overflow-hidden rounded-3xl">
                             <Image
@@ -29,9 +29,8 @@ function Deals() {
                                 layout="fill"
                                 className="object-cover"
                             />
-                            <div className="absolute inset-0 flex flex-col justify-center items-start bg-black bg-opacity-30 text-white p-4 rounded-3xl">
+                            <div className="absolute inset-0 flex flex-col justify-end items-center bg-black bg-opacity-30 text-white p-4 rounded-3xl">
                                 <h3 className="text-lg font-bold">{deal.title}</h3>
-                                <p className="text-sm">{deal.description}</p>
                                 <div>
                                     <Button
                                         text="Book Now"
@@ -47,4 +46,4 @@ function Deals() {
     );
 }
 
-export default Deals;
+export default FavouriteDestination;
