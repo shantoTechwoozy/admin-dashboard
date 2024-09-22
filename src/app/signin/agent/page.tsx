@@ -1,46 +1,32 @@
-"use client";
-import LoginFormFooter from "@/components/common/auth/FormFooter";
-import LoginForm from "@/components/common/auth/LoginForm";
-import { useStoreActions, useStoreState } from "easy-peasy";
-import { useRouter } from "next/navigation";
+"use client"
 import { useState } from "react";
+import AgentLogin from "@/components/common/auth/AgentLogin";
 
-const AgentLoginPage = () => {
-  const [loginData, setLoginData] = useState({ agentID: "", password: "" });
-  const router = useRouter();
+const Page = () => {
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(true); // Assuming modal state handling
+  const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
 
-  /**Redux state */
-  const { isLoading } = useStoreState((state: any) => state.auth);
-  const { login } = useStoreActions((actions: any) => actions.auth);
+  // Define what happens when the signup modal should open
+  const onOpenSignupModal = () => {
+    setIsSignupModalOpen(true);
+  };
 
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    await login({ credentials: loginData, router });
+  // Define what happens when the login modal should close
+  const onCloseLoginModal = () => {
+    setIsLoginModalOpen(false);
   };
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-800 flex min-h-screen w-full items-center justify-center px-4 sm:px-6 lg:px-8">
-      <div className="relative py-3 sm:mx-auto sm:w-115">
-        <div className="dark:bg-gray-900 flex min-h-90 items-center justify-center rounded-[50px] bg-white text-left shadow-lg">
-          <div className="flex h-full flex-col items-center justify-center">
-            <LoginForm
-              title="Agent Login"
-              loginData={loginData}
-              setLoginData={setLoginData}
-              onSubmit={onSubmit}
-              isLoading={isLoading}
-            />
-            <LoginFormFooter
-              name="Agent"
-              registration="Register"
-              href="/signup/agent"
-              forgetTitle="Forget Password"
-            />
-          </div>
-        </div>
-      </div>
+    <div>
+      {isLoginModalOpen && (
+        <AgentLogin
+          onOpenSignupModal={onOpenSignupModal}
+          onCloseLoginModal={onCloseLoginModal}
+        />
+      )}
+
     </div>
   );
 };
 
-export default AgentLoginPage;
+export default Page;

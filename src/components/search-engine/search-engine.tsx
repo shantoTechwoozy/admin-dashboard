@@ -11,7 +11,7 @@ import SubMenu from "./sub-menu";
 import SearchEngineTab from "./tabs";
 import { IconSearchEngine } from "@/icons";
 import Button from "../common/buttons/Button";
-import FlightSearch from "./oneWay/FlightSearch";
+import FlightSearch from "./oneWay/FlightSearchHome";
 import RoundTripTab from "./roundTrip/RoundTripTab";
 
 const SearchEngine: React.FC = () => {

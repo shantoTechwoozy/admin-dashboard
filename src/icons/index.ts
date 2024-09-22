@@ -7,6 +7,7 @@ import { HiBriefcase, HiOutlineSearch } from "react-icons/hi";
 import { IoArrowBack, IoCashOutline, IoSettingsOutline } from "react-icons/io5";
 import { CgArrowsExchange } from "react-icons/cg";
 import { WiDayHaze } from "react-icons/wi";
+import { IoMdCall } from "react-icons/io";
 
 import {
   MdOutlineDashboardCustomize,
@@ -97,3 +98,4 @@ export const IconSettings = { authentication: TbLogin2 };
 export const IconProfile = { authentication: TbLogin2 };
 export const IconAuthentication = { user: FaUser, agent: FaUserShield, Facebook: FaFacebookF, Google: FaGoogle };
 export const IconFooter = { youtube: CiYoutube, facebook: FaFacebookF, linkedin: SlSocialLinkedin, instagram: TfiInstagram, twitter: TfiTwitter }
+export const IconHomePage = { Phone: IoMdCall }
