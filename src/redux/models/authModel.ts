@@ -27,8 +27,8 @@ export const authModel = {
       toast.success(response.data.message);
       router.push("/signin/agent");
     } catch (error: any) {
-      actions.setData(error.response.data);
-      toast.error(error.response.data.message);
+      actions.setData(error.response?.data);
+      toast.error(error.response?.data.message);
     } finally {
       actions.setIsLoading(false);
     }
