@@ -1,33 +1,17 @@
-"use client";
-
-import ClickOutside from "@/components/ClickOutside";
-import useLocalStorage from "@/hooks/useLocalStorage";
 import cn from "@/utils/cn";
 import SidebarLogo from "./SidebarLogo";
 import SidebarNav from "./SidebarNav";
 
-interface SidebarProps {
-  sidebarOpen: boolean;
-  setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
-  const [pageName, setPageName] = useLocalStorage("selectedMenu", "dashboard");
-
+const Sidebar = () => {
   return (
-    <ClickOutside onClick={() => setSidebarOpen(false)}>
-      <aside
-        className={cn(
-          `fixed left-0 top-0 z-9999 flex h-screen w-72.5 -translate-x-full flex-col overflow-y-hidden bg-secondary duration-300 ease-linear dark:bg-boxdark lg:translate-x-0`,
-          {
-            "translate-x-0": sidebarOpen,
-          },
-        )}
-      >
-        <SidebarLogo setSidebarOpen={setSidebarOpen} />
-        <SidebarNav pageName={pageName} setPageName={setPageName} />
-      </aside>
-    </ClickOutside>
+    <aside
+      className={cn(
+        `h-screen w-14 hover:w-67 duration-300 fixed top-0 left-0 z-999 bg-secondary dark:bg-boxdark`
+      )}
+    >
+      <SidebarLogo />
+      <SidebarNav />
+    </aside>
   );
 };
 

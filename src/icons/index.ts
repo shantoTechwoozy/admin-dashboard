@@ -1,21 +1,27 @@
 import { BiLogOut, BiSupport } from "react-icons/bi";
+import { CgArrowsExchange } from "react-icons/cg";
 import { CiUser, CiYoutube } from "react-icons/ci";
-import { FaFacebookF, FaGoogle, FaHistory, FaSearchPlus, FaPlane, FaUser, FaUserShield, FaLayerGroup } from "react-icons/fa";
+import { FaFacebookF, FaGoogle, FaHistory, FaLayerGroup, FaPlane, FaSearchPlus, FaUser, FaUserShield } from "react-icons/fa";
 import { FaAngleDown, FaRegCommentDots } from "react-icons/fa6";
 import { GrContactInfo, GrMenu } from "react-icons/gr";
 import { HiBriefcase, HiOutlineSearch } from "react-icons/hi";
-import { IoArrowBack, IoCashOutline, IoSettingsOutline } from "react-icons/io5";
-import { CgArrowsExchange } from "react-icons/cg";
-import { WiDayHaze } from "react-icons/wi";
 import { IoMdCall } from "react-icons/io";
+import { IoCashOutline, IoSettingsOutline } from "react-icons/io5";
+import { WiDayHaze } from "react-icons/wi";
+import { GiCommercialAirplane } from "react-icons/gi";
 
 import {
+  MdKeyboardDoubleArrowLeft,
+  MdKeyboardDoubleArrowRight,
+  MdNotificationsNone,
   MdOutlineDashboardCustomize,
-  MdPeople,
-  MdNotificationsNone
-  , MdOutlineFlight, MdOutlineTour
+  MdOutlineFlight, MdOutlineTour,
+  MdPeople
 } from "react-icons/md";
 
+import { GiAirplaneDeparture, GiAvoidance } from "react-icons/gi";
+import { RiHotelLine, RiRefund2Line, RiVisaFill } from "react-icons/ri";
+import { SlCalender, SlSocialLinkedin } from "react-icons/sl";
 import {
   TbCashRegister,
   TbLocationSearch,
@@ -23,19 +29,8 @@ import {
   TbReport,
   TbTransactionDollar
 } from "react-icons/tb";
-import { VscGitPullRequestNewChanges, VscIssueReopened } from "react-icons/vsc";
-
-
-import { GiAvoidance, GiAirplaneDeparture } from "react-icons/gi";
-import { RiRefund2Line, RiHotelLine, RiVisaFill } from "react-icons/ri";
-
-
-
-
-
-
-import { SlCalender, SlSocialLinkedin } from "react-icons/sl";
 import { TfiInstagram, TfiTwitter } from "react-icons/tfi";
+import { VscGitPullRequestNewChanges, VscIssueReopened } from "react-icons/vsc";
 
 // Define icon sets
 export const IconTopBar = {
@@ -50,7 +45,9 @@ export const IconTopBar = {
 };
 
 export const IconSidebar = {
-  backButton: IoArrowBack,
+  Plane: GiCommercialAirplane,
+  BackButton: MdKeyboardDoubleArrowLeft,
+  OpenButton: MdKeyboardDoubleArrowRight,
   DownArrow: FaAngleDown,
   dashboard: MdOutlineDashboardCustomize,
   SearchEngine: TbLocationSearch,

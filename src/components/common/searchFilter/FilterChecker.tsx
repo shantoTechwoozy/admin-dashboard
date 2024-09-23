@@ -1,3 +1,4 @@
+"use client"
 import { useStoreActions, useStoreState } from "easy-peasy";
 import React from "react";
 

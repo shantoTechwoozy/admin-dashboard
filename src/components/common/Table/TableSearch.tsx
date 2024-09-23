@@ -1,8 +1,9 @@
+"use client"
 import React from "react";
 
 import { FaSearch } from "react-icons/fa";
 
-interface _PropsTypes {
+interface PropsTypes {
   search: string;
   field: string;
   onSearch: (item: string) => void;
@@ -10,7 +11,7 @@ interface _PropsTypes {
   fieldLists: string[];
 }
 
-const TableSearch: React.FC<_PropsTypes> = ({
+const TableSearch: React.FC<PropsTypes> = ({
   search,
   field,
   onFieldChange,
@@ -42,7 +43,7 @@ const TableSearch: React.FC<_PropsTypes> = ({
       </select>
       <button
         className="flex items-center gap-2 rounded-md bg-blue-600 p-2 text-sm text-white shadow-md"
-        onClick={() => {}}
+        onClick={() => { }}
       >
         <FaSearch />
         Search

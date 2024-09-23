@@ -1,3 +1,4 @@
+"use client"
 import { IconTopBar } from "@/icons";
 import React from "react";
 

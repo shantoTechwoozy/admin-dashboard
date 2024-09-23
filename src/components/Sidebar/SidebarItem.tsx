@@ -5,12 +5,12 @@ import cn from "@/utils/cn";
 import { useRouter, usePathname } from "next/navigation";
 import React, { useState, useEffect } from "react";
 
-interface _PropsTypes {
+interface PropsTypes {
   item: any;
   className?: string;
 }
 
-const SidebarItem: React.FC<_PropsTypes> = ({ item, className }) => {
+const SidebarItem: React.FC<PropsTypes> = ({ item, className }) => {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
@@ -51,7 +51,7 @@ const SidebarItem: React.FC<_PropsTypes> = ({ item, className }) => {
         onClick={handleItemClick}
         className={cn(
           "group relative flex w-full items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4",
-          { "bg-graydark dark:bg-meta-4": isMostChildActive },
+          { "bg-graydark dark:bg-meta-4 h-13": isMostChildActive },
           className,
         )}
       >

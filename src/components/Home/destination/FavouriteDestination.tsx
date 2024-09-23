@@ -14,15 +14,31 @@ function FavouriteDestination() {
         slidesToShow: 3,
         slidesToScroll: 3,
         centerPadding: '20px',
+        responsive: [
+            {
+                breakpoint: 1024, // Tablets and larger devices
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                }
+            },
+            {
+                breakpoint: 600, // Mobile devices
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
     };
 
     return (
-        <div className="w-full max-w-screen-lg mx-auto">
+        <div className="w-full max-w-screen-lg mx-auto mt-24 mb-5">
             <h3 className="flex flex-col text-center items-center px-5 py-5 font-bold text-black text-2xl">Favourite Destination Packages</h3>
             <Slider {...settings}>
                 {DestinationData.map((deal) => (
                     <div key={nanoid()} className="relative px-4"> {/* px-4 adds gap between the slides */}
-                        <div className="relative flex justify-evenly gap-5 h-[250px] overflow-hidden rounded-3xl">
+                        <div className="relative flex justify-evenly gap-5 h-[250px] sm:h-[200px] overflow-hidden rounded-3xl">
                             <Image
                                 src={deal.image}
                                 alt={deal.title}

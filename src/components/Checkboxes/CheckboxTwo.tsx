@@ -1,3 +1,4 @@
+"use client"
 import { useState } from "react";
 
 const CheckboxTwo = () => {
@@ -19,9 +20,8 @@ const CheckboxTwo = () => {
             }}
           />
           <div
-            className={`mr-4 flex h-5 w-5 items-center justify-center rounded border ${
-              isChecked && "border-primary bg-gray dark:bg-transparent"
-            }`}
+            className={`mr-4 flex h-5 w-5 items-center justify-center rounded border ${isChecked && "border-primary bg-gray dark:bg-transparent"
+              }`}
           >
             <span className={`opacity-0 ${isChecked && "!opacity-100"}`}>
               <svg
