@@ -19,5 +19,4 @@ const Logo: React.FC<PropsTypes> = ({ isDark, className }) => {
     </Link>
   );
 };
-
 export default Logo;
