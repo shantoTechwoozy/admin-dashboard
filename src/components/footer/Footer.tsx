@@ -1,20 +1,20 @@
-import Image from "next/image";
-import { FiFacebook } from "react-icons/fi";
-import { TfiTwitter } from "react-icons/tfi";
-import { TfiInstagram } from "react-icons/tfi";
-import { SlSocialLinkedin } from "react-icons/sl";
-import { CiYoutube } from "react-icons/ci";
+"use client"
 import { images } from "@/images/images";
-import Input from "../common/inputs/Input";
 import { nanoid } from 'nanoid';
+import Image from "next/image";
 import Link from "next/link";
+import { CiYoutube } from "react-icons/ci";
+import { FiFacebook } from "react-icons/fi";
+import { SlSocialLinkedin } from "react-icons/sl";
+import { TfiInstagram, TfiTwitter } from "react-icons/tfi";
+import Input from "../common/inputs/Input";
 
-interface _propsTypes {
+interface PropsTypes {
     item: string;
     href: string;
 }
 
-const Company: _propsTypes[] = [
+const Company: PropsTypes[] = [
     { item: "About", href: "/about" },
     { item: "Out Partner", href: "/partner" },
     { item: "Privacy Policy", href: "/privacypolicy" },
@@ -24,7 +24,7 @@ const Company: _propsTypes[] = [
     { item: "Affiliate Program", href: "/affiliateprogram" }
 ]
 
-const Booking: _propsTypes[] = [
+const Booking: PropsTypes[] = [
     { item: "Flights", href: "/flights" },
     { item: "Hotels", href: "/hotels" },
     { item: "Packages", href: "/packages" },
@@ -32,13 +32,13 @@ const Booking: _propsTypes[] = [
     { item: "Special Deals", href: "/specialdeals" },
 ]
 
-const Services: _propsTypes[] = [
+const Services: PropsTypes[] = [
     { item: "Help", href: "/help" },
     { item: "1800-100-767-00", href: "tel:1800-100-767-00" },
     { item: "info@tripbeyond.com", href: "mailto:info@tripbeyond.com" },
 ]
 
-const SocialMedia: _propsTypes[] = [
+const SocialMedia: PropsTypes[] = [
     { item: "About", href: "/about" },
     { item: "Out Partner", href: "/partner" },
     { item: "Privacy Policy", href: "/privacypolicy" },
@@ -96,7 +96,7 @@ const Footer = () => {
                                 href="#"
                                 className="text-gray-3 transition hover:opacity-75"
                             >
-                                We accept :
+                                We accept
                                 <Image src={images.payment} alt="alt" width={400} height={300} />
 
                             </Link>
@@ -107,61 +107,61 @@ const Footer = () => {
                     <p className="font-bold text-orange-400 mt-3">Connect with Us</p>
                     <ul className="mt-4 space-y-2 sm:space-y-4 text-sm">
                         <li>
-                            <a href="#" className="text-gray-3 transition hover:opacity-75">
+                            <Link href="#" className="text-gray-3 transition hover:opacity-75">
                                 Social Media
-                            </a>
+                            </Link>
                         </li>
                         <li className="flex flex-wrap gap-4">
-                            <a
+                            <Link
                                 href="#"
                                 className="text-gray-3 transition hover:opacity-75"
                                 aria-label="Facebook"
                             >
                                 <FiFacebook className="text-gray-3 transition hover:opacity-75 h-7 w-7" />
-                            </a>
-                            <a
+                            </Link>
+                            <Link
                                 href="#"
                                 className="text-gray-3 transition hover:opacity-75"
                                 aria-label="Twitter"
                             >
                                 <TfiTwitter className="text-gray-3 transition hover:opacity-75 h-7 w-7" />
-                            </a>
-                            <a
+                            </Link>
+                            <Link
                                 href="#"
                                 className="text-gray-3 transition hover:opacity-75"
                                 aria-label="Instagram"
                             >
                                 <TfiInstagram className="text-gray-3 transition hover:opacity-75 h-7 w-7" />
-                            </a>
-                            <a
+                            </Link>
+                            <Link
                                 href="#"
                                 className="text-gray-3 transition hover:opacity-75"
                                 aria-label="LinkedIn"
                             >
                                 <SlSocialLinkedin className="text-gray-3 transition hover:opacity-75 h-7 w-7" />
-                            </a>
-                            <a
+                            </Link>
+                            <Link
                                 href="#"
                                 className="text-gray-3 transition hover:opacity-75"
                                 aria-label="YouTube"
                             >
                                 <CiYoutube className="text-gray-3 transition hover:opacity-75 h-7 w-7" />
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#" className="text-gray-3 transition hover:opacity-75">
+                            <Link href="#" className="text-gray-3 transition hover:opacity-75">
                                 Newsletter
-                            </a>
+                            </Link>
                             <div className="flex flex-col sm:flex-row mt-2">
-                                {/* <Input
+                                <Input
                                     type="email"
-                                    value="email"
-                                    className="w-full sm:w-auto sm:flex-1"
+                                    value=""
+                                    className="w-full sm:w-auto sm:flex-1 focus:outline-none"
                                     placeHolder="Email ID"
                                     onChange={() => { }}
-                                /> */}
+                                />
                                 <button
-                                    className="mt-2 sm:mt-0 sm:ml-2 rounded-full bg-[#FF9C00] hover:bg-orange-500/90 active:border-b-0 text-black px-3 sm:px-4 py-2"
+                                    className="mt-2 sm:mt-0 sm:ml-2 rounded-full bg-[#FF9C00] hover:bg-orange-500/90 active:border-b-0 text-black font-bold px-3 sm:px-4 py-2"
 
                                 >
                                     Subscribe
@@ -169,12 +169,12 @@ const Footer = () => {
                             </div>
                         </li>
                         <li className="w-full sm:w-[400px]">
-                            <a
+                            <Link
                                 href="mailto:info@tripbeyond.com"
                                 className="text-gray-3 transition hover:opacity-75"
                             >
                                 <Image src={images.sponsor} alt="alt" width={400} height={300} />
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>

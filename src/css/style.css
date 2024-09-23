@@ -269,3 +269,8 @@ input[type="search"]::-webkit-search-cancel-button {
     background: #b2dbbf;
     border-radius: 50px;
   }
+
+/* silk-carousel arrow color change */
+  .slick-prev:before, .slick-next:before {
+    color: #090758 !important;
+}

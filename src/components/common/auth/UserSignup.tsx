@@ -3,7 +3,6 @@ import Input from "@/components/common/inputs/Input";
 import Logo from "@/components/common/Logo";
 import { IconAuthentication } from "@/icons";
 import { useState } from "react";
-import LoginFormFooter from '@/components/common/auth/FormFooter';
 
 const UserSignup = () => {
     const [firstName, setFirstName] = useState("");

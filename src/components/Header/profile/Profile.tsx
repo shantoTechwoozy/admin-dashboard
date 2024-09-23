@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 import { IconTopBar } from "@/icons";
 import Image from "next/image";
@@ -5,13 +6,13 @@ import Link from "next/link";
 import ClickOutside from "@/components/ClickOutside";
 import Details from "./Details";
 
-interface _PropsTypes {
+interface PropsTypes {
   username: string;
   designation: string;
   avatarUrl: string;
 }
 
-const Profile: React.FC<_PropsTypes> = ({
+const Profile: React.FC<PropsTypes> = ({
   username,
   designation,
   avatarUrl,

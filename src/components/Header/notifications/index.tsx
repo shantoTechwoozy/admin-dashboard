@@ -1,7 +1,7 @@
+"use client"
 import ClickOutside from "@/components/ClickOutside";
-import Link from "next/link";
-import { useState } from "react";
 import { IconTopBar } from "@/icons";
+import { useState } from "react";
 import IconHolderBtn from "../IconHolderBtn";
 import Notifier from "../Notifier";
 import NotificationDetails from "./NotificationDetails";

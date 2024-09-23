@@ -1,23 +1,21 @@
+"use client"
 import React from "react";
 import Logo from "../common/Logo";
 import { IconSidebar } from "@/icons";
 
-interface _PropsTypes {
-  setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-const SidebarLogo: React.FC<_PropsTypes> = ({ setSidebarOpen }) => {
+const SidebarLogo = () => {
   return (
     <div className="flex items-center justify-center gap-3 px-6 py-5.5 lg:py-6.5">
       <Logo isDark={false} />
 
-      <button
-        onClick={() => setSidebarOpen((prev) => !prev)}
+      {/* <button
+        onClick={() => { }}
         aria-controls="sidebar"
-        className="block lg:hidden"
+        className="absolute -right-5"
       >
-        <IconSidebar.backButton className="text-2xl" />
-      </button>
+        <IconSidebar.BackButton className="p-2 text-white rounded-full w-10 h-10 border border-white bg-secondary" />
+        <IconSidebar.OpenButton className="p-2 text-white rounded-full w-10 h-10 border border-white bg-secondary" />
+      </button> */}
     </div>
   );
 };

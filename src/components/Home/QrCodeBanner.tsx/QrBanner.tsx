@@ -4,7 +4,7 @@ import { images } from "@/images/images";
 
 const QrBanner = () => {
     return (
-        <div className="w-full max-w-screen-lg mx-auto">
+        <div className="w-full max-w-screen-lg mx-auto mt-24 mb-5 px-5 py-2">
             <div className="h-80 md:h-96 lg:h-80 rounded-[35px] relative lg:col-span-2 mt-12 lg:mt-24">
                 <Image
                     src={images.QrCode}

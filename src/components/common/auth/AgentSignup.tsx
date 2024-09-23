@@ -6,7 +6,6 @@ import SignupInput from "@/components/common/auth/SignupInput";
 import Link from "next/link";
 import Select from "react-dropdown-select";
 import Button from "@/components/common/buttons/Button";
-import FormFooter from "@/components/common/auth/FormFooter";
 
 const AgentSignup = () => {
     const [formData, setFormData] = useState({

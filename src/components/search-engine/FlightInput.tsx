@@ -3,19 +3,7 @@
 import React from "react";
 
 import Select from "react-select";
-
-const formatOptionLabel = ({ label, value, iso }: any) => (
-  <div className="bg-re flex items-center gap-3">
-    <div className="w-[40px]">
-      <h1 className="font-bold">{value}</h1>
-    </div>
-    <div className="w-[1px] self-stretch bg-[#a5a6a8]"></div>
-    <div className="truncate">
-      <h3 className="text-sm font-semibold">{iso}</h3>
-      <span className="text-sm">{label}</span>
-    </div>
-  </div>
-);
+import InputLabel from "../common/inputs/InputLabel";
 
 const customStyles = {
   control: (provided: any) => ({
@@ -31,7 +19,6 @@ const customStyles = {
     ...provided,
     paddingX: "12px",
     backgroundColor: state.isSelected ? "#F6931D" : "white",
-    color: "#0C254D",
   }),
   indicatorSeparator: () => ({
     display: "none", // Hide the separator
@@ -43,33 +30,41 @@ const customStyles = {
   }),
 };
 
-const FlightInput = ({ ...restInputs }: any) => {
+const FlightInput = ({
+  required,
+  options,
+  onInputChange,
+  label,
+  ...restInputs
+}: any) => {
   return (
-    <Select
-      options={[
-        {
-          value: "UTK",
-          label: "Utirik Airport",
-          iso: "MH",
-        },
-        {
-          value: "WKK",
-          label: "Aleknagik / New Airport",
-          iso: "US",
-        },
-        {
-          value: "FOB",
-          label: "Fort Bragg Airport",
-          iso: "US",
-        },
-      ]}
-      formatOptionLabel={formatOptionLabel}
-      placeholder="Flying from Airport/City"
-      isSearchable
-      styles={customStyles}
-      {...restInputs}
-    />
+    <div>
+      {label && <InputLabel label={label} required={required} />}
+      <Select
+        options={options}
+        formatOptionLabel={formatOptionLabel}
+        placeholder="Flying from Airport/City"
+        isSearchable
+        onInputChange={onInputChange}
+        styles={customStyles}
+        {...restInputs}
+        required={required}
+      />
+    </div>
   );
 };
 
 export default FlightInput;
+
+export const formatOptionLabel = ({ label, value, iso }: any) => (
+  <div className="flex items-center gap-3 text-[#0C254D]">
+    <div className="min-w-[40px] max-w-[40px]">
+      <h1 className="font-bold uppercase">{value}</h1>
+    </div>
+    <div className="w-[1px] self-stretch bg-[#a5a6a8]"></div>
+    <div className="truncate">
+      <h3 className="text-sm font-semibold capitalize">{iso}</h3>
+      <span className="text-sm">{label}</span>
+    </div>
+  </div>
+);

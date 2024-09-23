@@ -62,7 +62,7 @@ export default function HomeHeader() {
                     <Button
                         onClick={onOpenAgentLoginModal}
                         text="Agent Login"
-                        className="rounded-full w-52 text-black font-bold"
+                        className="rounded-full w-35 text-black font-bold"
                     />
 
                     {/* User Login Modal */}

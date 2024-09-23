@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import FormFooter from "@/components/common/auth/FormFooter";
 import SignupContainer from "@/components/common/auth/SignupContainer";
 import SignupInput from "@/components/common/auth/SignupInput";

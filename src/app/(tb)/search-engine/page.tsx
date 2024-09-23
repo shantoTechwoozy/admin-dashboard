@@ -1,4 +1,3 @@
-"use client";
 import SearchEngine from "@/components/search-engine/search-engine";
 
 const SearchEnginePage = () => {

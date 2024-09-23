@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import Input from "@/components/common/inputs/Input";
 import Logo from "@/components/common/Logo";
 import { IconAuthentication } from "@/icons";

@@ -1,4 +1,5 @@
 'use client'
+import { nanoid } from "nanoid";
 import React, { useState } from "react";
 import { FaSort, FaSearch } from "react-icons/fa";
 
@@ -64,7 +65,7 @@ const Table: React.FC<TableProps> = ({ type }) => {
                     { label: 'Date', key: 'date' },
                     { label: 'Booking ID', key: 'booking_id' },
                     { label: 'PNR', key: 'pnr' },
-                    { label: 'Ticket Number', key: 'ticket_number' },
+                    { label: 'Ticket Numbe', key: 'ticket_number' },
                     { label: 'Action', key: 'action' }
                 ];
             default:
@@ -142,7 +143,7 @@ const Table: React.FC<TableProps> = ({ type }) => {
                                 <tbody>
                                     {filteredData.length > 0 ? (
                                         filteredData.map((item, index) => (
-                                            <tr key={index} className="hover:bg-gray-100 transition">
+                                            <tr key={nanoid()} className="hover:bg-gray-100 transition">
                                                 {fields.map((field) => (
                                                     <td key={field.key} className="py-2 px-4 border border-gray-300 text-sm text-center text-black whitespace-nowrap">
                                                         {item[field.key] || '-'}

@@ -10,7 +10,7 @@ import TextContents from "./textContents/TextContents";
 
 export default function HomePage() {
     return (
-        <div className="min-h-screen justify-between gap-24 flex flex-col bg-white">
+        <div className="min-h-screen justify-between overflow-yh gap-24 flex flex-col bg-white">
             {/* Header */}
             <header className="relative">
                 <HomeHeader />
