@@ -3,14 +3,14 @@ import React, { useState } from 'react'
 import Button from '../common/buttons/Button'
 import { IconSearchEngine } from '@/icons'
 import SearchEngineTab from './tabs'
-import { SelectAge } from './select-age'
-import { SelectEconomy } from './select-economy'
+import { SelectAge } from './selects/SelectTravellers'
+import { SelectEconomy } from './selects/SelectEconomy'
 import OneWayTab from './oneWay/OneWayTab'
 import RoundTripTab from './roundTrip/RoundTripTab'
 import MulticityTab from './multiCity/MulticityTab'
 import { nanoid } from 'nanoid'
 import { useSearchParams } from 'next/navigation'
-import SubMenu from './sub-menu'
+import SubMenu from './SubMenu.'
 
 const FlightSearchBar = () => {
     const searchParams = useSearchParams(); // Use searchParams to get URL query parameters

@@ -5,10 +5,10 @@ import Filter from './Filter';
 import SearchResult from './SearchResult';
 import TripDetails from './TripDetails';
 
-const FlightSearchHome = () => {
+const FlightSearchResult = () => {
   return (
     <div className="bg-gray-100 w-full min-h-screen">
-      <div className="flex flex-wrap lg:flex-nowrap gap-4 my-6">
+      <div className="flex flex-wrap lg:flex-nowrap gap-4">
         <Filter />
 
         <section className="w-full lg:w-3/4 space-y-4">
@@ -50,4 +50,4 @@ const FlightSearchHome = () => {
   );
 };
 
-export default FlightSearchHome;
+export default FlightSearchResult;

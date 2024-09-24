@@ -15,7 +15,7 @@ export default function DefaultLayout({
       <Sidebar />
       <div className="relative flex flex-1 flex-col ">
         <Header />
-        <main className="w-full px-2 md:px-12 py-4 md:py-6">{children}</main>
+        <main className="w-full pl-14">{children}</main>
       </div>
     </section>
   );

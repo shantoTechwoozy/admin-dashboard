@@ -4,6 +4,10 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { FaGlobe, FaPlaneArrival, FaPlaneDeparture, FaPray } from 'react-icons/fa';
 
+import { SelectEconomy } from './selects/SelectEconomy';
+import SwitchButton from '../common/buttons/SwitchButton';
+import { SelectTravellers } from './selects/SelectTravellers';
+
 type PropsTypes = {
     value: string;
     name: string;
@@ -17,12 +21,12 @@ const TabName: PropsTypes[] = [
 ];
 
 export default function SearchEngineTab() {
+
     const router = useRouter();
     const pathname = usePathname()
-    console.log("Pathname: ", pathname)
     const searchParams = useSearchParams(); // Use searchParams to get URL query parameters
     const tab = searchParams.get('tab'); // Get the 'tab' parameter from the URL
-    const [activeTab, setActiveTab] = useState('one-way');
+    const [activeTab, setActiveTab] = useState('/one-way');
 
     // Set the active tab based on the URL query parameter or default to "one-way"
     useEffect(() => {
@@ -31,9 +35,6 @@ export default function SearchEngineTab() {
             if (foundTab) {
                 setActiveTab(foundTab.value);
             }
-        } else {
-            // If no 'tab' in the URL, set default to 'one-way'
-            setActiveTab('/one-way');
         }
     }, [tab]);
 
@@ -45,31 +46,28 @@ export default function SearchEngineTab() {
     };
 
     return (
-        <header className="rounded-sm p-2">
-            <div className="mx-auto flex h-auto max-w-screen-xl items-center gap-8">
-                <nav aria-label="Global" className="flex flex-1 items-start justify-start md:justify-between">
-                    <ul className="flex flex-row items-start gap-6 text-sm ml-5 rounded-md">
-                        {TabName.map((tab) => (
-                            <li key={nanoid()} className="relative">
-                                <button
-                                    onClick={() => handleTabChange(tab.value)}
-                                    className={`flex items-center gap-2 px-4 py-2 rounded-t-md border-b-2 transition hover:text-slate-400 font-medium text-md ${activeTab === tab.value ? 'border-blue-600 text-black' : 'border-transparent text-gray-500'
-                                        }`}
-                                >
-                                    {/* Render Icons */}
-                                    {tab.value === 'one-way' && <FaPlaneDeparture className="text-blue-600 lg:hidden" size={24} />}
-                                    {tab.value === 'round-trip' && <FaPlaneArrival className="text-green-600 lg:hidden" size={24} />}
-                                    {tab.value === 'multi-city' && <FaGlobe className="text-orange-600 lg:hidden" size={24} />}
-                                    {tab.value === 'umrah' && <FaPray className="text-purple-600 lg:hidden" size={24} />}
 
-                                    {/* Display tab name */}
-                                    <span className="hidden md:inline">{tab.name}</span>
-                                </button>
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
-            </div>
-        </header>
+        <div className="flex items-center gap-6 text-sm ">
+            {TabName.map((tab) => (
+
+                <button key={nanoid()}
+                    onClick={() => handleTabChange(tab.value)}
+                    className={`flex items-center text-nowrap gap-2 px-4 py-2 rounded-t-md border-b-2 transition hover:text-slate-400 font-medium text-md ${activeTab === tab.value ? 'border-blue-600 text-black' : 'border-transparent text-gray-500'
+                        }`}
+                >
+                    {/* Render Icons */}
+                    {tab.value === 'one-way' && <FaPlaneDeparture className="text-blue-600 lg:hidden" size={24} />}
+                    {tab.value === 'round-trip' && <FaPlaneArrival className="text-green-600 lg:hidden" size={24} />}
+                    {tab.value === 'multi-city' && <FaGlobe className="text-orange-600 lg:hidden" size={24} />}
+                    {tab.value === 'umrah' && <FaPray className="text-purple-600 lg:hidden" size={24} />}
+
+                    {/* Display tab name */}
+                    <span>{tab.name}</span>
+                </button>
+            ))}
+            <SelectTravellers />
+            <SelectEconomy />
+            <SwitchButton />
+        </div>
     );
 }
