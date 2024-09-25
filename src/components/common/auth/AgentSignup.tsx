@@ -1,268 +1,317 @@
 "use client";
-import SignupContainer from "@/components/common/auth/SignupContainer";
 import SignupLabel from "@/components/common/auth/SignupLabel";
-import React, { useState } from "react";
-import SignupInput from "@/components/common/auth/SignupInput";
-import Link from "next/link";
-import Select from "react-dropdown-select";
 import Button from "@/components/common/buttons/Button";
+import Link from "next/link";
+import React, { useState } from "react";
+import Select from "react-select";
+import {
+  allCities,
+  allCountries,
+  allStates,
+} from "../../../../resources/csc/csc";
 
 const AgentSignup = () => {
-    const [formData, setFormData] = useState({
-        type: "",
-        name: "",
-        email: "",
-        phone: "",
-        country: "",
-        state: "",
-        city: "",
-        zip: "",
-        address: "",
-        presenterFirstName: "",
-        presenterLastName: "",
-        presenterDesignation: "",
-    });
+  const [agent, setAgent] = useState({
+    orgType: "",
+    orgName: "",
+    orgAddress: "",
+    country: "",
+    state: "",
+    city: "",
+    phoneNumber: "",
+    zipCode: "",
+    docs: "",
+  });
 
-    console.log("formData", formData);
+  const [user, setUser] = useState({
+    email: "",
+    firstName: "",
+    lastName: "",
+    avatar: "",
+  });
 
-    const organization = [
-        { value: 1, label: "Non-Profit" },
-        { value: 2, label: "For-Profit" },
-    ];
-    const country = [
-        { value: 1, label: "United States" },
-        { value: 2, label: "United States" },
-        { value: 3, label: "United States" },
-    ];
+  const [helper, setHelper] = useState({
+    country: null,
+    state: null,
+    city: null,
+    allStates: [],
+    allCities: [],
+    orgType: null,
+    isoCode: "",
+    stateCode: "",
+    phoneCode: "",
+  });
 
-    const state = [
-        { value: 1, label: "United St" },
-        { value: 2, label: "United Stats" },
-        { value: 3, label: "Unied States" },
-    ];
+  const organization: any[] = [
+    { value: "non-profit", label: "Non-Profit" },
+    { value: "for-profit", label: "For-Profit" },
+  ];
 
-    const handleChange = (e: { target: { name: any; value: any } }) => {
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    console.log(agent, user);
+  };
 
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
-    };
-    const handleSelectChange = (field: string, values: any[]) => {
-        setFormData({ ...formData, [field]: values.length > 0 ? values[0].label : "" })
-    }
+  return (
+    <form
+      className="flex w-[600px] flex-col gap-5 rounded-md p-8"
+      onSubmit={handleSubmit}
+    >
+      <h2 className="text-2xl font-semibold">Agency Registration:</h2>
 
-    const handleSubmit = (e: any) => {
-        e.preventDefault()
-        console.log(formData);
-    };
+      <Flex>
+        <SelectInput
+          label="Type of organization"
+          required
+          options={organization}
+          value={helper.orgType}
+          onChange={(value: any) => {
+            setAgent((prev) => ({ ...prev, orgType: value.value }));
+            setHelper((prev) => ({ ...prev, orgType: value }));
+          }}
+        />
 
-    return (
-        <div className="bg-gray-100 flex min-h-screen items-center justify-center p-6">
-            <form
-                className="w-full max-w-4xl rounded-md bg-white p-8"
-                onSubmit={handleSubmit}
-            >
-                <h2 className="mb-6 text-2xl font-semibold">Agency Registration:</h2>
+        <Input
+          label="Name of organization"
+          placeholder="Name of Org."
+          required
+          value={agent.orgName}
+          onChange={(value) => {
+            setAgent((prev: any) => ({ ...prev, orgName: value }));
+          }}
+        />
+      </Flex>
 
-                <SignupContainer>
-                    <div>
-                        <SignupLabel label="Type of organization" required />
-                        <Select
-                            options={organization}
-                            onChange={(values) => handleSelectChange("type", values)}
-                            searchable={true}
-                            placeholder="Select Type of Org."
-                            values={[]}
-                            required
-                            className="mt-3 w-full rounded-none !border-b !border-b-black !border-l-white !border-r-white !border-t-white p-2 outline-none"
-                            clearOnSelect={false}
-                            dropdownHeight="200px"
-                        />
-                    </div>
-                    <div>
-                        <SignupLabel label="Name of organization" required />
+      <h3 className="-mb-2 text-lg font-semibold">Enter contact details:</h3>
 
-                        <SignupInput
-                            type="text"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            placeholder="Name of Org."
-                        />
-                    </div>
-                </SignupContainer>
+      <Flex>
+        <Input
+          label="First Name"
+          placeholder="Enter First name"
+          required
+          value={user.firstName}
+          onChange={(value) => {
+            setUser((prev: any) => ({ ...prev, firstName: value }));
+          }}
+        />
+        <Input
+          label="Last Name"
+          placeholder="Enter Last name"
+          required
+          value={user.lastName}
+          onChange={(value) => {
+            setUser((prev: any) => ({ ...prev, lastName: value }));
+          }}
+        />
+      </Flex>
 
-                <h3 className="mb-4 text-xl font-semibold">Enter contact details:</h3>
-                <div className="mb-6 grid grid-cols-2 gap-6">
-                    <div>
-                        <SignupLabel label="First Name" required />
-                        <div className="flex">
-                            {/* Dropdown for Title (Mr, Mrs, Ms) */}
+      <Flex>
+        <Input
+          label="Email Address"
+          type="email"
+          placeholder="Enter your Email"
+          required
+          value={user.email}
+          onChange={(value) => {
+            setUser((prev: any) => ({ ...prev, email: value }));
+          }}
+        />
 
-                            <SignupInput
-                                type="text"
-                                name="presenterDesignation"
-                                value={formData.presenterDesignation}
-                                onChange={handleChange}
-                                className="mr-2 mt-3.5 !w-[100px] rounded-none !border-b !border-b-black !border-l-white !border-r-white !border-t-white p-2 outline-none"
-                                placeholder="Designation"
-                            />
+        <Input
+          label="Phone Number"
+          placeholder="Your phone Number"
+          required
+          value={agent.phoneNumber}
+          onChange={(value) => {
+            setAgent((prev: any) => ({ ...prev, phoneNumber: value }));
+          }}
+        />
+      </Flex>
 
-                            {/* Input for First Name */}
-                            <SignupInput
-                                type="text"
-                                name="firstName"
-                                value={formData.presenterFirstName}
-                                onChange={handleChange}
-                                className="w-3/4 rounded-none border border-l-0 border-r-0 border-t-0 border-b-black p-2 outline-none"
-                                placeholder="Enter First name"
-                            />
-                        </div>
-                    </div>
+      <Flex>
+        <SelectInput
+          label="Country"
+          required
+          options={allCountries}
+          onChange={(value: any) => {
+            setAgent((prev) => ({ ...prev, country: value.value }));
 
-                    <div>
-                        <SignupLabel label="Last Name" required />
-                        <SignupInput
-                            type="text"
-                            name="lastName"
-                            value={formData.presenterLastName}
-                            onChange={handleChange}
-                            placeholder="Enter Last name"
-                        />
-                    </div>
-                </div>
-                <div className="mb-6 grid grid-cols-2 gap-6">
-                    <div>
-                        <SignupLabel label="Email Address" required />
+            setHelper((prev: any) => ({
+              ...prev,
+              country: value,
+              state: null,
+              city: null,
+              allStates: allStates(value.isoCode),
+              isoCode: value.isoCode,
+              phoneCode: "+" + value.phoneCode,
+            }));
+          }}
+          value={helper.country}
+          placeholder="Select Country"
+        />
 
-                        <SignupInput
-                            type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            placeholder="Enter Email"
-                        />
-                    </div>
-                    <div>
-                        <SignupLabel label="Phone Number" required />
-                        <div className="mt-0 flex">
-                            <SignupInput
-                                type="text"
-                                name="phoneCode"
-                                value={formData.phone}
-                                onChange={handleChange}
-                                className="mr-2 w-1/4 rounded-none border border-l-0 border-r-0 border-t-0 border-b-black p-2 outline-none"
-                                placeholder="Code"
-                            />
-                            <SignupInput
-                                type="text"
-                                name="phone"
-                                value={formData.phone}
-                                onChange={handleChange}
-                                className="w-3/4 rounded-none border border-l-0 border-r-0 border-t-0 border-b-black p-2 outline-none"
-                                placeholder="Agency Ph. Number"
-                            />
-                        </div>
-                    </div>
-                </div>
-                <div className="mb-6 grid grid-cols-2 gap-6">
-                    <div>
-                        <SignupLabel label="Country" required />
-                        <Select
-                            options={country}
-                            onChange={(values) => handleSelectChange("country", values)}
-                            searchable={true}
-                            placeholder="Select Country"
-                            values={[]}
-                            className="mt-3 w-full rounded-none !border-b !border-b-black !border-l-white !border-r-white !border-t-white p-2 outline-none"
-                            clearOnSelect={false}
-                            dropdownHeight="200px"
-                        />
-                    </div>
-                    <div>
-                        <SignupLabel label="State" required />
-                        <Select
-                            options={state}
-                            onChange={(values) => handleSelectChange("state", values)}
-                            searchable={true}
-                            placeholder="Select State"
-                            values={[]}
-                            className="mt-3 w-full rounded-none !border-b !border-b-black !border-l-white !border-r-white !border-t-white p-2 outline-none"
-                            clearOnSelect={false}
-                            dropdownHeight="200px"
-                        />
-                    </div>
-                </div>
+        <SelectInput
+          label="State"
+          required
+          options={helper.allStates}
+          onChange={(value: any) => {
+            setAgent((prev) => ({ ...prev, state: value.value }));
+            setHelper((prev: any) => ({
+              ...prev,
+              state: value,
+              city: null,
+              stateCode: value.stateCode,
+              allCities: allCities(helper.isoCode, value.stateCode),
+            }));
+          }}
+          value={helper.state}
+          placeholder="Select Country"
+        />
+      </Flex>
 
-                <div className="mb-6 grid grid-cols-2 gap-6">
-                    <div>
-                        <SignupLabel label="City/Town" required />
+      <Flex>
+        <SelectInput
+          label="City/Town"
+          required
+          options={allStates(helper.isoCode)}
+          onChange={(value: any) => {
+            setAgent((prev) => ({ ...prev, city: value.value }));
+            setHelper((prev) => ({
+              ...prev,
+              city: value,
+            }));
+          }}
+          value={helper.city}
+          placeholder="Select Country"
+        />
 
-                        <Select
-                            options={country}
-                            onChange={(values) => handleSelectChange("city", values)}
-                            searchable={true}
-                            placeholder="Select City/Town"
-                            values={[]}
-                            className="mt-3 w-full rounded-none !border-b !border-b-black !border-l-white !border-r-white !border-t-white p-2 outline-none"
-                            clearOnSelect={false}
-                            dropdownHeight="200px"
-                        />
-                    </div>
-                    <div>
-                        <SignupLabel label="Address line" required />
-                        <SignupInput
-                            type="text"
-                            name="address"
-                            value={formData.address}
-                            onChange={handleChange}
-                            placeholder="Input Address"
-                        />
-                    </div>
-                </div>
+        <Input
+          label="Address"
+          placeholder="Your address.."
+          required
+          value={agent.orgAddress}
+          onChange={(value) => {
+            setAgent((prev: any) => ({ ...prev, orgAddress: value }));
+          }}
+        />
+      </Flex>
 
-                <div className="mb-6 grid grid-cols-2 gap-6">
-                    <div>
-                        <SignupLabel label="Zip / Postal Code" required />
-                        <SignupInput
-                            type="text"
-                            name="zip"
-                            value={formData.zip}
-                            onChange={handleChange}
-                            placeholder="Enter Zip / Postal Code"
-                        />
-                    </div>
-                </div>
+      <Flex>
+        <Input
+          label="Zip / Postal Code"
+          placeholder="Enter Zip / Postal Code"
+          required
+          value={agent.zipCode}
+          onChange={(value) => {
+            setAgent((prev: any) => ({ ...prev, zipCode: value }));
+          }}
+        />
+      </Flex>
 
-                <div className="mb-6 flex items-center justify-start">
-                    {/* <button
-                        type="button"
-                        className="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600"
-                    >
-                        Upload document
-                    </button> */}
-                    <div className="text-gray-600 text-sm">
-                        By creating an account you are agreeing to our{" "}
-                        <Link href="#" className="text-blue-500">
-                            T & C
-                        </Link>
-                        {/* <FormFooter name="Already have an account?" registration="Login" href="/signin/agent" /> */}
-                    </div>
-                </div>
-
-                <div className="flex justify-start">
-                    <div>
-                        <Button
-                            text="Submit"
-                            onClick={() => { }}
-                            className="flex w-[300px] items-center justify-center rounded-full text-center"
-                        />
-                    </div>
-                </div>
-            </form>
+      <div className="mb-6 flex items-center justify-start">
+        <div className="text-gray-600 text-sm">
+          By creating an account you are agreeing to our{" "}
+          <Link href="#" className="text-blue-500">
+            T & C
+          </Link>
         </div>
-    );
+      </div>
+
+      <div className="flex justify-start">
+        <div>
+          <Button
+            text="Submit"
+            className="flex w-[300px] items-center justify-center rounded-full text-center"
+          />
+        </div>
+      </div>
+    </form>
+  );
 };
 
 export default AgentSignup;
+
+/**===================HELPING COMPONENTS======================== */
+
+interface Inputs {
+  label: string;
+  value: string;
+  type?: string;
+  placeholder: string;
+  onChange: (value: string) => void;
+  required?: boolean;
+}
+
+const Input: React.FC<Inputs> = ({
+  placeholder,
+  label,
+  onChange,
+  value,
+  required,
+  type = "text",
+}) => {
+  return (
+    <div>
+      <SignupLabel label={label} required={required} />
+      <input
+        type={type}
+        value={value}
+        onChange={(e: any) => onChange(e.target.value)}
+        className="mt-1 w-full rounded-none border border-l-0 border-r-0 border-t-0 px-2 py-1 placeholder:text-base focus:outline-none"
+        required={required}
+        placeholder={placeholder}
+        autoComplete="off"
+      />
+    </div>
+  );
+};
+
+const customStyles = {
+  control: (provided: any, state: any) => ({
+    ...provided,
+    border: "none",
+    borderBottom: "1px solid",
+    borderRadius: "0px",
+    boxShadow: "none", // Remove shadow on focus
+    "&:hover": {
+      border: "none",
+      borderBottom: "1px solid",
+    },
+  }),
+  indicatorSeparator: () => ({
+    display: "none", // Remove the right border line
+  }),
+  dropdownIndicator: () => ({
+    display: "none", // Hide the dropdown arrow
+  }),
+};
+
+const SelectInput: React.FC<any> = ({
+  options,
+  onChange,
+  label,
+  value,
+  placeholder,
+  required,
+}) => {
+  return (
+    <div className="w-full">
+      <SignupLabel label={label} required={required} />
+      <Select
+        options={options}
+        onChange={onChange}
+        value={value}
+        required={required}
+        placeholder={placeholder}
+        styles={customStyles}
+      />
+    </div>
+  );
+};
+
+interface Flexs {
+  children: React.ReactNode;
+}
+const Flex: React.FC<Flexs> = ({ children }) => {
+  return <div className="flex items-center gap-6 *:flex-1">{children}</div>;
+};

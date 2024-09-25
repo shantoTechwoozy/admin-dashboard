@@ -1,4 +1,4 @@
-import tripbeyond from "@/utils/axios/tripbeyond";
+import { tripbeyond } from "@/utils/axios/tripbeyond";
 import { action, thunk } from "easy-peasy";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
