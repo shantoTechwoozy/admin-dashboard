@@ -64,12 +64,12 @@ const SidebarItem: React.FC<PropsTypes> = ({ item, className }) => {
           {item.icon}
         </span>
 
-        <span className="capitalize">{item.label}</span>
+        <span className="capitalize text-nowrap text-white">{item.label}</span>
 
         {/* Render down arrow for items with children */}
         {item.children && (
           <IconSidebar.DownArrow
-            className={cn("ml-auto rotate-[-90deg] duration-300", {
+            className={cn("ml-auto text-white rotate-[-90deg] duration-300", {
               "rotate-[0deg]": isOpen,
             })}
           />

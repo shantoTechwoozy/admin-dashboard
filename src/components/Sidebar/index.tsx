@@ -6,7 +6,7 @@ const Sidebar = () => {
   return (
     <aside
       className={cn(
-        `fixed left-0 top-0 z-999 h-screen w-64 bg-secondary duration-700 dark:bg-boxdark`,
+        `fixed left-0 top-0 z-50 h-screen w-14 hover:w-64 bg-secondary duration-500 dark:bg-boxdark`,
       )}
     >
       <SidebarLogo />
