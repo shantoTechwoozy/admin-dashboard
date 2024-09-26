@@ -5,7 +5,7 @@ import { IconSidebar } from "@/icons";
 
 const SidebarLogo = () => {
   return (
-    <div className="flex items-center justify-center gap-3 px-6 py-5.5 lg:py-6.5">
+    <div className="flex items-center justify-center gap-3 px-6 py-8 lg:py-8">
       <Logo isDark={false} />
 
       {/* <button
