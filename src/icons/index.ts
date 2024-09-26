@@ -1,7 +1,16 @@
 import { BiLogOut, BiSupport } from "react-icons/bi";
 import { CgArrowsExchange } from "react-icons/cg";
 import { CiUser, CiYoutube } from "react-icons/ci";
-import { FaFacebookF, FaGoogle, FaHistory, FaLayerGroup, FaPlane, FaSearchPlus, FaUser, FaUserShield } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaGoogle,
+  FaHistory,
+  FaLayerGroup,
+  FaPlane,
+  FaSearchPlus,
+  FaUser,
+  FaUserShield,
+} from "react-icons/fa";
 import { FaAngleDown, FaRegCommentDots } from "react-icons/fa6";
 import { GrContactInfo, GrMenu } from "react-icons/gr";
 import { HiBriefcase, HiOutlineSearch } from "react-icons/hi";
@@ -15,8 +24,9 @@ import {
   MdKeyboardDoubleArrowRight,
   MdNotificationsNone,
   MdOutlineDashboardCustomize,
-  MdOutlineFlight, MdOutlineTour,
-  MdPeople
+  MdOutlineFlight,
+  MdOutlineTour,
+  MdPeople,
 } from "react-icons/md";
 
 import { GiAirplaneDeparture, GiAvoidance } from "react-icons/gi";
@@ -27,7 +37,7 @@ import {
   TbLocationSearch,
   TbLogin2,
   TbReport,
-  TbTransactionDollar
+  TbTransactionDollar,
 } from "react-icons/tb";
 import { TfiInstagram, TfiTwitter } from "react-icons/tfi";
 import { VscGitPullRequestNewChanges, VscIssueReopened } from "react-icons/vsc";
@@ -40,7 +50,7 @@ export const IconTopBar = {
   myProfile: CiUser,
   accountSettings: IoSettingsOutline,
   logout: BiLogOut,
-  notification: MdNotificationsNone,
+  Notification: MdNotificationsNone,
   comments: FaRegCommentDots,
 };
 
@@ -78,7 +88,13 @@ export const IconSidebar = {
 
 // Other icon sets can be similarly defined
 export const IconDashboard = { authentication: TbLogin2 };
-export const IconSearchEngine = { Swap: CgArrowsExchange, AddNew: FaSearchPlus, Day: WiDayHaze, DownArrow: FaAngleDown, Flight: GiAirplaneDeparture };
+export const IconSearchEngine = {
+  Swap: CgArrowsExchange,
+  AddNew: FaSearchPlus,
+  Day: WiDayHaze,
+  DownArrow: FaAngleDown,
+  Flight: GiAirplaneDeparture,
+};
 export const IconSharePnr = { plane: FaPlane };
 export const IconBookingHistory = { authentication: TbLogin2 };
 export const IconPartialPayment = { authentication: TbLogin2 };
@@ -93,6 +109,17 @@ export const IconBankList = { authentication: TbLogin2 };
 export const IconCompany = { authentication: TbLogin2 };
 export const IconSettings = { authentication: TbLogin2 };
 export const IconProfile = { authentication: TbLogin2 };
-export const IconAuthentication = { user: FaUser, agent: FaUserShield, Facebook: FaFacebookF, Google: FaGoogle };
-export const IconFooter = { youtube: CiYoutube, facebook: FaFacebookF, linkedin: SlSocialLinkedin, instagram: TfiInstagram, twitter: TfiTwitter }
-export const IconHomePage = { Phone: IoMdCall }
+export const IconAuthentication = {
+  user: FaUser,
+  agent: FaUserShield,
+  Facebook: FaFacebookF,
+  Google: FaGoogle,
+};
+export const IconFooter = {
+  youtube: CiYoutube,
+  facebook: FaFacebookF,
+  linkedin: SlSocialLinkedin,
+  instagram: TfiInstagram,
+  twitter: TfiTwitter,
+};
+export const IconHomePage = { Phone: IoMdCall };

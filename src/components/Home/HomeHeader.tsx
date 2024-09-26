@@ -12,109 +12,100 @@ import UserSignup from "../common/auth/UserSignup";
 import Button from "../common/buttons/Button";
 
 export default function HomeHeader() {
-    const [isUserLoginOpen, setIsUserLoginOpen] = useState(false);
-    const [isUserSignupOpen, setIsUserSignupOpen] = useState(false);
-    const [isAgentLoginOpen, setIsAgentLoginOpen] = useState(false);
-    const [isAgentSignupOpen, setIsAgentSignupOpen] = useState(false);
+  const [isUserLoginOpen, setIsUserLoginOpen] = useState(false);
+  const [isUserSignupOpen, setIsUserSignupOpen] = useState(false);
+  const [isAgentLoginOpen, setIsAgentLoginOpen] = useState(false);
+  const [isAgentSignupOpen, setIsAgentSignupOpen] = useState(false);
 
-    const onOpenUserLoginModal = () => setIsUserLoginOpen(true);
-    const onCloseUserLoginModal = () => setIsUserLoginOpen(false);
+  return (
+    <header className="sticky left-0 top-0 z-999 w-full bg-[url('/images/banner/banner.webp')]">
+      <nav
+        aria-label="Global"
+        className="flex items-center justify-between p-6 lg:px-8"
+      >
+        <Logo isDark={false} />
 
-    const onOpenUserSignupModal = () => setIsUserSignupOpen(true);
-    const onCloseUserSignupModal = () => setIsUserSignupOpen(false);
+        <div className="hidden items-center lg:flex lg:gap-x-8">
+          <Button
+            onClick={() => setIsUserLoginOpen(true)}
+            text="Sign in"
+            className="w-16 rounded-none bg-transparent p-0 font-thin text-white"
+          />
+          <div className="flex h-12 w-[1px] bg-white"></div>
+          <Button
+            onClick={() => setIsUserSignupOpen(true)}
+            text="Sign Up"
+            className="w-16 rounded-none bg-transparent p-0 font-thin text-white"
+          />
 
-    const onOpenAgentLoginModal = () => setIsAgentLoginOpen(true);
-    const onCloseAgentLoginModal = () => setIsAgentLoginOpen(false);
+          <div className="flex">
+            <div className="h-6 w-6 rounded-full bg-white"></div>
+            <Button
+              onClick={() => setIsUserLoginOpen(true)}
+              text="Welcome MD"
+              className="w-35 rounded-none bg-transparent p-0 font-thin text-white"
+            />
+          </div>
 
-    const onOpenAgentSignupModal = () => setIsAgentSignupOpen(true);
-    const onCloseAgentSignupModal = () => setIsAgentSignupOpen(false);
+          <Button
+            onClick={() => setIsAgentLoginOpen(true)}
+            text="Agent Login"
+            className="w-35 rounded-full font-bold text-black"
+          />
 
-    return (
+          {/* User Login Modal */}
+          <Modal
+            open={isUserLoginOpen}
+            onClose={() => setIsUserLoginOpen(false)}
+            center
+            classNames={{ modal: "customModal" }}
+          >
+            <UserLogin
+              onOpenSignupModal={() => setIsUserSignupOpen(true)}
+              onCloseLoginModal={() => setIsUserLoginOpen(false)}
+            />
+          </Modal>
 
-        <header className="absolute inset-x-0 top-0 z-50 bg-[url('/images/banner/banner.webp')]">
-            <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
-                <div className="flex justify-between lg:flex-1">
-                    <Logo isDark={false} />
-                </div>
+          {/* User Signup Modal */}
+          <Modal
+            open={isUserSignupOpen}
+            onClose={() => setIsUserSignupOpen(false)}
+            center
+            classNames={{ modal: "customModal" }}
+          >
+            <UserSignup />
+          </Modal>
 
-                <div className="hidden items-center lg:flex lg:gap-x-8">
-                    <Button
-                        onClick={onOpenUserLoginModal}
-                        text="Sign in"
-                        className="bg-transparent p-0 rounded-none w-16 text-white font-thin"
-                    />
-                    <div className="bg-white h-12 flex w-[1px]"></div>
-                    <Button
-                        onClick={onOpenUserSignupModal}
-                        text="Sign Up"
-                        className="bg-transparent p-0 rounded-none w-16 text-white font-thin"
-                    />
+          {/* Agent Login Modal */}
+          <Modal
+            open={isAgentLoginOpen}
+            onClose={() => setIsAgentLoginOpen(false)}
+            center
+            classNames={{ modal: "customModal" }}
+          >
+            <AgentLogin
+              onOpenSignupModal={() => setIsAgentSignupOpen(true)}
+              onCloseLoginModal={() => setIsAgentLoginOpen(false)}
+            />
+          </Modal>
 
-                    <div className="flex">
-                        <div className="rounded-full bg-white w-6 h-6"></div>
-                        <Button
-                            onClick={onOpenUserLoginModal}
-                            text="Welcome MD"
-                            className="bg-transparent p-0 rounded-none w-35 text-white font-thin"
-                        />
-                    </div>
+          {/* Agent Signup Modal */}
+          <Modal
+            open={isAgentSignupOpen}
+            onClose={() => setIsAgentSignupOpen(false)}
+            center
+            classNames={{ modal: "customModal" }}
+          >
+            <AgentSignup />
+          </Modal>
 
-                    <Button
-                        onClick={onOpenAgentLoginModal}
-                        text="Agent Login"
-                        className="rounded-full w-35 text-black font-bold"
-                    />
-
-                    {/* User Login Modal */}
-                    <Modal
-                        open={isUserLoginOpen}
-                        onClose={onCloseUserLoginModal}
-                        center
-                        classNames={{ modal: "customModal" }}
-                    >
-                        <UserLogin
-                            onOpenSignupModal={onOpenUserSignupModal}
-                            onCloseLoginModal={onCloseUserLoginModal}
-                        />
-                    </Modal>
-
-                    {/* User Signup Modal */}
-                    <Modal
-                        open={isUserSignupOpen}
-                        onClose={onCloseUserSignupModal}
-                        center
-                        classNames={{ modal: "customModal" }}
-                    >
-                        <UserSignup />
-                    </Modal>
-
-                    {/* Agent Login Modal */}
-                    <Modal
-                        open={isAgentLoginOpen}
-                        onClose={onCloseAgentLoginModal}
-                        center
-                        classNames={{ modal: "customModal" }}
-                    >
-                        <AgentLogin
-                            onOpenSignupModal={onOpenAgentSignupModal}
-                            onCloseLoginModal={onCloseAgentLoginModal}
-                        />
-                    </Modal>
-
-                    {/* Agent Signup Modal */}
-                    <Modal
-                        open={isAgentSignupOpen}
-                        onClose={onCloseAgentSignupModal}
-                        center
-                        classNames={{ modal: "customModal" }}
-                    >
-                        <AgentSignup />
-                    </Modal>
-
-                    <IconHomePage.Phone className="bg-primary rounded-full p-1 text-black" size={35} />
-                </div>
-                <MobileMenu />
-            </nav>
-        </header>
-    );
+          <IconHomePage.Phone
+            className="rounded-full bg-primary p-1 text-black"
+            size={35}
+          />
+        </div>
+        <MobileMenu />
+      </nav>
+    </header>
+  );
 }
