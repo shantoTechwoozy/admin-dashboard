@@ -1,7 +1,8 @@
+import React from "react";
 import SearchEngine from "@/components/search-engine/search-engine";
 
-const SearchEnginePage = () => {
+const SEpage = () => {
   return <SearchEngine />;
 };
 
-export default SearchEnginePage;
+export default SEpage;

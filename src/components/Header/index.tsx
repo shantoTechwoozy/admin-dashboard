@@ -1,26 +1,78 @@
-"use client"
-import DarkModeSwitcher from "./DarkModeSwitcher";
+"use client";
+import ThemeSwitcher from "@/themes/ThemeSwitcher";
+import { Bell, MagnifyingGlass as Search } from "phosphor-react";
 import MobileMenuIcon from "./MobileMenuIcon";
-import Notifications from "./notifications";
-import Profile from "./profile/Profile";
-import SearchInput from "./SearchInput";
 
+import {
+  Avatar,
+  AvatarImage,
+  Button,
+  Input,
+  InputIcon,
+  Popover,
+  PopoverAction,
+  PopoverContent,
+  PopoverDescription,
+  PopoverHeading,
+} from "keep-react";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-99 flex w-full flex-grow items-center justify-between gap-5 bg-white px-4 py-4 shadow-2 drop-shadow-1 dark:bg-boxdark dark:drop-shadow-none md:px-6 2xl:px-11">
+    <header className="sticky top-0 flex gap-1 bg-white px-5 py-5">
       <MobileMenuIcon />
-      <SearchInput value="Type to search..." onChange={() => { }} />
 
-      <DarkModeSwitcher />
+      <fieldset className="relative max-w-md">
+        <Input placeholder="Search anything..." className="border-none ps-10" />
+        <InputIcon>
+          <Search size={20} color="#AFBACA" />
+        </InputIcon>
+      </fieldset>
 
-      <Notifications />
+      <div className="ml-auto">
+        <ThemeSwitcher />
+      </div>
 
-      <Profile
-        username="Shanto"
-        designation="Sr. software engineer"
-        avatarUrl="/images/user/user-01.png"
-      />
+      {/* notifications  */}
+      <Popover placement="bottom">
+        <PopoverAction>
+          <button className="bg-primary-25 rounded-lg border p-2.5 dark:bg-white">
+            <Bell size={20} color="#1C222B" />
+          </button>
+        </PopoverAction>
+        <PopoverContent className="z-20 flex items-center gap-3 rounded-xl bg-white p-4 dark:bg-metal-900">
+          <div>
+            <Avatar>
+              <AvatarImage src={""} />
+            </Avatar>
+          </div>
+          <div>
+            <PopoverHeading>Keep Designer</PopoverHeading>
+            <PopoverDescription>keepdesign@email.com</PopoverDescription>
+          </div>
+          <Button variant="outline">Follow</Button>
+        </PopoverContent>
+      </Popover>
+
+      {/* avatar  */}
+      <Popover placement="bottom">
+        <PopoverAction>
+          <Avatar>
+            <AvatarImage src={""} />
+          </Avatar>
+        </PopoverAction>
+        <PopoverContent className="z-20 flex items-center gap-3 rounded-xl bg-white p-4 dark:bg-metal-900">
+          <div>
+            <Avatar>
+              <AvatarImage src={""} />
+            </Avatar>
+          </div>
+          <div>
+            <PopoverHeading>Keep Designer</PopoverHeading>
+            <PopoverDescription>keepdesign@email.com</PopoverDescription>
+          </div>
+          <Button variant="outline">Follow</Button>
+        </PopoverContent>
+      </Popover>
     </header>
   );
 };

@@ -9,8 +9,16 @@ import {
   allCountries,
   allStates,
 } from "../../../../resources/csc/csc";
+import cn from "@/utils/cn";
+import { useStoreActions, useStoreState } from "easy-peasy";
+import { useRouter } from "next/navigation";
+import {  toast } from 'keep-react'
 
 const AgentSignup = () => {
+  const { register } = useStoreActions((actions: any) => actions.auth);
+  const { isLoading } = useStoreState((state: any) => state.auth);
+  const router = useRouter();
+
   const [agent, setAgent] = useState({
     orgType: "",
     orgName: "",
@@ -49,7 +57,8 @@ const AgentSignup = () => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    console.log(agent, user);
+    toast.success("WOW");
+    register({ credentials: { ...agent, user }, router });
   };
 
   return (
@@ -57,7 +66,7 @@ const AgentSignup = () => {
       className="flex w-[600px] flex-col gap-5 rounded-md p-8"
       onSubmit={handleSubmit}
     >
-      <h2 className="text-2xl font-semibold">Agency Registration:</h2>
+      <button onClick={()=>toast.success('Keep React success toast')} className="text-2xl font-semibold">Agency Registration:</button>
 
       <Flex>
         <SelectInput
@@ -196,7 +205,7 @@ const AgentSignup = () => {
         />
       </Flex>
 
-      <Flex>
+      <Flex className="w-1/2">
         <Input
           label="Zip / Postal Code"
           placeholder="Enter Zip / Postal Code"
@@ -208,19 +217,19 @@ const AgentSignup = () => {
         />
       </Flex>
 
-      <div className="mb-6 flex items-center justify-start">
-        <div className="text-gray-600 text-sm">
-          By creating an account you are agreeing to our{" "}
-          <Link href="#" className="text-blue-500">
-            T & C
-          </Link>
-        </div>
+      <div className="text-gray-600 text-sm">
+        By creating an account you are agreeing to our
+        <Link href="/terms-condition" className="ml-2 text-blue-500">
+          T & C
+        </Link>
       </div>
 
       <div className="flex justify-start">
         <div>
           <Button
             text="Submit"
+            type="submit"
+            isLoading={isLoading}
             className="flex w-[300px] items-center justify-center rounded-full text-center"
           />
         </div>
@@ -311,7 +320,12 @@ const SelectInput: React.FC<any> = ({
 
 interface Flexs {
   children: React.ReactNode;
+  className?: string;
 }
-const Flex: React.FC<Flexs> = ({ children }) => {
-  return <div className="flex items-center gap-6 *:flex-1">{children}</div>;
+const Flex: React.FC<Flexs> = ({ className, children }) => {
+  return (
+    <div className={cn("flex items-center gap-6 *:flex-1", className)}>
+      {children}
+    </div>
+  );
 };
