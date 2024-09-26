@@ -12,7 +12,7 @@ import {
 import cn from "@/utils/cn";
 import { useStoreActions, useStoreState } from "easy-peasy";
 import { useRouter } from "next/navigation";
-import {  toast } from 'keep-react'
+import { toast } from "keep-react";
 
 const AgentSignup = () => {
   const { register } = useStoreActions((actions: any) => actions.auth);
@@ -63,10 +63,15 @@ const AgentSignup = () => {
 
   return (
     <form
-      className="flex w-[600px] flex-col gap-5 rounded-md p-8"
+      className="flex w-[600px] flex-col gap-6 rounded-md"
       onSubmit={handleSubmit}
     >
-      <button onClick={()=>toast.success('Keep React success toast')} className="text-2xl font-semibold">Agency Registration:</button>
+      <button
+        onClick={() => toast.success("Keep React success toast")}
+        className="text-2xl font-semibold"
+      >
+        Agency Registration:
+      </button>
 
       <Flex>
         <SelectInput
@@ -217,7 +222,7 @@ const AgentSignup = () => {
         />
       </Flex>
 
-      <div className="text-gray-600 text-sm">
+      <div className="text-sm text-gray-600">
         By creating an account you are agreeing to our
         <Link href="/terms-condition" className="ml-2 text-blue-500">
           T & C
@@ -266,7 +271,7 @@ const Input: React.FC<Inputs> = ({
         type={type}
         value={value}
         onChange={(e: any) => onChange(e.target.value)}
-        className="mt-1 w-full rounded-none border border-l-0 border-r-0 border-t-0 px-2 py-1 placeholder:text-base focus:outline-none"
+        className="mt-1 w-full rounded-none border border-l-0 border-r-0 border-t-0 border-black px-2 py-1 placeholder:text-base focus:outline-none"
         required={required}
         placeholder={placeholder}
         autoComplete="off"

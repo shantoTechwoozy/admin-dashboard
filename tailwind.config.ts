@@ -4,14 +4,11 @@ import { colors } from "keep-react/keepTheme";
 
 const colorsPalette = {
   ...colors,
-  success: {
-    //... 25 - 900
+  primary: {
+    "500": "#F6931D",
   },
-  warning: {
-    //... 25 - 900
-  },
-  error: {
-    //... 25 - 900
+  secondary: {
+    "500": "#0C254D",
   },
 };
 
@@ -23,12 +20,7 @@ const config: Config = {
   ],
   darkMode: "class",
   theme: {
-    extend: {
-      colors: {
-        primary: "#F6931D",
-        secondary: "#0C254D",
-      },
-    },
+    extend: {},
   },
   plugins: [],
 };

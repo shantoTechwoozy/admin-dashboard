@@ -1,35 +1,35 @@
-import Link from 'next/link'
-import React from 'react'
+import Link from "next/link";
+import React from "react";
 
 interface PropsTypes {
-    name?: string;
-    registration?: string;
-    href: string;
-    forgetTitle?: string;
-    onRegisterClick?: () => void;
+  name?: string;
+  registration?: string;
+  href: string;
+  forgetTitle?: string;
 }
 
-const FormFooter: React.FC<PropsTypes> = ({ name, registration, href, forgetTitle, onRegisterClick }) => {
-    return (
-        <div className="mt-4 flex text-sm font-bold text-gray-600 dark:text-gray-400 space-x-30">
-            {name}
-            <Link
-                href={href}
-                className="hover:underline font-normal ml-2"
-                onClick={onRegisterClick}
-            >
-                {registration}
-            </Link>
-            {forgetTitle && (
-                <Link
-                    href={forgetTitle?.split(" ").join("-").toLowerCase()}
-                    className="hover:underline ml-auto"
-                >
-                    <span>{forgetTitle}?</span>
-                </Link>
-            )}
-        </div>
-    )
-}
+const FormFooter: React.FC<PropsTypes> = ({
+  name,
+  registration,
+  href,
+  forgetTitle,
+}) => {
+  return (
+    <div className="space-x-30 mt-4 flex text-sm font-bold text-gray-600 dark:text-gray-400">
+      {name}
+      <Link href={href} className="ml-2 font-normal hover:underline">
+        {registration}
+      </Link>
+      {forgetTitle && (
+        <Link
+          href={forgetTitle?.split(" ").join("-").toLowerCase()}
+          className="ml-auto hover:underline"
+        >
+          <span>{forgetTitle}?</span>
+        </Link>
+      )}
+    </div>
+  );
+};
 
-export default FormFooter
+export default FormFooter;

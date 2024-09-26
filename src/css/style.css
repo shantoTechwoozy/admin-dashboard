@@ -94,7 +94,7 @@ body {
   }
 
   .apexcharts-xaxistooltip-bottom {
-    @apply !rounded !border-none !bg-gray !text-xs !font-medium !text-black dark:!text-white;
+    @apply !bg-gray !rounded !border-none !text-xs !font-medium !text-black dark:!text-white;
   }
 
   .apexcharts-tooltip-series-group {
@@ -119,7 +119,7 @@ body {
   }
 
   .flatpickr-calendar {
-    @apply !p-6 dark:!bg-boxdark dark:!text-bodydark dark:!shadow-8 2xsm:!w-auto;
+    @apply dark:!bg-boxdark dark:!text-bodydark dark:!shadow-8 2xsm:!w-auto !p-6;
   }
 
   .flatpickr-day {
@@ -165,7 +165,7 @@ body {
   .flatpickr-day:focus,
   .flatpickr-day.prevMonthDay:focus,
   .flatpickr-day.nextMonthDay:focus {
-    @apply !border-[#F3F4F6] !bg-[#F3F4F6] dark:!border-meta-4 dark:!bg-meta-4;
+    @apply dark:!border-meta-4 dark:!bg-meta-4 !border-[#F3F4F6] !bg-[#F3F4F6];
   }
 
   .flatpickr-day.selected,
@@ -194,7 +194,7 @@ body {
   .flatpickr-day.startRange.nextMonthDay,
   .flatpickr-day.endRange.nextMonthDay {
     background: #3c50e0;
-    @apply !border-primary !bg-primary hover:!border-primary hover:!bg-primary;
+    /* @apply !border-primary !bg-primary hover:!border-primary hover:!bg-primary; */
   }
 
   .flatpickr-day.selected.startRange + .endRange:not(:nth-child(7n + 1)),
@@ -224,7 +224,7 @@ body {
   }
 
   .taskCheckbox:checked ~ .box {
-    @apply border-primary bg-primary dark:border-primary;
+    /* @apply border-primary bg-primary dark:border-primary; */
   }
 
   .custom-input-date::-webkit-calendar-picker-indicator {
