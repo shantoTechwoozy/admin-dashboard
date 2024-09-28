@@ -1,32 +1,18 @@
 "use client";
-import LoginForm from "@/components/common/auth/LoginForm";
-import FormFooter from "@/components/common/auth/FormFooter";
-import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import { useRouter } from "next/navigation";
-import "react-toastify/dist/ReactToastify.css";
-import { Button, ModalTitle } from "keep-react";
 import KeepInput from "@/components/keep-react/KeepInput";
+import { Button, ModalTitle } from "keep-react";
+import { useState } from "react";
+import "react-toastify/dist/ReactToastify.css";
 
 const AgentLogin = () => {
-  const [loginData, setLoginData] = useState({ agentID: "", password: "" });
-  const router = useRouter();
+
 
   const [agent, setAgent] = useState({
     agentID: "",
     password: "",
   });
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  };
 
-  const handleInputChange = (e: any) => {
-    const { name, value } = e.target;
-    setAgent({
-      ...agent,
-      [name]: value,
-    });
-  };
+
 
   return (
     <div className="flex flex-col gap-4">
@@ -37,5 +23,4 @@ const AgentLogin = () => {
     </div>
   );
 };
-
 export default AgentLogin;

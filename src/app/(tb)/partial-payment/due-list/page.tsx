@@ -1,7 +1,10 @@
-import DueList from "@/components/Partial-Payment/DueList";
+import Payments from "@/components/paymentRequests/Payments";
+import React from "react";
 
-const PartialPaymentDueListPage = () => {
-  return <div><DueList /></div>;
+const page = () => {
+  return (
+    <Payments />
+  );
 };
 
-export default PartialPaymentDueListPage;
+export default page;

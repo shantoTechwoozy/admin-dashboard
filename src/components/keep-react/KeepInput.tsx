@@ -17,7 +17,7 @@ const KeepInput: React.FC<KeepInputProps> = ({
   if (label) {
     return (
       <fieldset className="space-y-1">
-        <Label htmlFor="name">Enter Name</Label>
+        <Label htmlFor="name">{label}</Label>
         <Input
           type={type}
           {...rest}

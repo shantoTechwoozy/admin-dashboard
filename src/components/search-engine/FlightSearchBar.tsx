@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Button from '../common/buttons/Button'
 import { IconSearchEngine } from '@/icons'
 import SearchEngineTab from './tabs'
-import { SelectAge } from './selects/SelectTravellers'
+import { SelectTravellers } from './selects/SelectTravellers'
 import { SelectEconomy } from './selects/SelectEconomy'
 import OneWayTab from './oneWay/OneWayTab'
 import RoundTripTab from './roundTrip/RoundTripTab'
@@ -44,7 +44,7 @@ const FlightSearchBar = () => {
                 <div className="flex flex-col lg:flex-row h-auto w-full items-center gap-1">
                     <SearchEngineTab />
                     <div className="flex items-start gap-2 ml-5 text-sm rounded-md">
-                        <SelectAge />
+                        <SelectTravellers />
                     </div>
                     <div className="flex items-start gap-2 ml-5 text-sm rounded-md">
                         <SelectEconomy />

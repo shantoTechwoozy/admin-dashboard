@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FaFileUpload } from "react-icons/fa";
 import PageTitle from "./PageTitle";
 
-const SubmitForm = () => {
+const PaymentRequest = () => {
   const [depositType, setDepositType] = useState("Cheque");
   const [bankAccount, setBankAccount] = useState("");
   const [depositDate, setDepositDate] = useState("");
@@ -171,4 +171,4 @@ const SubmitForm = () => {
   );
 };
 
-export default SubmitForm;
+export default PaymentRequest;

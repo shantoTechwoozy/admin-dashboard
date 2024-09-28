@@ -35,14 +35,16 @@ const Header = () => {
       {/* notifications  */}
       <Popover placement="bottom">
         <PopoverAction>
-          <button className="bg-primary-25 rounded-lg border p-2.5 dark:bg-white">
-            <Bell size={20} color="#1C222B" />
+          <button className=" rounded-lg border-none p-2.5">
+            <Bell size={20} />
           </button>
         </PopoverAction>
         <PopoverContent className="z-20 flex items-center gap-3 rounded-xl bg-white p-4 dark:bg-metal-900">
           <div>
             <Avatar>
-              <AvatarImage src={""} />
+              <AvatarImage
+                className="bg-white"
+                src={""} />
             </Avatar>
           </div>
           <div>

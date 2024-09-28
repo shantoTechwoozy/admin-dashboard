@@ -26,7 +26,7 @@ export async function middleware(request: NextRequest) {
   }
 
   // route management for /partial-payment route
-  let pp = "/partial-payment";
+  let pp = "/partial-payments";
   if (pathname === pp) {
     return redirectTo(`${pp}/due-list`);
   }
