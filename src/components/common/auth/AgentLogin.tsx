@@ -34,5 +34,4 @@ const AgentLogin = () => {
     </div>
   );
 };
-
 export default AgentLogin;
