@@ -1,7 +1,6 @@
 import Breadcrumb from "@/components/breadcr/Breadcrumb";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import SearchEngine from "@/components/search-engine/search-engine";
-import SubMenu from "@/components/search-engine/sub-menu";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,7 +13,6 @@ const TablesPage = () => {
   return (
     <DefaultLayout>
       <Breadcrumb pageName="Search Flights" />
-      <SubMenu />
       <div className="flex flex-col gap-10">
         <SearchEngine />
       </div>

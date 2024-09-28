@@ -40,7 +40,7 @@ export const MenuLists: MenuGroup[] = [
       },
       {
         level: 1,
-        label: "Payment",
+        label: "Partial Payment",
         route: "/partial-payment",
         icon: <IconSidebar.PartialPayment />,
         children: partialPaymentChildrenMenuList,

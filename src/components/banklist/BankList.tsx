@@ -3,7 +3,7 @@ import { useState } from "react";
 import BankAccounts from "../paymentRequests/BankAccounts";
 import MyBankAcc from "../paymentRequests/MyBankAcc";
 import OnlineDeposit from "../paymentRequests/OnlineDeposit";
-import SubmitForm from "../paymentRequests/submitForm";
+import SubmitForm from "../paymentRequests/PaymentRequest";
 import Tab from "../paymentRequests/tab";
 import TransactionForm from "../paymentRequests/Transactions";
 

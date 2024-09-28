@@ -36,10 +36,6 @@ const UserLogin: React.FC<UserLoginProps> = ({ onOpenSignupModal, onCloseLoginMo
                 registration="Register"
                 href="#" // Use '#' or a valid href
                 forgetTitle="Forget Password"
-                onRegisterClick={() => {
-                    onOpenSignupModal();
-                    onCloseLoginModal();
-                }}
             />
             <ToastContainer />
         </div>

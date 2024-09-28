@@ -163,3 +163,33 @@ export interface QuickPassengerInterface {
     visa_copy: string;
     action: string;
 }
+
+export interface BankListInterface {
+    sl: number;
+    name: string;
+    location: string;
+    account_no: string;
+    routing_no: string;
+    account_name: string;
+    payment_changes: string;
+}
+export interface TransactionInterface {
+    submitted_date: string;
+    depositeType: string;
+    tnxNumber: string;
+    reference: string;
+    status: string;
+    amount: string;
+    bankCharge: string;
+    topupAmount: string;
+    image: string;
+}
+export interface MyBankAccountInterface {
+    sl: string;
+    account_name: string;
+    status: string;
+    account_numner: string;
+    bank_name: string;
+    branch_name: string;
+}
+

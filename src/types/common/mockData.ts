@@ -1,4 +1,5 @@
-import { AddPassengerInterface, AllHistoryInterface, BookingCancelInterface, GroupTourHistoryInterface, HotelHistoryInterface, OnHoldInterface, QuickPassengerInterface, RefundHistoryInterface, ReissueHistoryInterface, TicketCancelInterface, TicketedInterface, TourPackageHistoryInterface, VisaHistoryInterface, VoidHistoryInterface } from "../../types/common/interfaces";
+import { AddPassengerInterface, AllHistoryInterface, BankListInterface, BookingCancelInterface, GroupTourHistoryInterface, HotelHistoryInterface, MyBankAccountInterface, OnHoldInterface, QuickPassengerInterface, RefundHistoryInterface, ReissueHistoryInterface, TicketCancelInterface, TicketedInterface, TourPackageHistoryInterface, VisaHistoryInterface, VoidHistoryInterface } from "../../types/common/interfaces";
+import { TransactionInterface } from './interfaces';
 
 // Mock data array object
 export const OnHoldData: OnHoldInterface[] = [
@@ -202,7 +203,7 @@ export const ReissueHistoryData: ReissueHistoryInterface[] = [
     }
 ];
 
-export const hotelHistoryData: HotelHistoryInterface[] = [
+export const HotelHistoryData: HotelHistoryInterface[] = [
     {
         booked_by: 'John Doe',
         hotel_name: 'Grand Hotel',
@@ -221,7 +222,7 @@ export const hotelHistoryData: HotelHistoryInterface[] = [
     },
 ];
 
-export const visaHistoryData: VisaHistoryInterface[] = [
+export const VisaHistoryData: VisaHistoryInterface[] = [
     {
         booked_by: 'Sarah Connor',
         booking_code: 'VISA987654',
@@ -237,7 +238,7 @@ export const visaHistoryData: VisaHistoryInterface[] = [
     },
 ];
 
-export const tourPackageHistoryData: TourPackageHistoryInterface[] = [
+export const TourPackageHistoryData: TourPackageHistoryInterface[] = [
     {
         category: 'Luxury Tour',
         created_at: '2024-07-25',
@@ -245,7 +246,7 @@ export const tourPackageHistoryData: TourPackageHistoryInterface[] = [
         actions: 'View/Edit/Delete',
     },
 ];
-export const groupTourHistoryData: GroupTourHistoryInterface[] = [
+export const GroupTourHistoryData: GroupTourHistoryInterface[] = [
     {
         category: 'Family Tour',
         created_at: '2024-06-15',
@@ -418,5 +419,104 @@ export const QuickPassengerData: QuickPassengerInterface[] = [
         passport_copy: "N/A",
         visa_copy: "N/A",
         action: "Edit/Delete",
+    },
+];
+
+
+export const BankListData: BankListInterface[] = [
+    {
+        sl: 1,
+        name: "Mr. David Miller (ADT)",
+        location: "Gulshan Head office, Dhaka",
+        account_no: "01193548965",
+        routing_no: "253564679",
+        account_name: "TRIP BEYOND",
+        payment_changes: "Inter City Change/applicable for cash deposits on Totla ammount",
+    },
+    {
+        sl: 2,
+        name: "Mr. David Miller (ADT)",
+        location: "Gulshan Head office, Dhaka",
+        account_no: "01193548962",
+        routing_no: "253564679",
+        account_name: "TRIP BEYOND",
+        payment_changes: "Inter City Change/applicable for cash deposits on Totla ammount",
+    },
+];
+
+
+export const TransactionData: TransactionInterface[] = [
+    {
+        submitted_date: "21-08-2024 08:18",
+        depositeType: "Bank Deposite",
+        tnxNumber: "MR0185452454645454",
+        reference: "123",
+        status: "Approved",
+        amount: "BDT 10,000",
+        bankCharge: "BDT 0",
+        topupAmount: "BDT 10,000",
+        image: "img_url",
+    },
+    {
+        submitted_date: "21-08-2024 08:18",
+        depositeType: "Bank Deposite",
+        tnxNumber: "MR0185452454645454",
+        reference: "456",
+        status: "Approved",
+        amount: "BDT 10,000",
+        bankCharge: "BDT 0",
+        topupAmount: "BDT 10,000",
+        image: "img_url",
+    },
+    {
+        submitted_date: "21-08-2024 08:18",
+        depositeType: "Bank Deposite",
+        tnxNumber: "MR0185452454645454",
+        reference: "123",
+        status: "Approved",
+        amount: "BDT 10,000",
+        bankCharge: "BDT 0",
+        topupAmount: "BDT 10,000",
+        image: "img_url",
+    },
+    {
+        submitted_date: "21-08-2024 08:18",
+        depositeType: "Bank Deposite",
+        tnxNumber: "MR0185452454645454",
+        reference: "123",
+        status: "Approved",
+        amount: "BDT 10,000",
+        bankCharge: "BDT 0",
+        topupAmount: "BDT 10,000",
+        image: "img_url",
+    },
+];
+
+
+
+export const MyBankAccountData: MyBankAccountInterface[] = [
+    {
+        sl: "1",
+        account_name: "Sazzad Alam Niloy",
+        status: "Active",
+        account_numner: "3411580005662",
+        bank_name: "Dutch Bangla Bank PLC",
+        branch_name: "Green Road",
+    },
+    {
+        sl: "2",
+        account_name: "TRIP BEYOND",
+        status: "Active",
+        account_numner: "05013100233939",
+        bank_name: "EXIM BANK",
+        branch_name: "BARISAL",
+    },
+    {
+        sl: "3",
+        account_name: "Sazzad Alam Niloy",
+        status: "Active",
+        account_numner: "1502923125001",
+        bank_name: "CITY BANK",
+        branch_name: "UTTARA",
     },
 ];

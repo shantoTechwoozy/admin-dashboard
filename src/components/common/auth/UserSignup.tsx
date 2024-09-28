@@ -1,135 +1,103 @@
 "use client";
-import Input from "@/components/common/inputs/Input";
 import Logo from "@/components/common/Logo";
+import KeepInput from "@/components/keep-react/KeepInput";
 import { IconAuthentication } from "@/icons";
+import { Button, toast } from "keep-react";
 import { useState } from "react";
 
 const UserSignup = () => {
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [retypePassword, setRetypePassword] = useState("");
+  const [user, setUser] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    rePassword: "",
+  });
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (user.password !== user.rePassword) {
+      toast.warning("Password is not matched");
+    }
+    // write server side logic in here
+  };
 
-        if (!firstName || !lastName || !email || !password || !retypePassword) {
-            alert("Please fill in all fields");
-            return;
-        }
+  const handleInputChange = (e: any) => {
+    const { name, value } = e.target;
+    setUser({
+      ...user,
+      [name]: value,
+    });
+  };
 
-        if (password !== retypePassword) {
-            alert("Passwords do not match!");
-            return;
-        }
+  return (
+    <>
+      <Logo isDark className="mb-5 flex items-center justify-center" />
+      <div className="flex  items-center justify-center gap-5 overflow-hidden">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+          <p className="text-body-3 font-semibold capitalize">User register</p>
 
-        const formData = {
-            firstName,
-            lastName,
-            email,
-            password,
-        };
+          <div className="flex gap-3">
+            <KeepInput
+              placeholder="Enter first name"
+              value={user.firstName}
+              name="firstName"
+              onChange={handleInputChange}
+              required
+            />
+            <KeepInput
+              placeholder="Enter last name"
+              value={user.lastName}
+              name="lastName"
+              onChange={handleInputChange}
+            />
+          </div>
 
-        console.log("Form submitted:", formData);
-        setFirstName("");
-        setLastName("");
-        setEmail("");
-        setPassword("");
-        setRetypePassword("");
-    };
+          <KeepInput
+            placeholder="Enter your email"
+            name="email"
+            type="email"
+            onChange={handleInputChange}
+            required
+          />
 
-    return (
-        <div className="max-w-screen h-[60vh] flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-800 px-4 sm:px-6 lg:px-8">
-            <Logo isDark className="mb-5" />
-            <form
-                onSubmit={handleSubmit}
-                className="flex lg:flex-row gap-5 flex-col items-center justify-center dark:bg-gray-900 rounded-xl overflow-hidden"
-            >
-                {/* Left Side - Registration Form */}
-                <div className="w-full">
-                    <p className="m-0 text-[16px] font-semibold dark:text-white mb-2">Agent Register</p>
-                    {/* First Name and Last Name */}
-                    <div className="flex gap-5">
-                        <Input
-                            className="rounded-xl"
-                            placeHolder="First Name"
-                            type="text"
-                            parentClassName="w-full flex flex-col gap-1"
-                            value={firstName}
-                            onChange={setFirstName}
-                        />
-                        <Input
-                            className="rounded-xl"
-                            placeHolder="Last Name"
-                            type="text"
-                            parentClassName="w-full flex flex-col gap-1"
-                            value={lastName}
-                            onChange={setLastName}
-                        />
-                    </div>
+          <KeepInput
+            placeholder="Enter password"
+            type="password"
+            name="password"
+            onChange={handleInputChange}
+            required
+          />
 
-                    {/* Email ID */}
-                    <Input
-                        className="rounded-xl"
-                        placeHolder="Email ID"
-                        type="email"
-                        parentClassName="w-full flex flex-col gap-2 mt-2"
-                        value={email}
-                        onChange={setEmail}
-                    />
+          <KeepInput
+            placeholder="Retype your password"
+            type="password"
+            name="rePassword"
+            onChange={handleInputChange}
+            required
+          />
 
-                    {/* Password */}
-                    <Input
-                        className="rounded-xl"
-                        placeHolder="Password"
-                        type="password"
-                        parentClassName="w-full flex flex-col gap-2 mt-2"
-                        value={password}
-                        onChange={setPassword}
-                    />
+          <Button className="w-full" type="submit">
+            Register
+          </Button>
+        </form>
 
-                    {/* Re-enter Password */}
-                    <Input
-                        className="rounded-xl"
-                        placeHolder="Re Enter Password"
-                        type="password"
-                        parentClassName="w-full flex flex-col gap-2 mt-2"
-                        value={retypePassword}
-                        onChange={setRetypePassword}
-                    />
+        <div>Or</div>
 
-                    {/* Register Button */}
-                    <button
-                        type="submit"
-                        className="w-full mt-5 py-2 bg-orange-500 hover:bg-orange-700 focus:ring-offset-orange-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer select-none"
-                    >
-                        Register
-                    </button>
-                </div>
+        <div className="flex flex-col gap-3 *:flex-1 *:gap-2">
+          <Button className="bg-blue-500">
+            <IconAuthentication.Facebook />
+            Log In with Facebook
+          </Button>
 
-                <div>Or</div>
-
-                {/* Right Side - Social Media Login */}
-                <div className="w-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
-                    <div className="text-center">
-                        <div className="flex flex-row lg:flex-col justify-center gap-4">
-                            <button className="flex items-center justify-center gap-2 py-2 px-4 bg-blue-600 hover:bg-blue-800 text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600">
-                                <IconAuthentication.Facebook />
-                                <span>Log In with Facebook</span>
-                            </button>
-                            <button className="bg-[#D1483C] flex items-center justify-center gap-2 py-2 px-4 bg-red-600 hover:bg-red-800 text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600">
-                                <IconAuthentication.Google />
-                                <span>Log In with Google</span>
-                            </button>
-                        </div>
-                        {/* <LoginFormFooter name="Already have an account?" registration="Login" href="/signin/user" /> */}
-
-                    </div>
-                </div>
-            </form>
+          <Button color="error">
+            <IconAuthentication.Google />
+            Log In with Google
+          </Button>
         </div>
-    );
+      </div>
+    </>
+  );
 };
 
 export default UserSignup;

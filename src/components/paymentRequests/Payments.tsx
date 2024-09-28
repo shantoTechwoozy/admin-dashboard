@@ -3,11 +3,11 @@ import { useState } from "react";
 import BankAccounts from "./BankAccounts";
 import MyBankAcc from "./MyBankAcc";
 import OnlineDeposit from "./OnlineDeposit";
-import SubmitForm from "./submitForm";
+import SubmitForm from "./PaymentRequest";
 import Tab from "./tab";
 import TransactionForm from "./Transactions";
 
-const TopupRequest = () => {
+const Payments = () => {
   const [tabName, setTabName] = useState("SubmitRequest");
 
   return (
@@ -29,4 +29,4 @@ const TopupRequest = () => {
   );
 };
 
-export default TopupRequest;
+export default Payments;

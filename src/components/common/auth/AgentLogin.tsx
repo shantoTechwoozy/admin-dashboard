@@ -1,76 +1,38 @@
 "use client";
-import LoginForm from "@/components/common/auth/LoginForm";
-import FormFooter from "@/components/common/auth/FormFooter";
-import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import KeepInput from "@/components/keep-react/KeepInput";
+import { Button, ModalTitle } from "keep-react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
-import { BaseApiUrl } from "../../../../env";
 
-interface AgentLoginProps {
-    onOpenSignupModal: () => void;
-    onCloseLoginModal: () => void;
-}
+const AgentLogin = () => {
+  const [loginData, setLoginData] = useState({ agentID: "", password: "" });
+  const router = useRouter();
 
-const AgentLogin: React.FC<AgentLoginProps> = ({ onOpenSignupModal, onCloseLoginModal }) => {
-    const [loginData, setLoginData] = useState({ agentID: "", password: "" });
-    const [loading, setLoading] = useState(false);
-    const router = useRouter();
+  const [agent, setAgent] = useState({
+    agentID: "",
+    password: "",
+  });
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
 
-    const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setLoading(true);
-        try {
-            const response = await fetch(BaseApiUrl + "/agent/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(loginData),
-            });
+  const handleInputChange = (e: any) => {
+    const { name, value } = e.target;
+    setAgent({
+      ...agent,
+      [name]: value,
+    });
+  };
 
-            if (response.ok) {
-                const result = await response.json();
-                toast.success(result.message);
-                console.log(result);
-                setLoginData({
-                    agentID: "",
-                    password: "",
-                });
-
-                router.push("/search-engine");
-            } else {
-                toast.error("Failed to login with these credentials");
-            }
-        } catch (error: any) {
-            toast.error(error.message);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    return (
-        <div className="px-12 py-8">
-            <LoginForm
-                title="Agent Login"
-                loginData={loginData}
-                setLoginData={setLoginData}
-                onSubmit={onSubmit}
-                isLoading={loading}
-            />
-            <FormFooter
-                name="Agent"
-                registration="Register"
-                href="#" // Use '#' or a valid href
-                forgetTitle="Forget Password"
-                onRegisterClick={() => {
-                    onOpenSignupModal();
-                    onCloseLoginModal();
-                }}
-            />
-            <ToastContainer />
-        </div>
-    );
+  return (
+    <div className="flex flex-col gap-4">
+      <ModalTitle>Agent Login</ModalTitle>
+      <KeepInput placeholder="Agent ID" />
+      <KeepInput placeholder="Enter your password" />
+      <Button>Login</Button>
+    </div>
+  );
 };
 
 export default AgentLogin;

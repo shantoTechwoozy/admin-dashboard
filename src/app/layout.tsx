@@ -6,10 +6,10 @@ import "jsvectormap/dist/jsvectormap.css";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 
+import { ThemeProvider } from "@/themes/theme-provider";
 import { ToastWrapper } from "keep-react";
 import React from "react";
 import "react-toastify/dist/ReactToastify.css";
-import { ThemeProvider } from "@/themes/theme-provider";
 
 interface PropsTypes {
   children: React.ReactNode;
@@ -18,7 +18,7 @@ interface PropsTypes {
 const RootLayout: React.FC<PropsTypes> = ({ children }) => {
   return (
     <html lang="en">
-      <body className="text-metal-900">
+      <body className="!border-metal-400 text-metal-900">
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

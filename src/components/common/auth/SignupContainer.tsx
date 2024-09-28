@@ -1,5 +1,4 @@
-import cn from '@/utils/cn';
-import React from 'react'
+import React from 'react';
 
 interface PropsTypes {
     children: React.ReactNode;
