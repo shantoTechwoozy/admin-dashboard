@@ -7,7 +7,7 @@ import TripDetails from './TripDetails';
 
 const FlightSearchResult = () => {
   return (
-    <div className="bg-gray-100 w-full min-h-screen">
+    <div className="bg-gray-100 w-full min-h-screen px-5 py-4">
       <div className="flex flex-wrap lg:flex-nowrap gap-4">
         <Filter />
 

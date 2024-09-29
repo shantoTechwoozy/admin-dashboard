@@ -5,8 +5,8 @@ import React from 'react'
 
 const Filter = () => {
     return (
-        <aside className="w-full lg:w-1/4 bg-white shadow-lg rounded-lg">
-            <h3 className="text-lg font-semibold mb-4">Filter By</h3>
+        <aside className="w-full lg:w-1/4 px-2py-2 bg-white shadow-lg rounded-lg">
+            <h3 className="text-lg text-black font-semibold mb-4">Filter By</h3>
             <FilterContainer titleLeft="No. of Stops" titleRight='From'>
                 <FilterChecker shops={1} type="stops" title="Stop" price="($100)" />
                 <FilterChecker shops={2} type="stops" title="stops" price="($50)" />

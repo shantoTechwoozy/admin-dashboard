@@ -52,7 +52,7 @@ const SearchEngine: React.FC = () => {
                 <div key={id} className="relative">
                   <MulticityTab />
                   <button
-                    className="absolute mt-2 top-16 right-5 text-xs text-red-500 px-2 py-1 text-white rounded-full"
+                    className="absolute mt-2 top-16 right-5 text-xs px-2 py-1 text-white rounded-full"
                     onClick={() => handleRemoveFlight(id)}
                   >
                     ✖
@@ -65,7 +65,7 @@ const SearchEngine: React.FC = () => {
                 text="Add another Flight"
                 onClick={handleAddFlight} // Add new flight on button click
                 prevIcon={<IconSearchEngine.AddNew className="mr-2 mt-1" />}
-                className="ml-5"
+                className="bg-primary-500 w-24"
               />
             </>
           )}

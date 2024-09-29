@@ -32,7 +32,7 @@ const UserSignup = () => {
 
   return (
     <>
-      <Logo isDark className="mb-5 flex items-center justify-center" />
+      <Logo isDark className=" flex items-center justify-center" />
       <div className="flex  items-center justify-center gap-5 overflow-hidden">
         <form onSubmit={handleSubmit} className="flex flex-col gap-3">
           <p className="text-body-3 font-semibold capitalize">User register</p>

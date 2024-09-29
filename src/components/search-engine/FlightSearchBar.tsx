@@ -1,16 +1,16 @@
 "use client"
-import React, { useState } from 'react'
-import Button from '../common/buttons/Button'
 import { IconSearchEngine } from '@/icons'
-import SearchEngineTab from './tabs'
-import { SelectTravellers } from './selects/SelectTravellers'
-import { SelectEconomy } from './selects/SelectEconomy'
-import OneWayTab from './oneWay/OneWayTab'
-import RoundTripTab from './roundTrip/RoundTripTab'
-import MulticityTab from './multiCity/MulticityTab'
 import { nanoid } from 'nanoid'
 import { useSearchParams } from 'next/navigation'
+import { useState } from 'react'
+import Button from '../common/buttons/Button'
+import MulticityTab from './multiCity/MulticityTab'
+import OneWayTab from './oneWay/OneWayTab'
+import RoundTripTab from './roundTrip/RoundTripTab'
+import { SelectEconomy } from './selects/SelectEconomy'
+import { SelectTravellers } from './selects/SelectTravellers'
 import SubMenu from './SubMenu.'
+import SearchEngineTab from './tabs'
 
 const FlightSearchBar = () => {
     const searchParams = useSearchParams(); // Use searchParams to get URL query parameters
