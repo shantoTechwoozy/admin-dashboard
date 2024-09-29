@@ -52,7 +52,7 @@ const LoginForm: React.FC<PropsTypes> = ({
         text="Login"
         onClick={onSubmit}
         isLoading={isLoading}
-        className="mt-5 w-full rounded-2xl py-2.5"
+        className="mt-5 w-full bg-primary-500  rounded-2xl py-2.5"
       />
     </form>
   );

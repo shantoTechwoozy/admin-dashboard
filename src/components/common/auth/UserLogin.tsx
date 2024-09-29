@@ -32,7 +32,7 @@ const UserLogin: React.FC<UserLoginProps> = ({ onOpenSignupModal, onCloseLoginMo
                 isLoading={loading}
             />
             <FormFooter
-                name="Agent"
+                name="User"
                 registration="Register"
                 href="#" // Use '#' or a valid href
                 forgetTitle="Forget Password"
